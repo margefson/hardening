@@ -1,0 +1,124 @@
+root@MachadoPC:~# aideinit -y -f  # full Debian + exclusao /mnt WSL
+aideinit: OK em ~96s | DB=6.1M
+-rw------- 1 _aide _aide 6.1M Jul 30 19:15 /var/lib/aide/aide.db
+
+--- exclusoes WSL ---
+# Exclusoes WSL/Windows - evita scan de /mnt/c /mnt/d /mnt/f (centenas de GB)
+-/mnt$ 0
+-/usr/lib/wsl$ 0
+-/usr/lib/modules$ 0
+-/init$ 0
+
+root@MachadoPC:~# aide --config=/etc/aide/aide.conf --check
+             Y7kxvUdBeoGlODJ6+SfaPg==         | wWMu/0imm0g3GgX7yWGI9A==
+ STRIBOG256: P1OaIT6XyALMIp1HTGqjKoJaNgsqkzqU | njvi0+33L3VDZQrkhbzCXs6mgQQQ2DDB
+             n9klII2c4bs=                     | Dsc97GbYC/s=
+ STRIBOG512: jpRdogmqhp8EVZKFKbyuRnnphzq3B7VT | Bx3fZYDI+fYq0iHHLO2wkRHjeAmrjqO+
+             FfVs65i+8Kc2L3FVKDVu6DzaXyqsTGrS | RAE1wdRy8Bx/EQgSZGS/5ZGQKEmNJkfL
+             ujpxXBvNgcuOn5C/TBwaig==         | i8e/wasFpfo4nVxygLGc3A==
+ SHA512/256: xnK40e9W7Sirh8NiLFEUBpvdOte4+XN0 | SvDJJr0/5ptMboTqZht23xqgtNR4KZoC
+             mNDAHs7wlno=                     | iVMLMnNiC3Q=
+ SHA3-256  : p//G+L8e12ZRwUdWoGHWYvWA/03kO0n6 | hhg5uavqqwJTSIDepKjaU/IXqsRwuk4l
+             gtgKS4D4Q0o=                     | i5kEwOCWTw8=
+ SHA3-512  : pp9zzKI6msXItWfcGFp1bpfJghZP4lhZ | xRrGbJVL6Eph7Sr+rCL97goGfOPX1n5R
+             4NHcwUdcgKYVshI68fX5TBHj6UAsOsVY | JRAAJoH6sTDQwye2wkMsxBb3eIaGlt45
+             9QAZnZW20+MBdYWGKB3NJg==         | UFabrBS2n2fyjsa+mKT7RQ==
+
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA256    : Ej7Na/1WVzPR+7SvNjvPPReYunqyDhsR
+             SpGabhC/8GI=
+ SHA512    : 0+TGE+bO4x8veEUkd7PMk1Ql85xUdmDD
+             7aB6LJhva8ZD3sF9Jh8DXEqB2KRIZMHP
+             9JZATReh0QzmDPfe7L8fBw==
+ STRIBOG256: 315YBK87MFWeh4K2cvucQ04WxN8/soJV
+             SSGiV5MpYlc=
+ STRIBOG512: DEuIX079SOn20ImbyenVbzwGqA0N9Umd
+             wix8yKhCsY0creAZdjv/sgf3M3m4gnob
+             GGM0EZ0v4gaXDaSUKMhTAg==
+ SHA512/256: 9flFLrjA1rC3pyn2XOKegDIjyTA3vyE5
+             ViPyEBQm9mg=
+ SHA3-256  : H5mgkxhbMno8+Ab+rD/TVsrcrn6cPbW2
+             bZK6wacliM8=
+ SHA3-512  : swrP6hIBMMu3sHbHF3vWTdn6TginnqL8
+             HbVCD2dzJa9UnEFCiCQuiZWynXZhRqbQ
+             Z4eystvPUwUi6wzAJyWh7A==
+
+
+End timestamp: 2026-07-30 19:16:34 -0400 (run time: 1m 0s)
+
+root@MachadoPC:~# # simulacao: alterou /etc/hosts; aide --check
+
+File: /var/log/aide/aideinit.log
+ Size      : 0                                | 1156
+ Bcount    : 0                                | 8
+ Mtime     : 2026-07-30 19:13:39 -0400        | 2026-07-30 19:15:15 -0400
+ Ctime     : 2026-07-30 19:13:39 -0400        | 2026-07-30 19:15:15 -0400
+ SHA256    : 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NM | p8XxzNy07TlrBTomI2d0ZlPAs7MpPyPf
+             pJWZG3hSuFU=                     | SJtROdXzvxo=
+ SHA512    : z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXc | MN94Z/L+vCnIBusUF3GlWtNjcHL2VF7R
+             g/SpIdNs6c5H0NE8XYXysP+DGNKHfuwv | 7dH/TtMKILG9HkGDBt9zuDlUXgR/xLt2
+             Y7kxvUdBeoGlODJ6+SfaPg==         | wWMu/0imm0g3GgX7yWGI9A==
+ STRIBOG256: P1OaIT6XyALMIp1HTGqjKoJaNgsqkzqU | njvi0+33L3VDZQrkhbzCXs6mgQQQ2DDB
+             n9klII2c4bs=                     | Dsc97GbYC/s=
+ STRIBOG512: jpRdogmqhp8EVZKFKbyuRnnphzq3B7VT | Bx3fZYDI+fYq0iHHLO2wkRHjeAmrjqO+
+             FfVs65i+8Kc2L3FVKDVu6DzaXyqsTGrS | RAE1wdRy8Bx/EQgSZGS/5ZGQKEmNJkfL
+             ujpxXBvNgcuOn5C/TBwaig==         | i8e/wasFpfo4nVxygLGc3A==
+ SHA512/256: xnK40e9W7Sirh8NiLFEUBpvdOte4+XN0 | SvDJJr0/5ptMboTqZht23xqgtNR4KZoC
+             mNDAHs7wlno=                     | iVMLMnNiC3Q=
+ SHA3-256  : p//G+L8e12ZRwUdWoGHWYvWA/03kO0n6 | hhg5uavqqwJTSIDepKjaU/IXqsRwuk4l
+             gtgKS4D4Q0o=                     | i5kEwOCWTw8=
+ SHA3-512  : pp9zzKI6msXItWfcGFp1bpfJghZP4lhZ | xRrGbJVL6Eph7Sr+rCL97goGfOPX1n5R
+             4NHcwUdcgKYVshI68fX5TBHj6UAsOsVY | JRAAJoH6sTDQwye2wkMsxBb3eIaGlt45
+             9QAZnZW20+MBdYWGKB3NJg==         | UFabrBS2n2fyjsa+mKT7RQ==
+
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA256    : Ej7Na/1WVzPR+7SvNjvPPReYunqyDhsR
+             SpGabhC/8GI=
+ SHA512    : 0+TGE+bO4x8veEUkd7PMk1Ql85xUdmDD
+             7aB6LJhva8ZD3sF9Jh8DXEqB2KRIZMHP
+             9JZATReh0QzmDPfe7L8fBw==
+ STRIBOG256: 315YBK87MFWeh4K2cvucQ04WxN8/soJV
+             SSGiV5MpYlc=
+ STRIBOG512: DEuIX079SOn20ImbyenVbzwGqA0N9Umd
+             wix8yKhCsY0creAZdjv/sgf3M3m4gnob
+             GGM0EZ0v4gaXDaSUKMhTAg==
+ SHA512/256: 9flFLrjA1rC3pyn2XOKegDIjyTA3vyE5
+             ViPyEBQm9mg=
+ SHA3-256  : H5mgkxhbMno8+Ab+rD/TVsrcrn6cPbW2
+             bZK6wacliM8=
+ SHA3-512  : swrP6hIBMMu3sHbHF3vWTdn6TginnqL8
+             HbVCD2dzJa9UnEFCiCQuiZWynXZhRqbQ
+             Z4eystvPUwUi6wzAJyWh7A==
+
+
+End timestamp: 2026-07-30 19:17:33 -0400 (run time: 0m 59s)
+
+--- resumo ---
+/tmp/aide_full_check1.log:Start timestamp: 2026-07-30 19:15:34 -0400 (AIDE 0.19.1)
+/tmp/aide_full_check1.log:AIDE found differences between database and filesystem!!
+/tmp/aide_full_check1.log:  Added entries:		4
+/tmp/aide_full_check1.log:  Changed entries:		5
+/tmp/aide_full_check1.log:Added entries:
+/tmp/aide_full_check1.log:Changed entries:
+/tmp/aide_full_check1.log:f =.... mci.... .  : /etc/hosts
+/tmp/aide_full_check1.log:File: /etc/hosts
+/tmp/aide_full_check1.log:End timestamp: 2026-07-30 19:16:34 -0400 (run time: 1m 0s)
+/tmp/aide_full_check2.log:Start timestamp: 2026-07-30 19:16:34 -0400 (AIDE 0.19.1)
+/tmp/aide_full_check2.log:AIDE found differences between database and filesystem!!
+/tmp/aide_full_check2.log:  Added entries:		4
+/tmp/aide_full_check2.log:  Changed entries:		5
+/tmp/aide_full_check2.log:Added entries:
+/tmp/aide_full_check2.log:Changed entries:
+/tmp/aide_full_check2.log:f >.... mci.H.. .  : /etc/hosts
+/tmp/aide_full_check2.log:File: /etc/hosts
+/tmp/aide_full_check2.log:End timestamp: 2026-07-30 19:17:33 -0400 (run time: 0m 59s)

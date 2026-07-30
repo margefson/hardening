@@ -1,0 +1,5 @@
+root@MachadoPC:~# sudo -u ana ls /financeiro; sudo -u maria ls /infraestrutura; sudo -u paulo ls /projetos
+ls: cannot open directory '/financeiro': Permission denied
+ls: cannot open directory '/infraestrutura': Permission denied
+ls: cannot open directory '/projetos': Permission denied
+

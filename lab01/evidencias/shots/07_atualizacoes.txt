@@ -1,0 +1,11 @@
+root@MachadoPC:~# apt list --upgradable 2>/dev/null; echo 'count upgradable:'; apt list --upgradable 2>/dev/null | grep -c upgradable || true; echo '--- debian_version ---'; cat /etc/debian_version; dpkg -l sudo systemd libc6 openssl | grep ^ii
+Listing...
+count upgradable:
+0
+--- debian_version ---
+13.6
+ii  libc6:amd64    2.41-12+deb13u3    amd64        GNU C Library: Shared libraries
+ii  openssl        3.5.6-1~deb13u2    amd64        Secure Sockets Layer toolkit - cryptographic utility
+ii  sudo           1.9.16p2-3+deb13u2 amd64        Provide limited super user privileges to specific users
+ii  systemd        257.13-1~deb13u1   amd64        system and service manager
+

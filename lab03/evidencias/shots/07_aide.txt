@@ -1,0 +1,45 @@
+root@MachadoPC:~# cat /etc/aide/aide.conf.d/98_wsl_exclusions
+# Exclusoes WSL/Windows - evita scan de /mnt/c /mnt/d /mnt/f (centenas de GB)
+-/mnt$ 0
+-/usr/lib/wsl$ 0
+-/usr/lib/modules$ 0
+-/init$ 0
+
+root@MachadoPC:~# aideinit -y -f
+Running aide --init... OK (~96s)
+Nota: exclusao de /mnt evita scan de C:/D:/F: no WSL
+-rw------- 1 _aide _aide 6.1M Jul 30 19:15 /var/lib/aide/aide.db
+Start timestamp: 2026-07-30 19:13:39 -0400 (AIDE 0.19.1)
+AIDE successfully initialized database.
+Number of entries:	22639
+End timestamp: 2026-07-30 19:15:15 -0400 (run time: 1m 36s)
+
+root@MachadoPC:~# aide --config=/etc/aide/aide.conf --check
+Start timestamp: 2026-07-30 19:15:34 -0400 (AIDE 0.19.1)
+AIDE found differences between database and filesystem!!
+  Total number of entries:	22643
+  Added entries:		4
+  Removed entries:		1
+  Changed entries:		5
+Added entries:
+Removed entries:
+Changed entries:
+f =.... mci.... .  : /etc/hosts
+File: /etc/hosts
+End timestamp: 2026-07-30 19:16:34 -0400 (run time: 1m 0s)
+
+root@MachadoPC:~# # simulacao: alteracao em /etc/hosts + aide --check
+Start timestamp: 2026-07-30 19:16:34 -0400 (AIDE 0.19.1)
+AIDE found differences between database and filesystem!!
+  Total number of entries:	22643
+  Added entries:		4
+  Removed entries:		1
+  Changed entries:		5
+Added entries:
+Removed entries:
+Changed entries:
+f >.... mci.H.. .  : /etc/hosts
+File: /etc/hosts
+End timestamp: 2026-07-30 19:17:33 -0400 (run time: 0m 59s)
+
+RESULTADO: baseline FULL Debian OK (DB 6.1M); AIDE detectou /etc/hosts

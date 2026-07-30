@@ -1,0 +1,6 @@
+root@MachadoPC:~# sudo -u ana ls /projetos; sudo -u maria ls /financeiro; sudo -u paulo ls /auditoria; sudo -u carlos ls /infraestrutura
+projeto-web.txt
+relatorio-financeiro.txt
+parecer.txt
+inventario.txt
+

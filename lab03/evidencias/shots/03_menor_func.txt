@@ -1,0 +1,8 @@
+root@MachadoPC:~# echo 'e2scrub_reap:'; systemctl is-enabled e2scrub_reap.service; systemctl is-active e2scrub_reap.service; echo 'exim4:'; systemctl is-enabled exim4 2>&1; systemctl is-active exim4 2>&1
+e2scrub_reap:
+disabled
+inactive
+exim4:
+disabled
+inactive
+

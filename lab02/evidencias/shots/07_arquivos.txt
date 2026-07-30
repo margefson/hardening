@@ -1,0 +1,17 @@
+root@MachadoPC:~# ls -l /projetos /financeiro /auditoria /infraestrutura
+/auditoria:
+total 0
+-rw-r----- 1 paulo auditoria 0 Jul 28 19:00 parecer.txt
+
+/financeiro:
+total 0
+-rw-r----- 1 maria financeiro 0 Jul 28 19:00 relatorio-financeiro.txt
+
+/infraestrutura:
+total 0
+-rw-r----- 1 carlos infraestrutura 0 Jul 28 19:00 inventario.txt
+
+/projetos:
+total 0
+-rw-r----- 1 ana desenvolvimento 0 Jul 28 19:00 projeto-web.txt
+

@@ -1,0 +1,24 @@
+root@MachadoPC:~# grep -E 'hardening_index|lynis_version' /var/log/lynis-report.dat; echo '--- Hardening index ---'; grep -i 'Hardening index' /var/log/lynis.log | tail -3; echo '--- top suggestions ---'; grep '^suggestion\[' /var/log/lynis-report.dat | head -15; echo '--- warnings ---'; grep '^warning\[' /var/log/lynis-report.dat | head -10
+lynis_version=3.1.4
+hardening_index=69
+--- Hardening index ---
+2026-07-30 19:09:36 Hardening index : [69] [#############       ]
+--- top suggestions ---
+suggestion[]=LYNIS|This release is more than 4 months old. Check the website or GitHub to see if there is an update available.|-|-|
+suggestion[]=DEB-0280|Install libpam-tmpdir to set $TMP and $TMPDIR for PAM sessions|-|-|
+suggestion[]=DEB-0810|Install apt-listbugs to display a list of critical bugs prior to each APT installation.|-|-|
+suggestion[]=DEB-0811|Install apt-listchanges to display any significant changes prior to any upgrade via APT.|-|-|
+suggestion[]=DEB-0831|Install needrestart, alternatively to debian-goodies, so that you can run needrestart after upgrades to determine which daemons are using old versions of libraries and need restarting.|-|-|
+suggestion[]=BOOT-5180|Determine runlevel and services at startup|-|-|
+suggestion[]=BOOT-5264|Consider hardening system services|Run '/usr/bin/systemd-analyze security SERVICE' for each service|-|
+suggestion[]=KRNL-5788|Determine why /vmlinuz or /boot/vmlinuz is missing on this Debian/Ubuntu system.|/vmlinuz or /boot/vmlinuz|-|
+suggestion[]=AUTH-9230|Configure password hashing rounds in /etc/login.defs|-|-|
+suggestion[]=AUTH-9262|Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc or libpam-passwdqc|-|-|
+suggestion[]=AUTH-9282|When possible set expire dates for all password protected accounts|-|-|
+suggestion[]=AUTH-9284|Look at the locked accounts and consider removing them|-|-|
+suggestion[]=AUTH-9286|Configure minimum password age in /etc/login.defs|-|-|
+suggestion[]=AUTH-9286|Configure maximum password age in /etc/login.defs|-|-|
+suggestion[]=AUTH-9328|Default umask in /etc/login.defs could not be found and defaults usually to 022, which could be more strict like 027|-|-|
+--- warnings ---
+warning[]=PKGS-7392|Found one or more vulnerable packages.|-|-|
+

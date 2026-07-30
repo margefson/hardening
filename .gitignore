@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Temp / local helpers
+_*.py
+_*.sh
+*.log
+
+# Optional: keep evidence images; ignore nothing else by default

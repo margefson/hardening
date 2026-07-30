@@ -1,0 +1,32 @@
+root@MachadoPC:~# systemctl status ssh --no-pager | head -22; echo '--- params ---'; grep -E '^(PermitRootLogin|PasswordAuthentication|PubkeyAuthentication|X11Forwarding|MaxAuthTries|AllowUsers)' /etc/ssh/sshd_config /etc/ssh/sshd_config.d/* 2>/dev/null; echo '--- sshd -t ---'; sshd -t && echo 'sshd_config OK'
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-07-30 18:32:00 -04; 38min ago
+ Invocation: b9cf0b76d6f3453187c397ce4c662dc6
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 5607 (sshd)
+      Tasks: 1 (limit: 9353)
+     Memory: 1.3M (peak: 2.3M)
+        CPU: 49ms
+     CGroup: /system.slice/ssh.service
+             └─5607 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Jul 30 18:31:59 MachadoPC systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Jul 30 18:32:00 MachadoPC sshd[5607]: Server listening on 0.0.0.0 port 22.
+Jul 30 18:32:00 MachadoPC sshd[5607]: Server listening on :: port 22.
+Jul 30 18:32:00 MachadoPC systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+--- params ---
+/etc/ssh/sshd_config:PermitRootLogin no
+/etc/ssh/sshd_config:PubkeyAuthentication yes
+/etc/ssh/sshd_config:PasswordAuthentication yes
+/etc/ssh/sshd_config:X11Forwarding no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PermitRootLogin no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PasswordAuthentication yes
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PubkeyAuthentication yes
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:X11Forwarding no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:MaxAuthTries 3
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:AllowUsers machado carlos
+--- sshd -t ---
+sshd_config OK
+

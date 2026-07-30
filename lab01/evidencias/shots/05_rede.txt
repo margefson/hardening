@@ -1,0 +1,13 @@
+root@MachadoPC:~# ip -br addr; echo '--- route ---'; ip route; echo '--- listening ---'; ss -tulnp
+lo               UNKNOWN        127.0.0.1/8 10.255.255.254/32 ::1/128 
+eth0             UP             172.28.32.117/20 fe80::215:5dff:fe2e:2a21/64 
+--- route ---
+default via 172.28.32.1 dev eth0 proto kernel 
+172.28.32.0/20 dev eth0 proto kernel scope link src 172.28.32.117 
+--- listening ---
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*          
+udp   UNCONN 0      0               [::1]:323          [::]:*          
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+

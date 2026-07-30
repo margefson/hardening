@@ -1,0 +1,22 @@
+root@MachadoPC:~# auditoria final consolidada
+=== SUDO ===
+sudo:x:27:machado,carlos
+=== IDS ===
+uid=1001(ana) gid=1005(ana) groups=1005(ana),1001(desenvolvimento)
+uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+uid=1003(maria) gid=1007(maria) groups=1007(maria),1003(financeiro)
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=1005(temporario) gid=1009(temporario) groups=1009(temporario)
+=== DIRS ===
+drwxr-x--- 2 paulo  auditoria       4096 Jul 28 19:00 /auditoria
+drwxrwx--- 2 maria  financeiro      4096 Jul 28 19:00 /financeiro
+drwxr-x--- 2 carlos infraestrutura  4096 Jul 28 19:00 /infraestrutura
+drwxr-x--- 2 ana    desenvolvimento 4096 Jul 28 19:00 /projetos
+=== TEMPORARIO ===
+temporario L 2026-07-28 0 99999 7 -1
+=== LOGGING ===
+active
+active
+-rw-r----- 1 root adm 0 Jul 28 19:17 /var/log/sudo.log
+STATUS: APTO PARA OPERACAO

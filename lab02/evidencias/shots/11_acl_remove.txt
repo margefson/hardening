@@ -1,0 +1,14 @@
+root@MachadoPC:~# setfacl -x u:paulo /financeiro; setfacl -x u:paulo /financeiro/relatorio-financeiro.txt; setfacl -b /financeiro 2>/dev/null; echo '=== getfacl apos remocao ==='; getfacl /financeiro; echo '=== paulo ls (deve falhar) ==='; sudo -u paulo ls /financeiro; ls -ld /financeiro
+=== getfacl apos remocao ===
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+group::rwx
+other::---
+
+=== paulo ls (deve falhar) ===
+ls: cannot open directory '/financeiro': Permission denied
+drwxrwx--- 2 maria financeiro 4096 Jul 28 19:00 /financeiro
+

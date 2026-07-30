@@ -1,0 +1,291 @@
+=== ETAPA 1: SISTEMA ===
+--- os-release ---
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.0
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+--- kernel ---
+Linux MachadoPC 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 GNU/Linux
+--- hostname ---
+MachadoPC
+ Static hostname: MachadoPC
+       Icon name: computer-container
+         Chassis: container ☐
+      Machine ID: 1c8150f752614dec80f88752256e829f
+         Boot ID: 6d770ca306a443d1b6a37dbddceea9e0
+  Virtualization: wsl
+Operating System: Debian GNU/Linux 13 (trixie)
+          Kernel: Linux 6.6.114.1-microsoft-standard-WSL2
+    Architecture: x86-64
+--- date ---
+Tue Jul 28 06:35:30 PM -04 2026
+               Local time: Tue 2026-07-28 18:35:30 -04
+           Universal time: Tue 2026-07-28 22:35:30 UTC
+                 RTC time: Tue 2026-07-28 22:35:30
+                Time zone: America/Manaus (-04, -0400)
+System clock synchronized: yes
+              NTP service: n/a
+          RTC in local TZ: no
+--- uptime ---
+ 18:35:30 up 1 min,  1 user,  load average: 0.22, 0.09, 0.03
+
+=== ETAPA 2: USUARIOS E GRUPOS ===
+--- /etc/passwd ---
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+messagebus:x:996:996:System Message Bus:/nonexistent:/usr/sbin/nologin
+machado:x:1000:1000::/home/machado:/bin/bash
+--- grupos ---
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:machado
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+news:x:9:
+uucp:x:10:
+man:x:12:
+proxy:x:13:
+kmem:x:15:
+dialout:x:20:
+fax:x:21:
+voice:x:22:
+cdrom:x:24:machado
+floppy:x:25:
+tape:x:26:
+sudo:x:27:machado
+audio:x:29:
+dip:x:30:machado
+www-data:x:33:
+backup:x:34:
+operator:x:37:
+list:x:38:
+irc:x:39:
+src:x:40:
+shadow:x:42:
+utmp:x:43:
+video:x:44:
+sasl:x:45:
+plugdev:x:46:machado
+staff:x:50:
+games:x:60:
+users:x:100:machado
+nogroup:x:65534:
+systemd-journal:x:999:
+systemd-network:x:998:
+crontab:x:997:
+messagebus:x:996:
+input:x:995:
+sgx:x:994:
+clock:x:993:
+kvm:x:992:
+render:x:991:
+netdev:x:101:
+machado:x:1000:
+--- grupo sudo ---
+sudo:x:27:machado
+--- grupo adm ---
+adm:x:4:machado
+--- UID 0 ---
+root:x:0:0:root:/root:/bin/bash
+--- usuarios com shell de login ---
+root:0:/bin/bash
+sync:4:/bin/sync
+machado:1000:/bin/bash
+--- last ---
+--- who ---
+machado  pts/1        2026-07-28 18:35
+
+=== ETAPA 3: SERVICOS ===
+--- systemctl running ---
+  UNIT                      LOAD   ACTIVE SUB     DESCRIPTION
+  cron.service              loaded active running Regular background program processing daemon
+  dbus.service              loaded active running D-Bus System Message Bus
+  getty@tty1.service        loaded active running Getty on tty1
+  systemd-hostnamed.service loaded active running Hostname Service
+  systemd-journald.service  loaded active running Journal Service
+  systemd-logind.service    loaded active running User Login Management
+  systemd-timedated.service loaded active running Time & Date Service
+  systemd-udevd.service     loaded active running Rule-based Manager for Device Events and Files
+  user@1000.service         loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+9 loaded units listed.
+--- systemctl enabled ---
+UNIT FILE              STATE   PRESET
+cron.service           enabled enabled
+e2scrub_reap.service   enabled enabled
+getty@.service         enabled enabled
+networking.service     enabled enabled
+systemd-pstore.service enabled enabled
+
+5 unit files listed.
+--- ps ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          41  1.1  0.2  42744 16124 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd-journald
+root           1  7.8  0.1  23352 14144 ?        Ss   18:35   0:01 /sbin/init
+machado      193  0.7  0.1  21624 11996 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd --user
+root          79  1.6  0.1  33308 10296 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd-udevd
+root         146  1.4  0.1  18508  9028 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd-logind
+root         233  6.3  0.1  18128  8172 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd-hostnamed
+root         236 13.2  0.0  18116  7844 ?        Ss   18:35   0:00 /usr/lib/systemd/systemd-timedated
+root         223  0.0  0.0  33312  5940 ?        S    18:35   0:00 (udev-worker)
+root         224  0.0  0.0  33312  5940 ?        S    18:35   0:00 (udev-worker)
+message+     122  0.6  0.0   7864  4332 ?        Ss   18:35   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         183  0.0  0.0   7284  4304 ?        Ss   18:35   0:00 login -- machado
+machado      204  0.0  0.0   7352  4212 pts/1    Ss+  18:35   0:00 -bash
+machado      248  0.0  0.0   9392  4176 pts/0    R+   18:35   0:00 ps aux --sort=-%mem
+machado      195  0.0  0.0  22380  3608 ?        S    18:35   0:00 (sd-pam)
+machado      227  3.2  0.0   7088  3448 pts/0    Ss+  18:35   0:00 bash /mnt/d/MMB/workspace/hardening/collect_inventory.sh
+root         118  0.2  0.0   6864  2988 ?        Ss   18:35   0:00 /usr/sbin/cron -f
+root         166  0.1  0.0   8160  2636 tty1     Ss+  18:35   0:00 /sbin/agetty -o -- \u --noreset --noclear - linux
+root           2  0.0  0.0   3172  2208 hvc0     Sl+  18:35   0:00 /init
+machado      249  0.0  0.0   5588  2128 pts/0    S+   18:35   0:00 head -40
+root           8  0.0  0.0   3172  2048 hvc0     Sl+  18:35   0:00 plan9 --control-socket 7 --log-level 4 --server-fd 8 --pipe-fd 10 --log-truncate
+root         226  0.0  0.0   3196  1200 ?        S    18:35   0:00 /init
+root         225  0.0  0.0   3180  1124 ?        Ss   18:35   0:00 /init
+
+=== ETAPA 4: REDE ===
+--- interfaces ---
+lo               UNKNOWN        127.0.0.1/8 10.255.255.254/32 ::1/128 
+eth0             UP             172.28.32.117/20 fe80::215:5dff:fe2e:29b1/64 
+--- ip route ---
+default via 172.28.32.1 dev eth0 proto kernel 
+172.28.32.0/20 dev eth0 proto kernel scope link src 172.28.32.117 
+--- ss listening ---
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*          
+udp   UNCONN 0      0               [::1]:323          [::]:*          
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+--- firewall ufw ---
+--- iptables ---
+--- nft ---
+
+=== ETAPA 5: ATUALIZACOES E LOGS ===
+--- apt update (check only) ---
+E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+E: Unable to lock directory /var/lib/apt/lists/
+W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+--- upgrades pending ---
+Listing...
+base-files/stable 13.8+deb13u4 amd64 [upgradable from: 13.8]
+bash/stable 5.2.37-2+b8 amd64 [upgradable from: 5.2.37-2+b5]
+dhcpcd-base/stable 1:10.1.0-11+deb13u2 amd64 [upgradable from: 1:10.1.0-11]
+dpkg/stable 1.22.22 amd64 [upgradable from: 1.22.21]
+e2fsprogs/stable 1.47.2-3+b10 amd64 [upgradable from: 1.47.2-3+b3]
+ifupdown/stable 0.8.44+deb13u1 amd64 [upgradable from: 0.8.44]
+init-system-helpers/stable 1.69~deb13u1 all [upgradable from: 1.68]
+init/stable 1.69~deb13u1 amd64 [upgradable from: 1.68]
+libc-bin/stable 2.41-12+deb13u2 amd64 [upgradable from: 2.41-12]
+libc-l10n/stable 2.41-12+deb13u2 all [upgradable from: 2.41-12]
+libc6/stable 2.41-12+deb13u2 amd64 [upgradable from: 2.41-12]
+libcap2-bin/stable 1:2.75-10+b8 amd64 [upgradable from: 1:2.75-10+b1]
+libcap2/stable 1:2.75-10+b8 amd64 [upgradable from: 1:2.75-10+b1]
+libcom-err2/stable 1.47.2-3+b10 amd64 [upgradable from: 1.47.2-3+b3]
+libext2fs2t64/stable 1.47.2-3+b10 amd64 [upgradable from: 1.47.2-3+b3]
+libpam-systemd/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+libpcre2-8-0/stable 10.46-1~deb13u1 amd64 [upgradable from: 10.45-1]
+libsqlite3-0/stable 3.46.1-7+deb13u1 amd64 [upgradable from: 3.46.1-7]
+libss2/stable 1.47.2-3+b10 amd64 [upgradable from: 1.47.2-3+b3]
+libsystemd-shared/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+libsystemd0/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+libudev1/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+linux-sysctl-defaults/stable 4.12.1 all [upgradable from: 4.12]
+locales/stable 2.41-12+deb13u2 all [upgradable from: 2.41-12]
+logsave/stable 1.47.2-3+b10 amd64 [upgradable from: 1.47.2-3+b3]
+sqv/stable 1.3.0-3+b2 amd64 [upgradable from: 1.3.0-3]
+sudo/stable 1.9.16p2-3+deb13u1 amd64 [upgradable from: 1.9.16p2-3]
+systemd-sysv/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+systemd/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+tzdata/stable 2026a-0+deb13u1 all [upgradable from: 2025b-4]
+udev/stable 257.9-1~deb13u1 amd64 [upgradable from: 257.7-1]
+--- unattended-upgrades ---
+--- log files ---
+total 164K
+drwxr-xr-x   5 root root            4.0K Aug 10  2025 .
+drwxr-xr-x  11 root root            4.0K May 12 18:45 ..
+-rw-r--r--   1 root root            7.3K Aug 10  2025 alternatives.log
+drwxr-xr-x   2 root root            4.0K May 12 18:46 apt
+-rw-r--r--   1 root root             50K Aug 10  2025 bootstrap.log
+-rw-rw----   1 root utmp               0 Aug 10  2025 btmp
+-rw-r--r--   1 root root             79K May 12 18:47 dpkg.log
+drwxr-sr-x+  3 root systemd-journal 4.0K May 12 18:45 journal
+-rw-rw-r--   1 root utmp               0 Aug 10  2025 lastlog
+drwx------   2 root root            4.0K Aug 10  2025 private
+lrwxrwxrwx   1 root root              39 Aug 10  2025 README -> ../../usr/share/doc/systemd/README.logs
+-rw-rw-r--   1 root utmp            1.5K Jul 28 18:35 wtmp
+--- journald ---
+Archived and active journals take up 64M in the file system.
+--- recent journal errors ---
+Jul 23 16:10:03 MachadoPC kernel: PCI: Fatal: No config space access function found
+Jul 23 16:10:03 MachadoPC kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Jul 23 16:10:03 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 23 16:10:03 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 23 16:10:03 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 23 16:10:03 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Jul 23 16:10:05 MachadoPC unknown: WSL (220) ERROR: CheckConnection: getaddrinfo() failed: -5
+Jul 23 16:10:25 MachadoPC systemd[1]: Failed unmounting init.mount - /init.
+Jul 23 16:10:25 MachadoPC systemd[1]: Failed unmounting tmp-.X11\x2dunix.mount - /tmp/.X11-unix.
+-- Boot 6d770ca306a443d1b6a37dbddceea9e0 --
+Jul 28 18:34:28 MachadoPC kernel: PCI: Fatal: No config space access function found
+Jul 28 18:34:28 MachadoPC kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Jul 28 18:34:28 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:34:28 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:34:28 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:34:28 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Jul 28 18:34:30 MachadoPC unknown: WSL (218) ERROR: CheckConnection: getaddrinfo() failed: -5
+Jul 28 18:34:48 MachadoPC systemd[1]: Failed unmounting init.mount - /init.
+Jul 28 18:34:48 MachadoPC systemd[1]: Failed unmounting tmp-.X11\x2dunix.mount - /tmp/.X11-unix.
+Jul 28 18:35:15 MachadoPC kernel: PCI: Fatal: No config space access function found
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Jul 28 18:35:15 MachadoPC unknown: WSL (218) ERROR: CheckConnection: getaddrinfo() failed: -5
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Jul 28 18:35:15 MachadoPC kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+--- auth log tail ---
+-- No entries --
+--- syslog mechanism ---
+inactive
+active
+/etc/systemd/journald.conf
+
+=== COLETA CONCLUIDA ===
+Tue Jul 28 06:35:31 PM -04 2026

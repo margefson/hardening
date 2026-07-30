@@ -1,0 +1,5 @@
+root@MachadoPC:~# command -v ufw; ufw status 2>&1 || true; echo '--- iptables (filter) ---'; iptables -L -n 2>&1 | head -30 || true
+/mnt/d/MMB/workspace/hardening/lab01_capture.sh: line 9: ufw: command not found
+--- iptables (filter) ---
+/mnt/d/MMB/workspace/hardening/lab01_capture.sh: line 9: iptables: command not found
+

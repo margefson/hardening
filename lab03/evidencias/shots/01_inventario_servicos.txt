@@ -1,0 +1,33 @@
+root@MachadoPC:~# systemctl list-units --type=service --state=running --no-pager; echo '--- enabled ---'; systemctl list-unit-files --type=service --state=enabled --no-pager
+  UNIT                     LOAD   ACTIVE SUB     DESCRIPTION
+  cron.service             loaded active running Regular background program processing daemon
+  dbus.service             loaded active running D-Bus System Message Bus
+  fail2ban.service         loaded active running Fail2Ban Service
+  getty@tty1.service       loaded active running Getty on tty1
+  rsyslog.service          loaded active running System Logging Service
+  ssh.service              loaded active running OpenBSD Secure Shell server
+  systemd-journald.service loaded active running Journal Service
+  systemd-logind.service   loaded active running User Login Management
+  systemd-udevd.service    loaded active running Rule-based Manager for Device Events and Files
+  user@0.service           loaded active running User Manager for UID 0
+  user@1000.service        loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+11 loaded units listed.
+--- enabled ---
+UNIT FILE              STATE   PRESET
+cron.service           enabled enabled
+fail2ban.service       enabled enabled
+getty@.service         enabled enabled
+networking.service     enabled enabled
+rsyslog.service        enabled enabled
+ssh.service            enabled enabled
+sshd-keygen.service    enabled enabled
+systemd-pstore.service enabled enabled
+ufw.service            enabled enabled
+
+9 unit files listed.
+

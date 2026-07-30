@@ -1,0 +1,305 @@
+
+===== INICIO LAB 02 - hostname=MachadoPC user=root =====
+2026-07-28 19:00:55
+
+===== MISSAO 1 - INVENTARIO INICIAL =====
+2026-07-28 19:00:55
+--- whoami / who ---
+root
+root     pts/4        2026-07-28 19:00
+machado  pts/1        2026-07-28 18:46
+--- passwd (humanos e relevantes) ---
+root:x:0:0:root:/root:/bin/bash
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+machado:x:1000:1000::/home/machado:/bin/bash
+--- todos passwd ---
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+dhcpcd:x:100:65534:DHCP Client Daemon:/usr/lib/dhcpcd:/bin/false
+messagebus:x:996:996:System Message Bus:/nonexistent:/usr/sbin/nologin
+machado:x:1000:1000::/home/machado:/bin/bash
+--- groups relevantes ---
+adm:x:4:machado
+cdrom:x:24:machado
+sudo:x:27:machado
+dip:x:30:machado
+plugdev:x:46:machado
+users:x:100:machado
+machado:x:1000:
+--- id machado root ---
+uid=1000(machado) gid=1000(machado) groups=1000(machado),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+uid=0(root) gid=0(root) groups=0(root)
+
+===== CRIACAO DE USUARIOS E GRUPOS (cenario AmazonTech WEB-01) =====
+2026-07-28 19:00:55
+Grupo criado: desenvolvimento
+Grupo criado: infraestrutura
+Grupo criado: financeiro
+Grupo criado: auditoria
+Usuario criado: ana
+Usuario criado: carlos
+Usuario criado: maria
+Usuario criado: paulo
+Usuario criado: temporario
+Conta backup (sistema) ja existe: backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+===== SIMULACAO DE INCONSISTENCIAS (situacao anterior da auditoria) =====
+2026-07-28 19:00:57
+--- situacao ANTERIOR (apos inconsistencias simuladas) ---
+ana: uid=1001(ana) gid=1005(ana) groups=1005(ana),27(sudo),1001(desenvolvimento),1002(infraestrutura)
+carlos: uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+maria: uid=1003(maria) gid=1007(maria) groups=1007(maria),1001(desenvolvimento),1003(financeiro)
+paulo: uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+backup: uid=34(backup) gid=34(backup) groups=34(backup),27(sudo)
+temporario: uid=1005(temporario) gid=1009(temporario) groups=1009(temporario),27(sudo)
+machado: uid=1000(machado) gid=1000(machado) groups=1000(machado),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+sudo group: sudo:x:27:machado,carlos,ana,backup,temporario
+
+===== MISSAO 2 - ORGANIZACAO (remocao de associacoes indevidas) =====
+2026-07-28 19:00:58
+Removing user ana from group infraestrutura
+Removing user maria from group desenvolvimento
+--- apos limpeza parcial de grupos ---
+uid=1001(ana) gid=1005(ana) groups=1005(ana),27(sudo),1001(desenvolvimento)
+uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+uid=1003(maria) gid=1007(maria) groups=1007(maria),1003(financeiro)
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+uid=34(backup) gid=34(backup) groups=34(backup),27(sudo)
+desenvolvimento:x:1001:ana
+infraestrutura:x:1002:carlos
+financeiro:x:1003:maria
+auditoria:x:1004:paulo
+
+===== MISSAO 3 - PRIVILEGIOS ADMINISTRATIVOS =====
+2026-07-28 19:00:58
+--- sudo ANTES da correcao ---
+sudo:x:27:machado,carlos,ana,backup,temporario
+Removing user ana from group sudo
+Removing user backup from group sudo
+Removing user temporario from group sudo
+passwd: password changed.
+usermod: no changes
+--- sudo DEPOIS ---
+sudo:x:27:machado,carlos
+--- status contas ---
+temporario L 2026-07-28 0 99999 7 -1
+backup L 2025-08-10 0 99999 7 -1
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+uid=1001(ana) gid=1005(ana) groups=1005(ana),1001(desenvolvimento)
+uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+uid=1003(maria) gid=1007(maria) groups=1007(maria),1003(financeiro)
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=1005(temporario) gid=1009(temporario) groups=1009(temporario)
+
+===== MISSAO 4 - DIRETORIOS E PERMISSOES =====
+2026-07-28 19:00:58
+Criado: /projetos
+Criado: /financeiro
+Criado: /auditoria
+Criado: /infraestrutura
+--- ls -ld ---
+drwxr-x--- 2 paulo  auditoria       4096 Jul 28 19:00 /auditoria
+drwxrwx--- 2 maria  financeiro      4096 Jul 28 19:00 /financeiro
+drwxr-x--- 2 carlos infraestrutura  4096 Jul 28 19:00 /infraestrutura
+drwxr-x--- 2 ana    desenvolvimento 4096 Jul 28 19:00 /projetos
+--- arquivos ---
+/auditoria:
+total 0
+-rw-rw-r-- 1 paulo paulo 0 Jul 28 19:00 parecer.txt
+
+/financeiro:
+total 0
+-rw-r----- 1 maria financeiro 0 Jul 28 19:00 relatorio-financeiro.txt
+
+/infraestrutura:
+total 0
+-rw-rw-r-- 1 carlos carlos 0 Jul 28 19:00 inventario.txt
+
+/projetos:
+total 0
+-rw-rw-r-- 1 ana ana 0 Jul 28 19:00 projeto-web.txt
+--- testes autorizados ---
+projeto-web.txt
+ana->projetos OK
+relatorio-financeiro.txt
+maria->financeiro OK
+parecer.txt
+paulo->auditoria OK
+inventario.txt
+carlos->infra OK
+--- testes indevidos (esperar Permission denied) ---
+ls: cannot open directory '/financeiro': Permission denied
+ls: cannot open directory '/infraestrutura': Permission denied
+ls: cannot open directory '/projetos': Permission denied
+
+===== MISSAO 5 - ACL =====
+2026-07-28 19:00:58
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  acl
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 64.4 kB of archives.
+After this operation, 237 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian trixie/main amd64 acl amd64 2.3.2-2+b1 [64.4 kB]
+Fetched 64.4 kB in 0s (179 kB/s)
+Selecting previously unselected package acl.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9255 files and directories currently installed.)
+Preparing to unpack .../acl_2.3.2-2+b1_amd64.deb ...
+Unpacking acl (2.3.2-2+b1) ...
+Setting up acl (2.3.2-2+b1) ...
+--- ACL inicial ---
+drwxrwx--- 2 maria financeiro 4096 Jul 28 19:00 /financeiro
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+group::rwx
+other::---
+
+paulo antes:
+ls: cannot open directory '/financeiro': Permission denied
+--- ACL apos concessao ---
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+user:paulo:r-x
+group::rwx
+mask::rwx
+other::---
+
+drwxrwx---+ 2 maria financeiro 4096 Jul 28 19:00 /financeiro
+paulo listar:
+relatorio-financeiro.txt
+paulo ler:
+paulo escrever:
+touch: cannot touch '/financeiro/teste-auditoria.txt': Permission denied
+grupos paulo:
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+--- remocao ACL ---
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+group::rwx
+mask::rwx
+other::---
+
+paulo apos remocao:
+ls: cannot open directory '/financeiro': Permission denied
+
+===== MISSAO 6 - SUDO =====
+2026-07-28 19:01:01
+--- sudo -l machado ---
+Matching Defaults entries for root on MachadoPC:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty
+
+User root may run the following commands on MachadoPC:
+    (ALL : ALL) ALL
+--- sudo -l -U carlos ---
+Matching Defaults entries for carlos on MachadoPC:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty
+
+User carlos may run the following commands on MachadoPC:
+    (ALL : ALL) ALL
+--- sudo -l -U ana ---
+User ana is not allowed to run sudo on MachadoPC.
+--- sudo -l -U maria ---
+User maria is not allowed to run sudo on MachadoPC.
+--- sudo -l -U paulo ---
+User paulo is not allowed to run sudo on MachadoPC.
+--- trecho sudoers ---
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Defaults	use_pty
+root	ALL=(ALL:ALL) ALL
+%sudo	ALL=(ALL:ALL) ALL
+README
+--- teste systemctl cron ---
+● cron.service - Regular background program processing daemon
+     Loaded: loaded (/usr/lib/systemd/system/cron.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-07-28 18:46:35 -04; 14min ago
+ Invocation: dc06cfc70dac4ad399de8e5565df8f31
+       Docs: man:cron(8)
+   Main PID: 153 (cron)
+      Tasks: 1 (limit: 9353)
+     Memory: 420K (peak: 2M)
+        CPU: 22ms
+     CGroup: /system.slice/cron.service
+             └─153 /usr/sbin/cron -f
+
+Jul 28 18:46:35 MachadoPC systemd[1]: Started cron.service - Regular background program processing daemon.
+Jul 28 18:46:35 MachadoPC cron[153]: (CRON) INFO (pidfile fd = 3)
+Jul 28 18:46:35 MachadoPC cron[153]: (CRON) INFO (Running @reboot jobs)
+--- sudo -k / ls /root ---
+(executado como root na automacao; no uso interativo sudo -k exige reautenticacao)
+
+===== MISSAO 7 - AUDITORIA FINAL =====
+2026-07-28 19:01:01
+--- identidades finais ---
+ana: uid=1001(ana) gid=1005(ana) groups=1005(ana),1001(desenvolvimento)
+ana:x:1001:1005::/home/ana:/bin/bash
+carlos: uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+carlos:x:1002:1006::/home/carlos:/bin/bash
+maria: uid=1003(maria) gid=1007(maria) groups=1007(maria),1003(financeiro)
+maria:x:1003:1007::/home/maria:/bin/bash
+paulo: uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+paulo:x:1004:1008::/home/paulo:/bin/bash
+backup: uid=34(backup) gid=34(backup) groups=34(backup)
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+temporario: uid=1005(temporario) gid=1009(temporario) groups=1009(temporario)
+temporario:x:1005:1009::/home/temporario:/bin/bash
+machado: uid=1000(machado) gid=1000(machado) groups=1000(machado),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+machado:x:1000:1000::/home/machado:/bin/bash
+--- grupos corporativos ---
+desenvolvimento:x:1001:ana
+infraestrutura:x:1002:carlos
+financeiro:x:1003:maria
+auditoria:x:1004:paulo
+sudo:x:27:machado,carlos
+--- diretorios ---
+drwxr-x---  2 paulo  auditoria       4096 Jul 28 19:00 /auditoria
+drwxrwx---+ 2 maria  financeiro      4096 Jul 28 19:00 /financeiro
+drwxr-x---  2 carlos infraestrutura  4096 Jul 28 19:00 /infraestrutura
+drwxr-x---  2 ana    desenvolvimento 4096 Jul 28 19:00 /projetos
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+group::rwx
+mask::rwx
+other::---
+
+--- passwd -S temporario ---
+temporario L 2026-07-28 0 99999 7 -1
+--- shell backup ---
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+===== FIM LAB 02 =====
+2026-07-28 19:01:01

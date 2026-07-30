@@ -1,0 +1,18 @@
+root@MachadoPC:~# cat /etc/sudoers.d/99-amazontech-lab02; systemctl is-active cron rsyslog
+--- /etc/sudoers (trecho) ---
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Defaults	use_pty
+root	ALL=(ALL:ALL) ALL
+%sudo	ALL=(ALL:ALL) ALL
+--- /etc/sudoers.d/99-amazontech-lab02 ---
+# AmazonTech WEB-01 - Lab 02
+# Admins autorizados = grupo sudo (carlos + operador do lab)
+Defaults lecture = always
+Defaults logfile=/var/log/sudo.log
+Defaults log_input,log_output
+Defaults!/usr/bin/passwd !log_output
+--- services ---
+active
+active

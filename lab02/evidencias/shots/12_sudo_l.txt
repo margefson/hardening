@@ -1,0 +1,13 @@
+root@MachadoPC:~# sudo -l -U carlos; echo '===='; sudo -l -U ana; echo '===='; sudo -l -U maria; echo '===='; sudo -l -U paulo
+Matching Defaults entries for carlos on MachadoPC:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty
+
+User carlos may run the following commands on MachadoPC:
+    (ALL : ALL) ALL
+====
+User ana is not allowed to run sudo on MachadoPC.
+====
+User maria is not allowed to run sudo on MachadoPC.
+====
+User paulo is not allowed to run sudo on MachadoPC.
+

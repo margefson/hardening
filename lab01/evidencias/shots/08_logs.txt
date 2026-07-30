@@ -1,0 +1,28 @@
+root@MachadoPC:~# ls -lah /var/log | head -25; echo '--- journal ---'; journalctl --disk-usage; echo '--- rsyslog/journald ---'; systemctl is-active rsyslog; systemctl is-active systemd-journald; echo '--- login.defs pass ---'; grep -E '^PASS_' /etc/login.defs
+total 304K
+drwxr-xr-x   5 root root            4.0K Jul 28 19:17 .
+drwxr-xr-x  11 root root            4.0K May 12 18:45 ..
+-rw-r--r--   1 root root            8.1K Jul 28 18:51 alternatives.log
+drwxr-xr-x   2 root root            4.0K Jul 28 19:17 apt
+-rw-r-----   1 root adm              101 Jul 28 19:17 auth.log
+-rw-r--r--   1 root root             50K Aug 10  2025 bootstrap.log
+-rw-rw----   1 root utmp               0 Aug 10  2025 btmp
+-rw-r--r--   1 root root            110K Jul 28 19:17 dpkg.log
+drwxr-sr-x+  3 root systemd-journal 4.0K May 12 18:45 journal
+-rw-r-----   1 root adm              47K Jul 28 19:18 kern.log
+-rw-rw-r--   1 root utmp               0 Aug 10  2025 lastlog
+drwx------   2 root root            4.0K Aug 10  2025 private
+lrwxrwxrwx   1 root root              39 Aug 10  2025 README -> ../../usr/share/doc/systemd/README.logs
+-rw-r-----   1 root adm                0 Jul 28 19:17 sudo.log
+-rw-r-----   1 root adm              50K Jul 28 19:24 syslog
+-rw-rw-r--   1 root utmp            2.3K Jul 28 18:46 wtmp
+--- journal ---
+Archived and active journals take up 96M in the file system.
+--- rsyslog/journald ---
+active
+active
+--- login.defs pass ---
+PASS_MAX_DAYS	99999
+PASS_MIN_DAYS	0
+PASS_WARN_AGE	7
+

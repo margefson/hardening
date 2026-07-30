@@ -1,0 +1,21 @@
+root@MachadoPC:~# setfacl -m u:paulo:rx /financeiro; setfacl -m u:paulo:r /financeiro/relatorio-financeiro.txt; echo '=== getfacl ==='; getfacl /financeiro; echo '=== ls -ld ==='; ls -ld /financeiro; echo '=== paulo ls ==='; sudo -u paulo ls /financeiro; echo '=== paulo touch (deve falhar) ==='; sudo -u paulo touch /financeiro/teste-auditoria.txt; echo '=== id paulo ==='; id paulo
+=== getfacl ===
+getfacl: Removing leading '/' from absolute path names
+# file: financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+user:paulo:r-x
+group::rwx
+mask::rwx
+other::---
+
+=== ls -ld ===
+drwxrwx---+ 2 maria financeiro 4096 Jul 28 19:00 /financeiro
+=== paulo ls ===
+relatorio-financeiro.txt
+=== paulo touch (deve falhar) ===
+touch: cannot touch '/financeiro/teste-auditoria.txt': Permission denied
+=== id paulo ===
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+

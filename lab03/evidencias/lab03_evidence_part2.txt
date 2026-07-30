@@ -1,0 +1,113 @@
+===== MISSAO 6 AIDE =====
+Thu Jul 30 07:05:37 PM -04 2026
+AIDE 0.19.1
+
+Compile-time options:
+use pcre2: mandatory
+use pthread: mandatory
+--- init ---
+Start timestamp: 2026-07-30 19:05:37 -0400 (AIDE 0.19.1)
+AIDE successfully initialized database.
+New AIDE database written to /var/lib/aide/aide.db.new
+
+Number of entries:	2010
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db.new
+ SHA512    : TVkMMgK1khAHg8jtgUGqgKQHrABNgYAp
+             C9vIMh99DYMLlLQtJAUNhwX7h8YL9sQ7
+             za/ytD2Ok38CeQFjgN2+Tg==
+
+
+End timestamp: 2026-07-30 19:05:39 -0400 (run time: 0m 2s)
+-rw------- 1 root root 277K Jul 30 19:05 /var/lib/aide/aide.db
+--- check 1 ---
+Start timestamp: 2026-07-30 19:05:39 -0400 (AIDE 0.19.1)
+AIDE found NO differences between database and filesystem. Looks okay!!
+
+Number of entries:	2010
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA512    : TVkMMgK1khAHg8jtgUGqgKQHrABNgYAp
+             C9vIMh99DYMLlLQtJAUNhwX7h8YL9sQ7
+             za/ytD2Ok38CeQFjgN2+Tg==
+
+
+End timestamp: 2026-07-30 19:05:40 -0400 (run time: 0m 1s)
+--- check 2 apos /etc/hosts ---
+Start timestamp: 2026-07-30 19:05:40 -0400 (AIDE 0.19.1)
+AIDE found differences between database and filesystem!!
+
+Summary:
+  Total number of entries:	2010
+  Added entries:		0
+  Removed entries:		0
+  Changed entries:		1
+
+---------------------------------------------------
+Changed entries:
+---------------------------------------------------
+
+f >.... mc..H      : /etc/hosts
+
+---------------------------------------------------
+Detailed information about changes:
+---------------------------------------------------
+
+File: /etc/hosts
+ Size      : 415                              | 462
+ Mtime     : 2026-07-28 18:46:22 -0400        | 2026-07-30 19:05:40 -0400
+ Ctime     : 2026-07-28 18:46:22 -0400        | 2026-07-30 19:05:40 -0400
+ SHA512    : PFI/49u99FXI49PC65Q6JNODThrqy1cK | YqRrcveZY2K+mdI2EJPKw98n7wktiKxm
+             4psazjw10zXCcKPdDDFTfk8r0MA4Z66x | fwsbt1pYiakTps39PIEXES3aUq3MSucD
+             o90i1MJOhfd4OAFtnZXXVQ==         | TmQbRGMYjbBWLboE1dyriw==
+
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA512    : TVkMMgK1khAHg8jtgUGqgKQHrABNgYAp
+             C9vIMh99DYMLlLQtJAUNhwX7h8YL9sQ7
+             za/ytD2Ok38CeQFjgN2+Tg==
+
+
+End timestamp: 2026-07-30 19:05:41 -0400 (run time: 0m 1s)
+
+===== MISSAO 7 LYNIS =====
+Thu Jul 30 07:06:09 PM -04 2026
+/mnt/d/MMB/workspace/hardening/lab03_lynis.sh: line 12: lynis: command not found
+--- report ---
+===== RESUMO FINAL =====
+ssh: active / enabled
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere                  
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
+
+fail2ban: active
+Status
+|- Number of jail:	1
+`- Jail list:	sshd
+e2scrub_reap: disabled
+-rw------- 1 root root 277K Jul 30 19:05 /var/lib/aide/aide.db
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess                          
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*                                    
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*                                    
+udp   UNCONN 0      0               [::1]:323          [::]:*                                    
+tcp   LISTEN 0      128           0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=5607,fd=6))  
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*                                    
+tcp   LISTEN 0      20          127.0.0.1:25        0.0.0.0:*    users:(("exim4",pid=28938,fd=5))
+tcp   LISTEN 0      128              [::]:22           [::]:*    users:(("sshd",pid=5607,fd=7))  
+tcp   LISTEN 0      20              [::1]:25           [::]:*    users:(("exim4",pid=28938,fd=6))
+LAB03_PART2_DONE

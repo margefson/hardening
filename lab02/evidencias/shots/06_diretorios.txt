@@ -1,0 +1,6 @@
+root@MachadoPC:~# ls -ld /projetos /financeiro /auditoria /infraestrutura
+drwxr-x--- 2 paulo  auditoria       4096 Jul 28 19:00 /auditoria
+drwxrwx--- 2 maria  financeiro      4096 Jul 28 19:00 /financeiro
+drwxr-x--- 2 carlos infraestrutura  4096 Jul 28 19:00 /infraestrutura
+drwxr-x--- 2 ana    desenvolvimento 4096 Jul 28 19:00 /projetos
+

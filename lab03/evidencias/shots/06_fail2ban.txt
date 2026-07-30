@@ -1,0 +1,29 @@
+root@MachadoPC:~# systemctl status fail2ban --no-pager | head -18; echo '--- client ---'; fail2ban-client status; fail2ban-client status sshd
+● fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/usr/lib/systemd/system/fail2ban.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-07-30 18:32:38 -04; 37min ago
+ Invocation: 6d2a70fce5e04b0eaf6ba65b0c5b87d2
+       Docs: man:fail2ban(1)
+   Main PID: 9411 (fail2ban-server)
+      Tasks: 5 (limit: 9353)
+     Memory: 12.5M (peak: 12.7M)
+        CPU: 2.891s
+     CGroup: /system.slice/fail2ban.service
+             └─9411 /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+
+Jul 30 18:32:38 MachadoPC systemd[1]: Started fail2ban.service - Fail2Ban Service.
+Jul 30 18:32:38 MachadoPC fail2ban-server[9411]: Server ready
+--- client ---
+Status
+|- Number of jail:	1
+`- Jail list:	sshd
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	0
+|  |- Total failed:	0
+|  `- Journal matches:	_SYSTEMD_UNIT=ssh.service + _COMM=sshd
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	0
+   `- Banned IP list:	
+

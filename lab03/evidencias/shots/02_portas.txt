@@ -1,0 +1,19 @@
+root@MachadoPC:~# ss -tulpn; echo '--- hostname ---'; hostnamectl | head -12
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess                        
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*                                  
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*                                  
+udp   UNCONN 0      0               [::1]:323          [::]:*                                  
+tcp   LISTEN 0      128           0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=5607,fd=6))
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*                                  
+tcp   LISTEN 0      128              [::]:22           [::]:*    users:(("sshd",pid=5607,fd=7))
+--- hostname ---
+ Static hostname: MachadoPC
+       Icon name: computer-container
+         Chassis: container ☐
+      Machine ID: 1c8150f752614dec80f88752256e829f
+         Boot ID: c1af8a7c46114dfe974532e02f78cf10
+  Virtualization: wsl
+Operating System: Debian GNU/Linux 13 (trixie)
+          Kernel: Linux 6.6.114.1-microsoft-standard-WSL2
+    Architecture: x86-64
+

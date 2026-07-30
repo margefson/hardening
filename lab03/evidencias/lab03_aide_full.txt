@@ -1,0 +1,26 @@
+root@MachadoPC:~# AIDE full init com exclusoes WSL
+Thu Jul 30 07:13:38 PM -04 2026
+MachadoPC
+--- exclusoes ---
+# Exclusoes WSL/Windows - evita scan de /mnt/c /mnt/d /mnt/f (centenas de GB)
+-/mnt$ 0
+-/usr/lib/wsl$ 0
+-/usr/lib/modules$ 0
+-/init$ 0
+--- validar config ---
+--- removendo DB anterior ---
+--- aideinit (baseline completa Debian, sem /mnt) ---
+Running aide --init...
+aideinit exit=0
+-rw------- 1 _aide _aide 6.1M Jul 30 19:15 /var/lib/aide/aide.db
+-rw------- 1 _aide _aide 6.1M Jul 30 19:15 /var/lib/aide/aide.db.new
+--- entries no log ---
+--- check 1 ---
+  ERROR: missing configuration (use '--config' '--before' or '--after' command line parameter)
+check1 exit=0
+--- check 2 apos alteracao /etc/hosts ---
+  ERROR: missing configuration (use '--config' '--before' or '--after' command line parameter)
+check2 exit=0
+--- resumo ---
+-rw------- 1 _aide _aide 6.1M Jul 30 19:15 /var/lib/aide/aide.db
+AIDE_FULL_DONE

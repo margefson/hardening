@@ -1,0 +1,6 @@
+root@MachadoPC:~# getent group sudo; echo '---'; passwd -S temporario; getent passwd backup
+sudo:x:27:machado,carlos
+---
+temporario L 2026-07-28 0 99999 7 -1
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+

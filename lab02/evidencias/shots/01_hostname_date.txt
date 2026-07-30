@@ -1,0 +1,6 @@
+root@MachadoPC:~# hostname; date; cat /etc/debian_version; uname -r
+MachadoPC
+Tue Jul 28 07:08:29 PM -04 2026
+13.6
+6.6.114.1-microsoft-standard-WSL2
+

@@ -1,0 +1,274 @@
+
+===== INICIO LAB 03 - MachadoPC - root =====
+2026-07-30 18:31:43
+
+===== MISSAO 1 - INVENTARIO INICIAL =====
+2026-07-30 18:31:43
+--- hostname/kernel ---
+ Static hostname: MachadoPC
+       Icon name: computer-container
+         Chassis: container ☐
+      Machine ID: 1c8150f752614dec80f88752256e829f
+         Boot ID: c1af8a7c46114dfe974532e02f78cf10
+  Virtualization: wsl
+Operating System: Debian GNU/Linux 13 (trixie)
+          Kernel: Linux 6.6.114.1-microsoft-standard-WSL2
+    Architecture: x86-64
+Linux MachadoPC 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 GNU/Linux
+--- servicos running ---
+  UNIT                      LOAD   ACTIVE SUB     DESCRIPTION
+  cron.service              loaded active running Regular background program processing daemon
+  dbus.service              loaded active running D-Bus System Message Bus
+  getty@tty1.service        loaded active running Getty on tty1
+  rsyslog.service           loaded active running System Logging Service
+  systemd-hostnamed.service loaded active running Hostname Service
+  systemd-journald.service  loaded active running Journal Service
+  systemd-logind.service    loaded active running User Login Management
+  systemd-udevd.service     loaded active running Rule-based Manager for Device Events and Files
+  user@0.service            loaded active running User Manager for UID 0
+  user@1000.service         loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+10 loaded units listed.
+--- enabled ---
+UNIT FILE              STATE   PRESET
+cron.service           enabled enabled
+e2scrub_reap.service   enabled enabled
+getty@.service         enabled enabled
+networking.service     enabled enabled
+rsyslog.service        enabled enabled
+systemd-pstore.service enabled enabled
+
+6 unit files listed.
+--- ss ---
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*          
+udp   UNCONN 0      0               [::1]:323          [::]:*          
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+--- ps (top) ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1  23716 14448 ?        Ss   09:14   0:07 /usr/lib/systemd/systemd --system --deserialize=32
+root        1076  0.0  0.1  34660 12596 ?        Ss   09:19   0:01 /usr/lib/systemd/systemd-journald
+root        2026  0.0  0.1  21736 12076 ?        Ss   09:29   0:01 /usr/lib/systemd/systemd --user
+machado      196  0.0  0.1  21640 11940 ?        Ss   09:15   0:02 /usr/lib/systemd/systemd --user --deserialize=10
+root        1740  0.0  0.1  33016  9412 ?        Ss   09:19   0:15 /usr/lib/systemd/systemd-udevd
+root         159  0.0  0.1  18652  9056 ?        Ss   09:15   0:00 /usr/lib/systemd/systemd-logind
+root        4939 24.5  0.1  18136  8064 ?        Ss   18:31   0:00 /usr/lib/systemd/systemd-hostnamed
+root         235  0.0  0.0  19668  7380 pts/0    S+   09:15   0:00 sudo -s
+root        4924  1.1  0.0  33020  5124 ?        S    18:31   0:00 (udev-worker)
+root        4926  0.6  0.0  33020  5124 ?        S    18:31   0:00 (udev-worker)
+root        4927  0.0  0.0  33020  5124 ?        S    18:31   0:00 (udev-worker)
+message+     154  0.0  0.0   8232  4628 ?        Ss   09:15   0:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root        2821  0.0  0.0 219684  4476 ?        Ssl  09:46   0:00 /usr/sbin/rsyslogd -n -iNONE
+root        2016  0.0  0.0   7284  4364 ?        Ss   09:29   0:00 login -- root
+root         185  0.0  0.0   7284  4304 ?        Ss   09:15   0:00 login -- machado
+root         244  0.0  0.0   7352  4260 pts/2    S+   09:15   0:00 /bin/bash
+root        2037  0.0  0.0   7340  4236 pts/4    Ss+  09:29   0:00 -bash
+machado      184  0.0  0.0   7352  4220 pts/0    Ss   09:15   0:00 -bash
+machado      207  0.0  0.0   7352  4168 pts/1    Ss+  09:15   0:00 -bash
+root        4944  200  0.0   9388  4140 pts/3    R+   18:31   0:00 ps aux --sort=-%mem
+root        2028  0.0  0.0  22400  3692 ?        S    09:29   0:00 (sd-pam)
+root        4928  9.9  0.0   7208  3632 pts/3    Ss+  18:31   0:00 bash /mnt/d/MMB/workspace/hardening/lab03_run.sh
+machado      198  0.0  0.0  22380  3604 ?        S    09:15   0:00 (sd-pam)
+root         153  0.0  0.0   6864  2916 ?        Ss   09:15   0:00 /usr/sbin/cron -f
+
+===== MISSAO 2 - MENOR FUNCIONALIDADE =====
+2026-07-30 18:31:44
+--- situacao inicial e2scrub_reap ---
+○ e2scrub_reap.service - Remove Stale Online ext4 Metadata Check Snapshots
+     Loaded: loaded (/usr/lib/systemd/system/e2scrub_reap.service; enabled; preset: enabled)
+     Active: inactive (dead) since Tue 2026-07-28 18:51:30 -04; 1 day 23h ago
+ Invocation: c21d9f6dbb6848b482e8e838f7f96223
+       Docs: man:e2scrub_all(8)
+   Main PID: 1826 (code=exited, status=0/SUCCESS)
+   Mem peak: 2M
+        CPU: 22ms
+
+Jul 28 18:51:30 MachadoPC systemd[1]: Starting e2scrub_reap.service - Remove Stale Online ext4 Metadata Check Snapshots...
+Jul 28 18:51:30 MachadoPC systemd[1]: e2scrub_reap.service: Deactivated successfully.
+Jul 28 18:51:30 MachadoPC systemd[1]: Finished e2scrub_reap.service - Remove Stale Online ext4 Metadata Check Snapshots.
+enabled
+--- apos disable ---
+disabled
+inactive
+
+===== MISSAO 3 - SSH HARDENING =====
+2026-07-30 18:31:45
+--- status ssh ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-07-30 18:32:00 -04; 31ms ago
+ Invocation: b9cf0b76d6f3453187c397ce4c662dc6
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 5604 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 5607 (sshd)
+      Tasks: 1 (limit: 9353)
+     Memory: 1.3M (peak: 2.3M)
+        CPU: 49ms
+     CGroup: /system.slice/ssh.service
+             └─5607 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Jul 30 18:31:59 MachadoPC systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Jul 30 18:32:00 MachadoPC sshd[5607]: Server listening on 0.0.0.0 port 22.
+Jul 30 18:32:00 MachadoPC sshd[5607]: Server listening on :: port 22.
+Jul 30 18:32:00 MachadoPC systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+--- params ---
+/etc/ssh/sshd_config:PermitRootLogin no
+/etc/ssh/sshd_config:PubkeyAuthentication yes
+/etc/ssh/sshd_config:PasswordAuthentication yes
+/etc/ssh/sshd_config:X11Forwarding no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PermitRootLogin no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PasswordAuthentication yes
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:PubkeyAuthentication yes
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:X11Forwarding no
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:MaxAuthTries 3
+/etc/ssh/sshd_config.d/99-amazontech-hardening.conf:AllowUsers machado carlos
+--- porta ---
+tcp   LISTEN 0      128           0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=5607,fd=6))
+tcp   LISTEN 0      128              [::]:22           [::]:*    users:(("sshd",pid=5607,fd=7))
+
+===== MISSAO 4 - UFW FIREWALL =====
+2026-07-30 18:32:00
+--- ufw antes ---
+Status: inactive
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+Default outgoing policy changed to 'allow'
+(be sure to update your rules accordingly)
+Rules updated
+Rules updated (v6)
+Firewall is active and enabled on system startup
+--- ufw depois ---
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp (OpenSSH)           ALLOW IN    Anywhere                  
+22/tcp (OpenSSH (v6))      ALLOW IN    Anywhere (v6)             
+
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] OpenSSH                    ALLOW IN    Anywhere                  
+[ 2] OpenSSH (v6)               ALLOW IN    Anywhere (v6)             
+
+--- ss apos ufw ---
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:Port
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*   
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*   
+udp   UNCONN 0      0               [::1]:323          [::]:*   
+tcp   LISTEN 0      128           0.0.0.0:22        0.0.0.0:*   
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*   
+tcp   LISTEN 0      128              [::]:22           [::]:*   
+
+===== MISSAO 5 - FAIL2BAN =====
+2026-07-30 18:32:20
+--- status fail2ban ---
+● fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/usr/lib/systemd/system/fail2ban.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-07-30 18:32:38 -04; 2s ago
+ Invocation: 6d2a70fce5e04b0eaf6ba65b0c5b87d2
+       Docs: man:fail2ban(1)
+   Main PID: 9411 (fail2ban-server)
+      Tasks: 5 (limit: 9353)
+     Memory: 12.2M (peak: 12.7M)
+        CPU: 189ms
+     CGroup: /system.slice/fail2ban.service
+             └─9411 /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+
+Jul 30 18:32:38 MachadoPC systemd[1]: Started fail2ban.service - Fail2Ban Service.
+Jul 30 18:32:38 MachadoPC fail2ban-server[9411]: Server ready
+Status
+|- Number of jail:	1
+`- Jail list:	sshd
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	0
+|  |- Total failed:	0
+|  `- Journal matches:	_SYSTEMD_UNIT=ssh.service + _COMM=sshd
+`- Actions
+   |- Currently banned:	0
+   |- Total banned:	0
+   `- Banned IP list:	
+Jul 30 18:32:33 MachadoPC systemd[1]: Started fail2ban.service - Fail2Ban Service.
+Jul 30 18:32:34 MachadoPC fail2ban-server[9273]: Server ready
+Jul 30 18:32:37 MachadoPC systemd[1]: Stopping fail2ban.service - Fail2Ban Service...
+Jul 30 18:32:38 MachadoPC fail2ban-client[9407]: Shutdown successful
+Jul 30 18:32:38 MachadoPC systemd[1]: fail2ban.service: Deactivated successfully.
+Jul 30 18:32:38 MachadoPC systemd[1]: Stopped fail2ban.service - Fail2Ban Service.
+Jul 30 18:32:38 MachadoPC systemd[1]: Started fail2ban.service - Fail2Ban Service.
+Jul 30 18:32:38 MachadoPC fail2ban-server[9411]: Server ready
+
+===== MISSAO 6 - AIDE =====
+2026-07-30 18:32:40
+--- aide versao ---
+AIDE 0.19.1
+
+Compile-time options:
+-rw-r--r-- 1 root root 3712 Nov  7  2025 /etc/aide/aide.conf
+Running aide --init...
+Start timestamp: 2026-07-30 19:05:39 -0400 (AIDE 0.19.1)
+AIDE found NO differences between database and filesystem. Looks okay!!
+
+Number of entries:	2010
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA512    : TVkMMgK1khAHg8jtgUGqgKQHrABNgYAp
+             C9vIMh99DYMLlLQtJAUNhwX7h8YL9sQ7
+             za/ytD2Ok38CeQFjgN2+Tg==
+
+
+End timestamp: 2026-07-30 19:05:40 -0400 (run time: 0m 1s)
+--- AIDE CHECK 2 ---
+Start timestamp: 2026-07-30 19:05:40 -0400 (AIDE 0.19.1)
+AIDE found differences between database and filesystem!!
+
+Summary:
+  Total number of entries:	2010
+  Added entries:		0
+  Removed entries:		0
+  Changed entries:		1
+
+---------------------------------------------------
+Changed entries:
+---------------------------------------------------
+
+f >.... mc..H      : /etc/hosts
+
+---------------------------------------------------
+Detailed information about changes:
+---------------------------------------------------
+
+File: /etc/hosts
+ Size      : 415                              | 462
+ Mtime     : 2026-07-28 18:46:22 -0400        | 2026-07-30 19:05:40 -0400
+ Ctime     : 2026-07-28 18:46:22 -0400        | 2026-07-30 19:05:40 -0400
+ SHA512    : PFI/49u99FXI49PC65Q6JNODThrqy1cK | YqRrcveZY2K+mdI2EJPKw98n7wktiKxm
+             4psazjw10zXCcKPdDDFTfk8r0MA4Z66x | fwsbt1pYiakTps39PIEXES3aUq3MSucD
+             o90i1MJOhfd4OAFtnZXXVQ==         | TmQbRGMYjbBWLboE1dyriw==
+
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db
+ SHA512    : TVkMMgK1khAHg8jtgUGqgKQHrABNgYAp
+             C9vIMh99DYMLlLQtJAUNhwX7h8YL9sQ7
+             za/ytD2Ok38CeQFjgN2+Tg==
+
+
+End timestamp: 2026-07-30 19:05:41 -0400 (run time: 0m 1s)

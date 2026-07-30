@@ -1,0 +1,9 @@
+root@MachadoPC:~# getent group sudo; getent group adm; getent group | egrep 'desenvolvimento|infraestrutura|financeiro|auditoria|sudo' || true
+sudo:x:27:machado,carlos
+adm:x:4:machado
+sudo:x:27:machado,carlos
+desenvolvimento:x:1001:ana
+infraestrutura:x:1002:carlos
+financeiro:x:1003:maria
+auditoria:x:1004:paulo
+

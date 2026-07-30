@@ -1,0 +1,22 @@
+root@MachadoPC:~# getent passwd | awk -F: '$3==0 || $3>=1000 || $1~/^(backup|www-data|daemon)$/ {print}'; echo '--- login shells ---'; awk -F: '$7 !~ /(nologin|false)/ {print}' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+machado:x:1000:1000::/home/machado:/bin/bash
+ana:x:1001:1005::/home/ana:/bin/bash
+carlos:x:1002:1006::/home/carlos:/bin/bash
+maria:x:1003:1007::/home/maria:/bin/bash
+paulo:x:1004:1008::/home/paulo:/bin/bash
+temporario:x:1005:1009::/home/temporario:/bin/bash
+--- login shells ---
+root:x:0:0:root:/root:/bin/bash
+sync:x:4:65534:sync:/bin:/bin/sync
+machado:x:1000:1000::/home/machado:/bin/bash
+ana:x:1001:1005::/home/ana:/bin/bash
+carlos:x:1002:1006::/home/carlos:/bin/bash
+maria:x:1003:1007::/home/maria:/bin/bash
+paulo:x:1004:1008::/home/paulo:/bin/bash
+temporario:x:1005:1009::/home/temporario:/bin/bash
+

@@ -1,0 +1,20 @@
+root@MachadoPC:~# ufw status verbose; echo '--- numbered ---'; ufw status numbered
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp (OpenSSH)           ALLOW IN    Anywhere                  
+22/tcp (OpenSSH (v6))      ALLOW IN    Anywhere (v6)             
+
+--- numbered ---
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] OpenSSH                    ALLOW IN    Anywhere                  
+[ 2] OpenSSH (v6)               ALLOW IN    Anywhere (v6)             
+
+

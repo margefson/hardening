@@ -1,0 +1,10 @@
+root@MachadoPC:~# getent passwd ana carlos maria paulo backup temporario machado root
+ana:x:1001:1005::/home/ana:/bin/bash
+carlos:x:1002:1006::/home/carlos:/bin/bash
+maria:x:1003:1007::/home/maria:/bin/bash
+paulo:x:1004:1008::/home/paulo:/bin/bash
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+temporario:x:1005:1009::/home/temporario:/bin/bash
+machado:x:1000:1000::/home/machado:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+

@@ -1,0 +1,66 @@
+root@MachadoPC:~# correcao das ressalvas remanescentes
+Tue Jul 28 07:17:28 PM -04 2026
+MachadoPC
+=== 1. Logging ===
+rsyslog: active
+journald: active
+=== 2. sudo com logging de auditoria ===
+/etc/sudoers.d/99-amazontech-lab02: parsed OK
+/etc/sudoers: parsed OK
+/etc/sudoers.d/99-amazontech-lab02: parsed OK
+/etc/sudoers.d/README: parsed OK
+Arquivo:
+-r--r----- 1 root root 218 Jul 28 19:17 /etc/sudoers.d/99-amazontech-lab02
+-rw-r----- 1 root adm    0 Jul 28 19:17 /var/log/sudo.log
+Trecho:
+# AmazonTech WEB-01 - Lab 02
+# Admins autorizados = grupo sudo (carlos + operador do lab)
+Defaults lecture = always
+Defaults logfile=/var/log/sudo.log
+Defaults log_input,log_output
+Defaults!/usr/bin/passwd !log_output
+=== 3. Garantir estado final limpo ===
+Removing user ana from group sudo
+Removing user backup from group sudo
+Removing user temporario from group sudo
+usermod: no changes
+=== 4. Validacao final (sem ressalvas tecnicas) ===
+--- sudo ---
+sudo:x:27:machado,carlos
+--- identidades ---
+uid=1001(ana) gid=1005(ana) groups=1005(ana),1001(desenvolvimento)
+uid=1002(carlos) gid=1006(carlos) groups=1006(carlos),27(sudo),1002(infraestrutura)
+uid=1003(maria) gid=1007(maria) groups=1007(maria),1003(financeiro)
+uid=1004(paulo) gid=1008(paulo) groups=1008(paulo),1004(auditoria)
+uid=34(backup) gid=34(backup) groups=34(backup)
+uid=1005(temporario) gid=1009(temporario) groups=1009(temporario)
+--- contas ---
+temporario L 2026-07-28 0 99999 7 -1
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+--- diretorios ---
+drwxr-x--- 2 paulo  auditoria       4096 Jul 28 19:00 /auditoria
+drwxrwx--- 2 maria  financeiro      4096 Jul 28 19:00 /financeiro
+drwxr-x--- 2 carlos infraestrutura  4096 Jul 28 19:00 /infraestrutura
+drwxr-x--- 2 ana    desenvolvimento 4096 Jul 28 19:00 /projetos
+--- ACL financeiro ---
+# file: /financeiro
+# owner: maria
+# group: financeiro
+user::rwx
+group::rwx
+other::---
+
+--- sudo -l ---
+Matching Defaults entries for carlos on MachadoPC:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty, lecture=always, logfile=/var/log/sudo.log, log_input, log_output
+
+Runas and Command-specific defaults for carlos:
+    Defaults!/usr/bin/passwd !log_output
+
+User carlos may run the following commands on MachadoPC:
+    (ALL : ALL) ALL
+User ana is not allowed to run sudo on MachadoPC.
+--- logging ---
+active
+-rw-r----- 1 root adm 0 Jul 28 19:17 /var/log/sudo.log
+STATUS: ambiente APTA PARA OPERACAO (controles Lab 02 atendidos)
