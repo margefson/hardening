@@ -1,0 +1,34 @@
+﻿PS> # Complemento - indicadores de superficie de ataque
+Servicos Automatic + Running (amostra nao-Microsoft suspeita / revisao):
+
+Name              DisplayName                                StartMode State  
+----              -----------                                --------- -----  
+AdobeARMservice   Adobe Acrobat Update Service               Auto      Running
+ClickToRunSvc     Microsoft Office Click-to-Run Service      Auto      Running
+PDF24             PDF24                                      Auto      Running
+pgagent-pg18      PostgreSQL Scheduling Agent - pgagent-pg18 Auto      Running
+postgresql-x64-18 postgresql-x64-18 - PostgreSQL Server 18   Auto      Running
+VMAuthdService    VMware Authorization Service               Auto      Running
+VMUSBArbService   VMware USB Arbitration Service             Auto      Running
+WSLService        WSL Service                                Auto      Running
+
+
+
+
+Servicos historicamente sensiveis (estado atual):
+RemoteRegistry     Status=Stopped    Start=Disabled
+SSDPSRV            Status=Running    Start=Manual
+upnphost           Status=Stopped    Start=Manual
+RemoteAccess       Status=Stopped    Start=Disabled
+SharedAccess       Status=Running    Start=Manual
+TermService        Status=Stopped    Start=Manual
+WinRM              Status=Stopped    Start=Manual
+XblGameSave        Status=Stopped    Start=Manual
+XboxGipSvc         Status=Stopped    Start=Manual
+XboxNetApiSvc      Status=Stopped    Start=Manual
+WMPNetworkSvc      Status=Stopped    Start=Manual
+
+Aplicativos instalados (amostra Get-Package / Appx - contagem):
+Win32 packages (Get-Package): 451
+Appx provisioned (usuario): 144
+

@@ -1,0 +1,12 @@
+﻿PS> # Consolidacao Lab 07D - governanca PowerShell AmazonTech
+PSVersion: 5.1.26100.8875 | Edition: Desktop
+ExecutionPolicy efetiva (sessao captura): Bypass (escopo Process)
+CurrentUser persistente: RemoteSigned
+LocalMachine: Undefined (nao alterado)
+Host: ConsoleHost | Comandos visiveis: 1731 | Windows Terminal: True
+
+Parecer preliminar:
+PowerShell ATENDE como plataforma de administracao segura para consulta/auditoria.
+CurrentUser RemoteSigned e aderente a boa pratica; evitar Bypass permanente em LocalMachine.
+Proximo passo: baseline GPO/Intune, ScriptBlock Logging, modulos assinados, JEA.
+Nenhuma configuracao permanente foi alterada nesta OS.

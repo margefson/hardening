@@ -1,0 +1,64 @@
+﻿PS> # Atividade 1 - Servicos Windows (equiv. services.msc)
+services.msc presente: True
+Total: 291 | Running: 126 | Stopped: 165
+
+Distribuicao por StartType:
+
+Name      Count
+----      -----
+Manual      192
+Automatic    94
+Disabled      5
+
+
+
+
+=== Tres servicos selecionados (amostra analitica) ===
+--- WinDefend ---
+DisplayName : Serviço Microsoft Defender Antivírus
+Status      : Running
+StartType   : Automatic
+StartMode   : Auto
+PathName    : "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26070.9-0\MsMpEng.exe"
+Finalidade: motor Microsoft Defender Antivirus (manter Running).
+
+--- Spooler ---
+DisplayName : Spooler de Impressão
+Status      : Running
+StartType   : Automatic
+StartMode   : Auto
+PathName    : C:\WINDOWS\System32\spoolsv.exe
+Finalidade: fila de impressao; candidata a revisao se endpoint sem impressora.
+
+--- RemoteRegistry ---
+DisplayName : Registro remoto
+Status      : Stopped
+StartType   : Disabled
+StartMode   : Disabled
+PathName    : C:\WINDOWS\system32\svchost.exe -k localService -p
+Finalidade: registro remoto; tipicamente desnecessario - superficie.
+
+
+Amostra Running (15):
+
+Name                        Status StartType
+----                        ------ ---------
+AdobeARMservice            Running Automatic
+Appinfo                    Running    Manual
+AppXSvc                    Running Automatic
+AudioEndpointBuilder       Running Automatic
+Audiosrv                   Running Automatic
+BFE                        Running Automatic
+BluetoothUserService_a467c Running    Manual
+BrokerInfrastructure       Running Automatic
+BTAGService                Running    Manual
+BthAvctpSvc                Running    Manual
+bthserv                    Running    Manual
+camsvc                     Running Automatic
+cbdhsvc_a467c              Running Automatic
+CDPSvc                     Running Automatic
+CDPUserSvc_a467c           Running Automatic
+
+
+
+

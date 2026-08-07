@@ -1,0 +1,19 @@
+﻿PS> # Equivalente documental a secpol.msc > Local Policies > User Rights Assignment
+PS> secedit /export /areas USER_RIGHTS
+
+Você não possui permissões suficientes para executar este comando, Verifique se você é o administrador local ou se abriu o prompt de comando usando a opção 'Executar como administrador'.
+
+# Export bloqueado sem elevacao (esperado na sessao filtrada).
+# Achados correlatos sem alterar politica:
+# - whoami /priv mostra privilegios EFETIVOS do Access Token atual
+# - Get-LocalGroupMember Administradores: MachadoPC\Administrador, MACHADOPC\marge
+# - UAC EnableLUA=1 (ConsentPromptBehaviorAdmin=5) => elevacao sob demanda
+# - gpedit.msc/secpol.msc AUSENTES no Windows 11 Home (edicao do lab)
+#
+# Privilegios tipicos de User Rights Assignment a auditar em Enterprise/Server:
+#   SeDebugPrivilege, SeTakeOwnershipPrivilege, SeBackupPrivilege, SeRestorePrivilege
+#   SeLoadDriverPrivilege, SeTcbPrivilege, SeImpersonatePrivilege
+#   SeShutdownPrivilege, SeRemoteInteractiveLogonRight, SeDenyInteractiveLogonRight
+#
+# Recomendacao AmazonTech: executar secpol/secedit elevado em janela autorizada
+# e revisar atribuicoes diretas a usuarios (preferir grupos).

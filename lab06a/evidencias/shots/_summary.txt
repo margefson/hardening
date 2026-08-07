@@ -1,0 +1,7 @@
+﻿OS=Microsoft Windows 11 Home Single Language
+Version=10.0.26200
+Build=26200
+UsersTotal=6
+Enabled=marge,postgres
+Disabled=Administrador,Convidado,DefaultAccount,WDAGUtilityAccount
+Admins=MachadoPC\Administrador,MACHADOPC\marge

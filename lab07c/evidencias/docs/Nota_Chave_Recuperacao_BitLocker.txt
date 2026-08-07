@@ -1,0 +1,5 @@
+﻿Lab 07C - Chave de Recuperacao BitLocker (exploracao documental)
+Finalidade: desbloquear a unidade quando TPM falha, hardware muda, PIN esquecido
+ou o boot e considerado nao confiavel. Custodia corporativa (AD/Entra ID/cofre)
+e obrigatoria antes de ativar criptografia em notebooks externos AmazonTech.
+Nenhuma chave foi gerada ou alterada nesta OS.

@@ -1,0 +1,21 @@
+﻿PS> # Equivalente a Propriedades > Seguranca (Explorer)
+PS> Pasta auditada: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+Proprietario: MACHADOPC\marge
+Grupo: MACHADOPC\marge
+
+Identidades e permissoes (Access):
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited          InheritanceFlags
+-----------------                              ---------------- ----------------- -----------          ----------------
+BUILTIN\Administradores                             FullControl             Allow        True                      None
+BUILTIN\Administradores                               268435456             Allow        True ...Inherit, ObjectInherit
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True                      None
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True ...Inherit, ObjectInherit
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True                      None
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True ...Inherit, ObjectInherit
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True                      None
+BUILTIN\Usuários                                    -1610612736             Allow        True ...Inherit, ObjectInherit
+
+
+
+

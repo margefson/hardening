@@ -1,0 +1,32 @@
+﻿PS> # Equivalente eventvwr.msc - logs de Seguranca / Sistema
+PS> Get-WinEvent -ListLog Security, System, Application | Select LogName, RecordCount, IsEnabled
+
+LogName     RecordCount IsEnabled
+-------     ----------- ---------
+System            43010      True
+Application       24754      True
+
+
+
+
+PS> Get-WinEvent -LogName Security -MaxEvents 8 -ErrorAction SilentlyContinue | Format-Table TimeCreated, Id, LevelDisplayName, Message -Wrap
+Security log: acesso limitado ou vazio (Tentativa de execução de uma operação não autorizada.)
+PS> Get-WinEvent -LogName System -MaxEvents 8 | Select TimeCreated, Id, ProviderName
+
+TimeCreated            Id ProviderName                    
+-----------            -- ------------                    
+06/08/2026 19:46:24 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:45:50 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:03 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:38:29 10016 Microsoft-Windows-DistributedCOM
+
+
+
+
+# Categorias tipicas no Event Viewer: Application, Security, Setup, System, Forwarded Events
+# Log Security registra logon, privilegio especial usado (4672), mudancas de politica, etc.
+

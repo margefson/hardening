@@ -1,0 +1,21 @@
+﻿PS> # Security Configuration and Analysis - conceito + comparacao local vs baseline
+Finalidade SCA: comparar config atual x template (.inf) e apontar drift.
+
+Comparacao AmazonTech WIN-ADM-01 vs Baseline Microsoft (sintese Labs 06A-C):
+
+[ADERENTE / PARCIAL]
+- UAC EnableLUA=1 (baseline tipica: Enabled)
+- Contas Guest/Default desabilitadas (Lab 06A)
+- Administrador built-in desabilitado (Lab 06A)
+- Inventario identidades/privilegios/NTFS documentado (auditoria)
+
+[DIVERGENTE / RISCO]
+- Conta diaria no grupo Administradores (menor privilegio)
+- gpedit/secpol ausentes (edicao Home) - governanca GPO limitada no host
+- NTFS Financeiro com Auth Users Modify (Lab 06C) - need-to-know
+- Security log ilegivel sem elevacao (Lab 06B)
+- SCT/LGPO nao instalados localmente nesta estacao de lab
+- Password policy / audit policy nao padronizados via baseline corporativa
+
+Impacto: drift futuro (updates, novos admins) sem baseline reaplicavel.
+

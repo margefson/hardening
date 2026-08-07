@@ -1,0 +1,227 @@
+﻿===== 01_ambiente.txt =====
+PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+
+quinta-feira, 6 de agosto de 2026 19:47:49
+OS: Microsoft Windows 11 Home Single Language | Version: 10.0.26200 | Build: 26200
+Estacao: WIN-ADM-01 (MachadoPC) | Lab 06B - Privilegios
+
+
+
+
+
+===== 02_whoami_priv.txt =====
+PS> whoami /priv
+
+INFORMAÇÕES DE PRIVILÉGIOS
+---------------------------
+
+Nome de privilégio            Descrição                                 Estado    
+============================= ========================================= ==========
+SeShutdownPrivilege           Desligar o sistema                        Desativado
+SeChangeNotifyPrivilege       Ignorar a verificação completa            Ativada   
+SeUndockPrivilege             Remover o computador da base de encaixe   Desativado
+SeIncreaseWorkingSetPrivilege Aumentar conjunto de trabalho de processo Desativado
+SeTimeZonePrivilege           Alterar fuso horário                      Desativado
+
+PS> # Contagem
+
+
+
+===== 03_user_rights_secedit.txt =====
+PS> # Equivalente a secpol.msc > User Rights Assignment (export secedit)
+
+Você não possui permissões suficientes para executar este comando, Verifique se você é o administrador local ou se abriu o prompt de comando usando a opção 'Executar como administrador'.
+Exported: C:\Users\marge\AppData\Local\Temp\lab06b_secedit.inf
+
+
+
+
+===== 04_gpedit_status.txt =====
+PS> # gpedit.msc / secpol.msc disponibilidade nesta edicao
+gpedit.msc presente: False
+secpol.msc presente: False
+
+PS> Get-CimInstance Win32_OperatingSystem | Select Caption, OSArchitecture
+
+
+Caption        : Microsoft Windows 11 Home Single Language
+OSArchitecture : 64 bits
+Version        : 10.0.26200
+
+
+
+
+
+# Windows 11 Home: gpedit/secpol podem estar ausentes.
+# Evidencia alternativa: secedit /export USER_RIGHTS (shot 03) + whoami /priv.
+# Politicas locais relevantes ao privilegio: UAC, User Rights, Audit Policy.
+
+PS> Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System | Select EnableLUA, ConsentPromptBehaviorAdmin, FilterAdministratorToken
+
+
+EnableLUA                  : 1
+ConsentPromptBehaviorAdmin : 5
+ConsentPromptBehaviorUser  : 3
+FilterAdministratorToken   : 
+PromptOnSecureDesktop      : 1
+
+
+
+
+
+
+
+===== 05_whoami_all.txt =====
+PS> whoami /all
+
+INFORMAÇÕES DE USUÁRIO
+-----------------------
+
+Nome de usuário SID                                           
+=============== ==============================================
+machadopc\marge S-1-5-21-2273054947-3814652866-1034022874-1001
+
+
+INFORMAÇÕES DE GRUPO
+---------------------
+
+Nome do grupo                                                  Tipo                     SID                                                                                                           Atributos                                           
+============================================================== ======================== ============================================================================================================= ====================================================
+Rótulo Obrigatório\Nível Obrigatório Médio                     Rótulo                   S-1-16-8192                                                                                                                                                       
+Todos                                                          Grupo bastante conhecido S-1-1-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+BUILTIN\Usuários                                               Alias                    S-1-5-32-545                                                                                                  Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\INTERATIVO                                       Grupo bastante conhecido S-1-5-4                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOGON de CONSOLE                                               Grupo bastante conhecido S-1-2-1                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Usuários autenticados                            Grupo bastante conhecido S-1-5-11                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Esta organização                                 Grupo bastante conhecido S-1-5-15                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+MicrosoftAccount\margefson@outlook.com                         Usuário                  S-1-11-96-3623454863-58364-18864-2661722203-1597581903-3475737053-2921256199-3083456810-3665046889-1597444998 Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local                                      Grupo bastante conhecido S-1-5-113                                                                                                     Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOCAL                                                          Grupo bastante conhecido S-1-2-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Cloud Account Authentication                     Grupo bastante conhecido S-1-5-64-36                                                                                                   Grupo obrigatório, Ativado por padrão, Grupo ativado
+
+
+INFORMAÇÕES DE PRIVILÉGIOS
+---------------------------
+
+Nome de privilégio            Descrição                                 Estado    
+============================= ========================================= ==========
+SeShutdownPrivilege           Desligar o sistema                        Desativado
+SeChangeNotifyPrivilege       Ignorar a verificação completa            Ativada   
+SeUndockPrivilege             Remover o computador da base de encaixe   Desativado
+SeIncreaseWorkingSetPrivilege Aumentar conjunto de trabalho de processo Desativado
+SeTimeZonePrivilege           Alterar fuso horário                      Desativado
+
+
+
+
+===== 06_powershell_security.txt =====
+PS> Get-Command *Security* | Measure-Object
+Total cmdlets/funcoes *Security*: 5
+
+PS> Get-Command *Security* | Select-Object -First 25 Name, CommandType, Source
+
+Name                          CommandType Source                                       
+----                          ----------- ------                                       
+Get-NetFirewallSecurityFilter    Function NetSecurity                                  
+Set-NetFirewallSecurityFilter    Function NetSecurity                                  
+SecurityHealthHost.exe        Application C:\WINDOWS\system32\SecurityHealthHost.exe   
+SecurityHealthService.exe     Application C:\WINDOWS\system32\SecurityHealthService.exe
+SecurityHealthSystray.exe     Application C:\WINDOWS\system32\SecurityHealthSystray.exe
+
+
+
+
+PS> Get-LocalGroupMember -Group Administradores
+
+Name                    ObjectClass  PrincipalSource
+----                    -----------  ---------------
+MachadoPC\Administrador Usuário                Local
+MACHADOPC\marge         Usuário     MicrosoftAccount
+
+
+
+
+PS> whoami /groups | findstr /i Administr
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+
+
+
+===== 07_mmc_equiv.txt =====
+PS> # MMC: centraliza snap-ins (Local Security Policy, Event Viewer, etc.)
+PS> where.exe mmc
+C:\Windows\System32\mmc.exe
+PS> Test-Path mmc.exe / secpol / eventvwr
+mmc: True
+eventvwr.msc: True
+secpol.msc: False
+
+# Snap-ins tipicos para auditoria de privilegios:
+# - Security Templates / Local Security Policy (User Rights Assignment)
+# - Event Viewer (Security log)
+# - Computer Management (Local Users and Groups)
+# Evidencia obtida via secedit + whoami + Get-WinEvent (sem alterar config).
+
+
+
+===== 08_event_viewer.txt =====
+PS> # Equivalente eventvwr.msc - logs de Seguranca / Sistema
+PS> Get-WinEvent -ListLog Security, System, Application | Select LogName, RecordCount, IsEnabled
+
+LogName     RecordCount IsEnabled
+-------     ----------- ---------
+System            43010      True
+Application       24754      True
+
+
+
+
+PS> Get-WinEvent -LogName Security -MaxEvents 8 -ErrorAction SilentlyContinue | Format-Table TimeCreated, Id, LevelDisplayName, Message -Wrap
+Security log: acesso limitado ou vazio (Tentativa de execução de uma operação não autorizada.)
+PS> Get-WinEvent -LogName System -MaxEvents 8 | Select TimeCreated, Id, ProviderName
+
+TimeCreated            Id ProviderName                    
+-----------            -- ------------                    
+06/08/2026 19:46:24 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:45:50 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:06 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:42:03 10016 Microsoft-Windows-DistributedCOM
+06/08/2026 19:38:29 10016 Microsoft-Windows-DistributedCOM
+
+
+
+
+# Categorias tipicas no Event Viewer: Application, Security, Setup, System, Forwarded Events
+# Log Security registra logon, privilegio especial usado (4672), mudancas de politica, etc.
+
+
+
+===== 09_consolidacao.txt =====
+=== CONSOLIDACAO AUDITORIA PRIVILEGIOS LAB 06B ===
+Estacao: WIN-ADM-01 / MachadoPC
+Usuario sessao: machadopc\marge
+
+1) Token (whoami /priv) - privilegios ENABLED:
+
+2) Membros Administradores:
+MachadoPC\Administrador, MACHADOPC\marge
+
+3) UAC EnableLUA:
+1
+
+4) Inconsistencias vs menor privilegio:
+- Conta diaria marge pertence a Administradores (Lab 06A)
+- Token filtrado UAC reduz privilegios na sessao media, mas elevacao permanece disponivel
+- Conta postgres habilitada (servico) - revisar direitos de logon
+
+5) Recomendacoes: conta admin separada; JIT; revisar User Rights; auditar 4672; Lab 06C NTFS
+
+
+

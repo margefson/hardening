@@ -1,0 +1,54 @@
+﻿PS> # Atividade 4 - Consulta administrativa PowerShell
+PS> Get-NetFirewallProfile
+
+
+Name                    : Domain
+Enabled                 : True
+DefaultInboundAction    : NotConfigured
+DefaultOutboundAction   : NotConfigured
+NotifyOnListen          : True
+AllowInboundRules       : NotConfigured
+AllowLocalFirewallRules : NotConfigured
+
+Name                    : Private
+Enabled                 : True
+DefaultInboundAction    : NotConfigured
+DefaultOutboundAction   : NotConfigured
+NotifyOnListen          : True
+AllowInboundRules       : NotConfigured
+AllowLocalFirewallRules : NotConfigured
+
+Name                    : Public
+Enabled                 : True
+DefaultInboundAction    : NotConfigured
+DefaultOutboundAction   : NotConfigured
+NotifyOnListen          : True
+AllowInboundRules       : NotConfigured
+AllowLocalFirewallRules : NotConfigured
+
+
+
+
+
+PS> Get-NetFirewallRule | Select-Object -First 10
+
+DisplayName                                         Direction Action Enabled         Profile
+-----------                                         --------- ------ -------         -------
+Descoberta de Rede (UPnP-Saída)                      Outbound  Allow   False          Public
+Uso do Spooler de Wi-Fi Direct (Saída)               Outbound  Allow    True          Public
+Assistência Remota (TCP-Saída)                       Outbound  Allow   False          Public
+Descoberta de Rede (SSDP-Saída)                      Outbound  Allow    True         Private
+Descoberta de Rede (Eventos WSD-Out)                 Outbound  Allow    True         Private
+Gerenciamento Remoto do Log de Eventos (NP-Entrada)   Inbound  Allow   False          Domain
+Gerenciamento Remoto de Tarefas Agendadas (RPC)       Inbound  Allow   False          Domain
+Uso do Spooler de Wi-Fi Direct (Entrada)              Inbound  Allow    True          Public
+Assistência Remota (TCP-Saída)                       Outbound  Allow    True Domain, Private
+Coordenador de transações distribuídas (TCP-Saída)   Outbound  Allow   False Private, Public
+
+
+
+
+Finalidade: inventariar estado dos perfis e amostrar regras sem abrir GUI;
+base para auditoria, baseline e deteccao de excecoes temporarias esquecidas.
+Volume total de regras retornaveis: 552
+

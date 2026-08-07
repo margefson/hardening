@@ -1,0 +1,14 @@
+﻿PS> # Consolidacao Lab 07B - conformidade AmazonTech
+Perfil Domain: Enabled=True InDefault=NotConfigured OutDefault=NotConfigured
+Perfil Private: Enabled=True InDefault=NotConfigured OutDefault=NotConfigured
+Perfil Public: Enabled=True InDefault=NotConfigured OutDefault=NotConfigured
+Rede ativa (NetworkCategory): Public
+Regras totais=552 | habilitadas=312
+MpsSvc: Running
+Export .wfw: False
+
+Parecer preliminar:
+FIREWALL ATENDE necessidades basicas: 3 perfis habilitados; defaults NotConfigured (= comportamento padrao do SO; tipicamente Block inbound).
+Proximo passo corporativo: revisar excecoes temporarias; baseline GPO/Intune; logging.
+
+

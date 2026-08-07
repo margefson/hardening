@@ -1,0 +1,37 @@
+﻿PS> # Atividade 1 - Perfis Domain / Private / Public
+PS> Get-NetFirewallProfile | Format-Table Name, Enabled, DefaultInboundAction, DefaultOutboundAction, LogAllowed, LogBlocked -AutoSize
+
+Name    Enabled DefaultInboundAction DefaultOutboundAction LogFileName                                           LogMax
+                                                                                                                 SizeKi
+                                                                                                                 lobyte
+                                                                                                                      s
+----    ------- -------------------- --------------------- -----------                                           ------
+Domain     True        NotConfigured         NotConfigured %systemroot%\system32\LogFiles\Firewall\pfirewall.log   4096
+Private    True        NotConfigured         NotConfigured %systemroot%\system32\LogFiles\Firewall\pfirewall.log   4096
+Public     True        NotConfigured         NotConfigured %systemroot%\system32\LogFiles\Firewall\pfirewall.log   4096
+
+
+
+
+PS> Get-NetConnectionProfile (perfil de rede ativo)
+
+
+Name             : Eliza -5G 2
+InterfaceAlias   : Wi-Fi
+NetworkCategory  : Public
+IPv4Connectivity : Internet
+
+
+
+
+
+Servico MpsSvc (Windows Defender Firewall):
+
+Name    Status StartType
+----    ------ ---------
+MpsSvc Running Automatic
+
+
+
+wf.msc presente: True
+

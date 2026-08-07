@@ -1,0 +1,476 @@
+﻿===== 01_ambiente.txt =====
+PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+
+quinta-feira, 6 de agosto de 2026 19:39:52
+PS> systeminfo | Select-String 'OS Name','OS Version','System Type'
+
+
+
+
+
+===== 02_whoami.txt =====
+PS> whoami
+machadopc\marge
+
+# Ex1: usuario autenticado; conta local vs dominio; base da autorizacao
+
+
+
+===== 03_whoami_user.txt =====
+PS> whoami /user
+
+INFORMAÇÕES DE USUÁRIO
+-----------------------
+
+Nome de usuário SID                                           
+=============== ==============================================
+machadopc\marge S-1-5-21-2273054947-3814652866-1034022874-1001
+
+# Ex2: SID permanente - Windows autoriza por SID, nao pelo nome
+
+
+
+===== 04_whoami_groups.txt =====
+PS> whoami /groups
+
+INFORMAÇÕES DE GRUPO
+---------------------
+
+Nome do grupo                                                  Tipo                     SID                                                                                                           Atributos                                           
+============================================================== ======================== ============================================================================================================= ====================================================
+Rótulo Obrigatório\Nível Obrigatório Médio                     Rótulo                   S-1-16-8192                                                                                                                                                       
+Todos                                                          Grupo bastante conhecido S-1-1-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+BUILTIN\Usuários                                               Alias                    S-1-5-32-545                                                                                                  Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\INTERATIVO                                       Grupo bastante conhecido S-1-5-4                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOGON de CONSOLE                                               Grupo bastante conhecido S-1-2-1                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Usuários autenticados                            Grupo bastante conhecido S-1-5-11                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Esta organização                                 Grupo bastante conhecido S-1-5-15                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+MicrosoftAccount\margefson@outlook.com                         Usuário                  S-1-11-96-3623454863-58364-18864-2661722203-1597581903-3475737053-2921256199-3083456810-3665046889-1597444998 Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local                                      Grupo bastante conhecido S-1-5-113                                                                                                     Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOCAL                                                          Grupo bastante conhecido S-1-2-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Cloud Account Authentication                     Grupo bastante conhecido S-1-5-64-36                                                                                                   Grupo obrigatório, Ativado por padrão, Grupo ativado
+
+
+
+===== 05_net_user.txt =====
+PS> net user
+
+Contas de usuário para \\MACHADOPC
+
+-------------------------------------------------------------------------------
+Administrador            Convidado                DefaultAccount           
+marge                    postgres                 WDAGUtilityAccount       
+Comando concluído com êxito.
+
+
+PS> # Detalhe de contas locais (amostra)
+----- net user Administrador -----
+Nome de usuário                     Administrador
+Nome completo                       
+Comentário                          Conta interna para a administração do computador/domínio
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Administradores      
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user Convidado -----
+Nome de usuário                     Convidado
+Nome completo                       
+Comentário                          Conta interna para acesso como convidado ao computador/domínio
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Não
+O usuário pode alterar a senha      Não
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Convidados           
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user DefaultAccount -----
+Nome de usuário                     DefaultAccount
+Nome completo                       
+Comentário                          Uma conta de usuário gerenciada pelo sistema.
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Não
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *System Managed Accoun
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user marge -----
+Nome de usuário                     marge
+Nome completo                       MARGEFSON BARROS
+Comentário                          
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Sim
+Conta expira em                     Nunca
+
+Última definição de senha           10/03/2026 22:20:13
+A senha expira                      Nunca
+Alteração de senha                  10/03/2026 22:20:13
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Administradores      
+                                    *Usuários             
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user postgres -----
+Nome de usuário                     postgres
+Nome completo                       postgres
+Comentário                          PostgreSQL service account
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Sim
+Conta expira em                     Nunca
+
+Última definição de senha           27/07/2026 00:13:34
+A senha expira                      Nunca
+Alteração de senha                  27/07/2026 00:13:34
+Senha requerida                     Sim
+O usuário pode alterar a senha      Não
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        06/08/2026 08:53:46
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user WDAGUtilityAccount -----
+Nome de usuário                     WDAGUtilityAccount
+Nome completo                       
+Comentário                          Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender Application Guard.
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           10/03/2026 21:51:44
+A senha expira                      21/04/2026 21:51:44
+Alteração de senha                  10/03/2026 21:51:44
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+
+
+
+===== 06_net_localgroup.txt =====
+PS> net localgroup
+
+Alias para \\MACHADOPC
+
+-------------------------------------------------------------------------------
+*__vmware__
+*Administradores
+*Administradores do Hyper-V
+*Convidados
+*Distributed COM - Usuários
+*IIS_IUSRS
+*Leitores de log de eventos
+*Operadores de hardware do modo de usuário
+*Proprietários do Dispositivo
+*System Managed Accounts Group
+*Usuários
+*Usuários de Gerenciamento Remoto
+*Usuários de log de desempenho
+*Usuários de monitor de desempenho
+*Usuários do OpenSSH
+Comando concluído com êxito.
+
+
+PS> net localgroup Administrators
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:61 caractere:3
++   net localgroup Administrators
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+
+PS> net localgroup Administradores
+Nome de alias      Administradores
+Comentário         Os administradores têm acesso completo e irrestrito ao computador/domínio
+
+Membros
+
+-------------------------------------------------------------------------------
+Administrador
+marge
+Comando concluído com êxito.
+
+
+PS> net localgroup Users
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:68 caractere:3
++   net localgroup Users 2>&1
++   ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+PS> net localgroup Usuarios
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:70 caractere:3
++   net localgroup Usuarios 2>&1
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+
+
+
+===== 07_lusrmgr_equiv.txt =====
+PS> # Equivalente documental a lusrmgr.msc (auditoria grafica)
+PS> Get-LocalUser | Format-Table Name, Enabled, Description, LastLogon -AutoSize
+
+Name               Enabled Description                                                                                 
+----               ------- -----------                                                                                 
+Administrador        False Conta interna para a administração do computador/domínio                                    
+Convidado            False Conta interna para acesso como convidado ao computador/domínio                              
+DefaultAccount       False Uma conta de usuário gerenciada pelo sistema.                                               
+marge                 True                                                                                             
+postgres              True PostgreSQL service account                                                                  
+WDAGUtilityAccount   False Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender Appl...
+
+
+
+
+PS> Get-LocalGroup | Format-Table Name, Description -AutoSize
+
+Name                                      Description                                                                  
+----                                      -----------                                                                  
+__vmware__                                VMware User Group                                                            
+Administradores                           Os administradores têm acesso completo e irrestrito ao computador/domínio    
+Administradores do Hyper-V                Os membros deste grupo possuem acesso completo e irrestrito a todos os rec...
+Convidados                                Por padrão, os convidados têm o mesmo acesso como membros do grupo 'Usuári...
+Distributed COM - Usuários                Os membros podem iniciar, ativar e usar objetos Distributed COM nesta máqu...
+IIS_IUSRS                                 Grupo interno usado pelos Serviços de Informações da Internet.               
+Leitores de log de eventos                Os membros deste grupo podem ler logs de eventos do computador local         
+Operadores de hardware do modo de usuário Os membros deste grupo podem operar o hardware do modo de usuário.           
+Proprietários do Dispositivo              Os membros deste grupo podem alterar as configurações de todo o sistema.     
+System Managed Accounts Group             Os membros deste grupo são gerenciados pelo sistema.                         
+Usuários                                  Os usuários são impedidos de fazer alterações acidentais ou intencionais n...
+Usuários de Gerenciamento Remoto          Os membros desse grupo podem acessar recursos WMI sobre protocolos de gere...
+Usuários de log de desempenho             Os membros desse grupo podem agendar o registro de contadores de desempenh...
+Usuários de monitor de desempenho         Os membros deste grupo podem acessar dados do contador de desempenho local...
+Usuários do OpenSSH                       Os membros deste grupo podem se conectar a este computador usando SSH.       
+
+
+
+
+PS> Get-LocalGroupMember -Group Administrators | Format-Table Name, ObjectClass, PrincipalSource -AutoSize
+Get-LocalGroupMember : O grupo Administrators não foi encontrado.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:83 caractere:5
++     Get-LocalGroupMember -Group "Administrators" | Format-Table Name, ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Administrators:String) [Get-LocalGroupMember], GroupNotFoundException
+    + FullyQualifiedErrorId : GroupNotFound,Microsoft.PowerShell.Commands.GetLocalGroupMemberCommand
+ 
+
+
+
+
+===== 08_get_localuser.txt =====
+PS> Get-LocalUser | Format-List Name, Enabled, Description, SID, PasswordRequired, UserMayChangePassword, PasswordExpires, LastLogon
+
+
+Name                  : Administrador
+Enabled               : False
+Description           : Conta interna para a administração do computador/domínio
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-500
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : Convidado
+Enabled               : False
+Description           : Conta interna para acesso como convidado ao computador/domínio
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-501
+PasswordRequired      : False
+UserMayChangePassword : False
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : DefaultAccount
+Enabled               : False
+Description           : Uma conta de usuário gerenciada pelo sistema.
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-503
+PasswordRequired      : False
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : marge
+Enabled               : True
+Description           : 
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-1001
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : postgres
+Enabled               : True
+Description           : PostgreSQL service account
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-1003
+PasswordRequired      : True
+UserMayChangePassword : False
+PasswordExpires       : 
+LastLogon             : 06/08/2026 08:53:46
+
+Name                  : WDAGUtilityAccount
+Enabled               : False
+Description           : Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender 
+                        Application Guard.
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-504
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 21/04/2026 21:51:44
+LastLogon             : 
+
+
+
+
+
+
+
+===== 09_whoami_all.txt =====
+PS> whoami /all
+
+INFORMAÇÕES DE USUÁRIO
+-----------------------
+
+Nome de usuário SID                                           
+=============== ==============================================
+machadopc\marge S-1-5-21-2273054947-3814652866-1034022874-1001
+
+
+INFORMAÇÕES DE GRUPO
+---------------------
+
+Nome do grupo                                                  Tipo                     SID                                                                                                           Atributos                                           
+============================================================== ======================== ============================================================================================================= ====================================================
+Rótulo Obrigatório\Nível Obrigatório Médio                     Rótulo                   S-1-16-8192                                                                                                                                                       
+Todos                                                          Grupo bastante conhecido S-1-1-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+BUILTIN\Usuários                                               Alias                    S-1-5-32-545                                                                                                  Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\INTERATIVO                                       Grupo bastante conhecido S-1-5-4                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOGON de CONSOLE                                               Grupo bastante conhecido S-1-2-1                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Usuários autenticados                            Grupo bastante conhecido S-1-5-11                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Esta organização                                 Grupo bastante conhecido S-1-5-15                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+MicrosoftAccount\margefson@outlook.com                         Usuário                  S-1-11-96-3623454863-58364-18864-2661722203-1597581903-3475737053-2921256199-3083456810-3665046889-1597444998 Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local                                      Grupo bastante conhecido S-1-5-113                                                                                                     Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOCAL                                                          Grupo bastante conhecido S-1-2-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Cloud Account Authentication                     Grupo bastante conhecido S-1-5-64-36                                                                                                   Grupo obrigatório, Ativado por padrão, Grupo ativado
+
+
+INFORMAÇÕES DE PRIVILÉGIOS
+---------------------------
+
+Nome de privilégio            Descrição                                 Estado    
+============================= ========================================= ==========
+SeShutdownPrivilege           Desligar o sistema                        Desativado
+SeChangeNotifyPrivilege       Ignorar a verificação completa            Ativada   
+SeUndockPrivilege             Remover o computador da base de encaixe   Desativado
+SeIncreaseWorkingSetPrivilege Aumentar conjunto de trabalho de processo Desativado
+SeTimeZonePrivilege           Alterar fuso horário                      Desativado
+
+
+
+

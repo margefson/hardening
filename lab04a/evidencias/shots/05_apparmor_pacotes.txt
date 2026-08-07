@@ -1,0 +1,37 @@
+root@MachadoPC:~# dpkg -l | grep -i apparmor
+ii  apparmor                      4.1.0-1                     amd64        user-space parser utility for AppArmor
+ii  apparmor-profiles             4.1.0-1                     all          experimental profiles for AppArmor security policies
+ii  apparmor-profiles-extra       1.35                        all          Extra profiles for AppArmor Security policies
+ii  apparmor-utils                4.1.0-1                     all          utilities for controlling AppArmor
+ii  libapparmor1:amd64            4.1.0-1                     amd64        changehat AppArmor library
+ii  python3-apparmor              4.1.0-1                     all          AppArmor Python3 utility library
+ii  python3-libapparmor           4.1.0-1                     amd64        AppArmor library Python3 bindings
+
+root@MachadoPC:~# ls /etc/apparmor.d | wc -l
+Arquivos em /etc/apparmor.d: 128
+root@MachadoPC:~# ls /etc/apparmor.d | head -25
+1password
+abi
+abstractions
+apache2.d
+balena-etcher
+bin.ping
+brave
+buildah
+busybox
+cam
+ch-checkns
+chrome
+chromium
+ch-run
+code
+crun
+devhelp
+disable
+Discord
+element-desktop
+epiphany
+evolution
+firefox
+flatpak
+foliate

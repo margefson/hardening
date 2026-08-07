@@ -1,0 +1,11 @@
+﻿PS> whoami /user
+
+INFORMAÇÕES DE USUÁRIO
+-----------------------
+
+Nome de usuário SID                                           
+=============== ==============================================
+machadopc\marge S-1-5-21-2273054947-3814652866-1034022874-1001
+
+# Ex2: SID permanente - Windows autoriza por SID, nao pelo nome
+

@@ -1,0 +1,83 @@
+﻿PS> Get-Acl d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro | Format-List
+
+
+Path           : Microsoft.PowerShell.Core\FileSystem::D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\F
+                 inanceiro
+Owner          : MACHADOPC\marge
+Group          : MACHADOPC\marge
+AccessToString : BUILTIN\Administradores Allow  FullControl
+                 BUILTIN\Administradores Allow  268435456
+                 AUTORIDADE NT\SISTEMA Allow  FullControl
+                 AUTORIDADE NT\SISTEMA Allow  268435456
+                 AUTORIDADE NT\Usuários autenticados Allow  Modify, Synchronize
+                 AUTORIDADE NT\Usuários autenticados Allow  -536805376
+                 BUILTIN\Usuários Allow  ReadAndExecute, Synchronize
+                 BUILTIN\Usuários Allow  -1610612736
+
+
+
+
+
+PS> (Get-Acl ...).Access | Format-List
+
+
+IdentityReference : BUILTIN\Administradores
+FileSystemRights  : FullControl
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : BUILTIN\Administradores
+FileSystemRights  : 268435456
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : AUTORIDADE NT\SISTEMA
+FileSystemRights  : FullControl
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : AUTORIDADE NT\SISTEMA
+FileSystemRights  : 268435456
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : AUTORIDADE NT\Usuários autenticados
+FileSystemRights  : Modify, Synchronize
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : AUTORIDADE NT\Usuários autenticados
+FileSystemRights  : -536805376
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : BUILTIN\Usuários
+FileSystemRights  : ReadAndExecute, Synchronize
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : BUILTIN\Usuários
+FileSystemRights  : -1610612736
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+
+
+
+

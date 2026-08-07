@@ -1,0 +1,53 @@
+﻿PS> # Atividade 2 - Trusted Platform Module (TPM)
+tpm.msc presente: True
+
+PS> Get-Tpm
+O privilegio de administrador e necessario para executar este comando.
+
+PS> Get-CimInstance -Namespace root/cimv2/Security/MicrosoftTpm -ClassName Win32_Tpm
+Win32_Tpm: Acesso negado
+
+PS> # Fontes alternativas (sem elevacao)
+PS> Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\TPM*
+
+
+Start       : 3
+ImagePath   : \SystemRoot\System32\drivers\tpm.sys
+DisplayName : @tpm.inf,%TPM%;TPM
+
+
+
+
+PS> Test-Path dispositivos TPM no Device Manager (classe)
+
+Status Class           FriendlyName               
+------ -----           ------------               
+OK     SecurityDevices Trusted Platform Module 2.0
+
+
+
+PS> Confirmacao via WMI Win32_ComputerSystem / BIOS
+
+
+Manufacturer      : American Megatrends International, LLC.
+SMBIOSBIOSVersion : P23CFB.053.241029.HQ
+SerialNumber      : 0A239QCTB03065
+
+
+
+
+
+
+Manufacturer : SAMSUNG ELECTRONICS CO., LTD.
+Model        : 550XDA
+PCSystemType : 2
+
+
+
+
+
+Importancia TPM: armazenar chaves de selagem (PCR), atestar integridade do boot
+e permitir desbloqueio automatico do BitLocker sem digitar senha a cada boot
+(quando politica corporativa permite TPM-only ou TPM+PIN).
+
+Limitacao lab: consulta detalhada Get-Tpm/Win32_Tpm exige elevacao; tpm.msc disponivel na GUI.

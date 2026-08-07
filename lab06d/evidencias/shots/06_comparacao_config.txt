@@ -1,0 +1,13 @@
+﻿=== COMPARACAO CONFIG ATUAL x BASELINE CORPORATIVA ===
+Area                 | Atual (lab)              | Baseline desejada
+---------------------|--------------------------|---------------------------
+Identidades          | Inventariadas            | Grupos org + contas JIT
+Privilegios          | UAC on; admin diario     | Admin separado; URA revisada
+NTFS                 | Auth Users amplo         | ACL por GRP_* + heranca doc
+Politicas locais     | Parcial (registry/UAC)   | SCT Win11 + LGPO aplicado
+Auditoria            | System OK; Security lim. | Auditpol baseline + SIEM
+Ferramentas          | MMC parcial              | SCT+LGPO+SCA+Intune/GPO
+
+Divergencias relevantes? SIM - privilegio permanente + NTFS permissivo +
+falta de ferramenta de baseline no host Home.
+

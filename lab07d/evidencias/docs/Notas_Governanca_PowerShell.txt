@@ -1,0 +1,6 @@
+﻿Lab 07D - Notas de governanca PowerShell AmazonTech
+- Plataforma padrao para administracao auditavel dos endpoints
+- Execution Policy: RemoteSigned/AllSigned recomendados; sem Bypass permanente
+- Integrar consultas Defender/Firewall/BitLocker em playbooks versionados
+- Habilitar logging (Module/ScriptBlock/Transcription) via GPO/Intune quando Pro/Enterprise
+- JEA para menor privilegio em tarefas repetitivas

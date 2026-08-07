@@ -1,0 +1,59 @@
+﻿PS> # Atividade 3 - Get-Service / Get-Process (amostra)
+PS> Get-Service | Where-Object Status -eq 'Running' | Select -First 15
+
+Name                        Status StartType
+----                        ------ ---------
+AdobeARMservice            Running Automatic
+Appinfo                    Running    Manual
+AudioEndpointBuilder       Running Automatic
+Audiosrv                   Running Automatic
+BFE                        Running Automatic
+BluetoothUserService_a467c Running    Manual
+BrokerInfrastructure       Running Automatic
+BTAGService                Running    Manual
+BthAvctpSvc                Running    Manual
+bthserv                    Running    Manual
+camsvc                     Running Automatic
+cbdhsvc_a467c              Running Automatic
+CDPSvc                     Running Automatic
+CDPUserSvc_a467c           Running Automatic
+ClickToRunSvc              Running Automatic
+
+
+
+
+Servicos relevantes AmazonTech (Defender/Firewall/BitLocker):
+
+Name       Status StartType
+----       ------ ---------
+BDESVC    Stopped    Manual
+EventLog  Running Automatic
+MpsSvc    Running Automatic
+Schedule  Running Automatic
+WinDefend Running Automatic
+
+
+
+
+PS> Get-Process | Sort-Object CPU -Descending | Select -First 12
+
+ProcessName                     Id        CPU WS_MB
+-----------                     --        --- -----
+Cursor                       13568   1638,625 537,9
+Cursor                       11980 748,328125   187
+Cursor                       13148      173,5 184,2
+dptf_helper                   8488    167,875   7,8
+Cursor                        6112 149,765625 209,1
+chrome                       20520 133,765625 543,2
+Cursor                       11620 106,296875 210,5
+chrome                       12660  103,15625 264,1
+explorer                      6592  100,21875 399,6
+Cursor                        6432     98,875 189,7
+Cursor                       12936   97,90625 213,8
+CodeSetup-stable-3.14.27.tmp  2736   78,53125  22,1
+
+
+
+
+Observacao: amostras para auditoria operacional; nao alteram estado do sistema.
+

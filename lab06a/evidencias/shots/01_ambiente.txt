@@ -1,0 +1,8 @@
+﻿PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+08/06/2026 19:40:33
+PS> Get-CimInstance Win32_OperatingSystem | Select Caption, Version, BuildNumber
+Microsoft Windows 11 Home Single Language
+Version: 10.0.26200  Build: 26200
+System Type: x64-based PC

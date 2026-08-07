@@ -1,0 +1,39 @@
+﻿PS> # Atividade 3 - Identificando regras (amostra detalhada)
+Selecao de duas regras representativas + propriedades
+
+=== Regra 1 : Rede Principal – IPv6 (IPv6-Entrada) ===
+
+
+Nome       : Rede Principal – IPv6 (IPv6-Entrada)
+Direcao    : Inbound
+Acao       : Allow
+Enabled    : True
+Perfil     : Any
+Programa   : System
+Protocolo  : 41
+PortaLocal : Any
+Remoto     : Any
+
+
+
+
+=== Regra 2 : Descoberta de Rede (SSDP-Saída) ===
+
+
+Nome       : Descoberta de Rede (SSDP-Saída)
+Direcao    : Outbound
+Acao       : Allow
+Enabled    : True
+Perfil     : Private
+Programa   : %SystemRoot%\system32\svchost.exe
+Protocolo  : UDP
+PortaLocal : Any
+Remoto     : LocalSubnet
+
+
+
+
+
+Interpretacao: regra 1 = controle de trafego de ENTRADA; regra 2 = SAIDA.
+Allow + Enabled amplia superficie se perfil/escopo forem excessivos (ex.: Any/Any).
+

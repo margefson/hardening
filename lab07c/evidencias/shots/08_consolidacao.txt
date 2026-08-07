@@ -1,0 +1,17 @@
+﻿PS> # Consolidacao Lab 07C - parecer
+Windows: Microsoft Windows 11 Home Single Language
+BitLocker UI completa (CPL/Wizard): AUSENTE nesta edicao Home
+manage-bde.exe / fveapi.dll / modulo BitLocker PS: PRESENTES
+BDESVC: Stopped (Manual)
+BitLockerDeviceEncryption.exe: PRESENTE (Device Encryption path)
+TPM consulta Get-Tpm: requer administrador (tpm.msc disponivel)
+Unidades C:/D:/F: NTFS Healthy; status criptografia: acesso negado sem elevacao
+
+Parecer preliminar:
+EDICAO HOME: BitLocker Drive Encryption completo tipicamente AUSENTE na UI;
+cmdlets/ferramentas presentes, mas ativacao corporativa plena exige Pro/Enterprise
+ou Device Encryption elegivel + elevacao/custodia de recovery key.
+Papel BitLocker: confidencialidade em repouso (perda/roubo do disco/notebook).
+Nenhuma criptografia foi ativada nesta OS (somente auditoria) - conforme restricao.
+Equipamento: APTO PARA AUDITORIA; PARCIALMENTE APTO para politica obrigatoria
+AmazonTech ate upgrade de edicao / Device Encryption homologado.

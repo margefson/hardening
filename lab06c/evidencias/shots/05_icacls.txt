@@ -1,0 +1,44 @@
+﻿PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech BUILTIN\Administradores:(I)(F)
+                                                               BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                               AUTORIDADE NT\SISTEMA:(I)(F)
+                                                               AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                               AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                               AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                               BUILTIN\Usuários:(I)(RX)
+                                                               BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro BUILTIN\Administradores:(I)(F)
+                                                                          BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                                          AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                          AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                                          AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                          AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                                          BUILTIN\Usuários:(I)(RX)
+                                                                          BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt BUILTIN\Administradores:(I)(F)
+                                                                                        AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                                        AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                                        BUILTIN\Usuários:(I)(RX)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos BUILTIN\Administradores:(I)(F)
+                                                                        BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                                        AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                        AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                                        AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                        AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                                        BUILTIN\Usuários:(I)(RX)
+                                                                        BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+

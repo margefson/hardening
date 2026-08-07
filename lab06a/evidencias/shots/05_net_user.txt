@@ -1,0 +1,181 @@
+﻿PS> net user
+
+Contas de usuário para \\MACHADOPC
+
+-------------------------------------------------------------------------------
+Administrador            Convidado                DefaultAccount           
+marge                    postgres                 WDAGUtilityAccount       
+Comando concluído com êxito.
+
+
+PS> # Detalhe de contas locais (amostra)
+----- net user Administrador -----
+Nome de usuário                     Administrador
+Nome completo                       
+Comentário                          Conta interna para a administração do computador/domínio
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Administradores      
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user Convidado -----
+Nome de usuário                     Convidado
+Nome completo                       
+Comentário                          Conta interna para acesso como convidado ao computador/domínio
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Não
+O usuário pode alterar a senha      Não
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Convidados           
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user DefaultAccount -----
+Nome de usuário                     DefaultAccount
+Nome completo                       
+Comentário                          Uma conta de usuário gerenciada pelo sistema.
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           06/08/2026 19:39:57
+A senha expira                      Nunca
+Alteração de senha                  06/08/2026 19:39:57
+Senha requerida                     Não
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *System Managed Accoun
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user marge -----
+Nome de usuário                     marge
+Nome completo                       MARGEFSON BARROS
+Comentário                          
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Sim
+Conta expira em                     Nunca
+
+Última definição de senha           10/03/2026 22:20:13
+A senha expira                      Nunca
+Alteração de senha                  10/03/2026 22:20:13
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          *Administradores      
+                                    *Usuários             
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user postgres -----
+Nome de usuário                     postgres
+Nome completo                       postgres
+Comentário                          PostgreSQL service account
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Sim
+Conta expira em                     Nunca
+
+Última definição de senha           27/07/2026 00:13:34
+A senha expira                      Nunca
+Alteração de senha                  27/07/2026 00:13:34
+Senha requerida                     Sim
+O usuário pode alterar a senha      Não
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        06/08/2026 08:53:46
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+----- net user WDAGUtilityAccount -----
+Nome de usuário                     WDAGUtilityAccount
+Nome completo                       
+Comentário                          Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender Application Guard.
+Comentário do usuário               
+Código do país/região               000 (Padrão do sistema)
+Conta ativa                         Não
+Conta expira em                     Nunca
+
+Última definição de senha           10/03/2026 21:51:44
+A senha expira                      21/04/2026 21:51:44
+Alteração de senha                  10/03/2026 21:51:44
+Senha requerida                     Sim
+O usuário pode alterar a senha      Sim
+
+Estações de trabalho permitidas     Todos
+Script de logon                     
+Perfil do usuário                   
+Pasta base                          
+Último logon                        Nunca
+
+Horário de logon permitido          Todos
+
+Associações de Grupo Local          
+Associações de Grupo Global         *None                 
+Comando concluído com êxito.
+
+
+

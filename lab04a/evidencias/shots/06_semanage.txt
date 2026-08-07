@@ -1,0 +1,39 @@
+root@MachadoPC:~# semanage fcontext -l | head -22
+SELinux fcontext                                   type               Context
+
+/                                                  directory          system_u:object_r:root_t:s0 
+/.*                                                all files          system_u:object_r:default_t:s0 
+/\.ismount-test-file                               regular file       system_u:object_r:sosreport_tmp_t:s0 
+/\.journal                                         all files          <<None>>
+/a?quota\.(user|group)                             regular file       system_u:object_r:quota_db_t:s0 
+/afs                                               directory          system_u:object_r:mnt_t:s0 
+/bacula(/.*)?                                      all files          system_u:object_r:bacula_store_t:s0 
+/boot                                              directory          system_u:object_r:boot_t:s0 
+/boot/.*                                           all files          system_u:object_r:boot_t:s0 
+/boot/System\.map(-.*)?                            regular file       system_u:object_r:system_map_t:s0 
+/boot/\.journal                                    all files          <<None>>
+/boot/a?quota\.(user|group)                        regular file       system_u:object_r:quota_db_t:s0 
+/boot/efi(/.*)?/System\.map(-.*)?                  regular file       system_u:object_r:system_map_t:s0 
+/boot/lost\+found                                  directory          system_u:object_r:lost_found_t:s0 
+/boot/lost\+found/.*                               all files          <<None>>
+/cgroup                                            directory          system_u:object_r:cgroup_t:s0 
+/cgroup/.*                                         all files          <<None>>
+/dev                                               directory          system_u:object_r:device_t:s0 
+/dev/(misc/)?agpgart                               character device   system_u:object_r:agp_device_t:s0 
+/dev/(misc/)?psaux                                 character device   system_u:object_r:mouse_device_t:s0 
+
+... total de regras fcontext: 5843
+
+root@MachadoPC:~# semanage fcontext -l | grep -E 'httpd|sshd|www' | head -12
+/etc/WebCalendar(/.*)?                             all files          system_u:object_r:httpd_sys_rw_content_t:s0 
+/etc/apache(2)?(/.*)?                              all files          system_u:object_r:httpd_config_t:s0 
+/etc/apache-ssl(2)?(/.*)?                          all files          system_u:object_r:httpd_config_t:s0 
+/etc/cherokee(/.*)?                                all files          system_u:object_r:httpd_config_t:s0 
+/etc/drupal.*                                      all files          system_u:object_r:httpd_sys_rw_content_t:s0 
+/etc/glpi(/.*)?                                    all files          system_u:object_r:httpd_sys_rw_content_t:s0 
+/etc/hiawatha(/.*)?                                all files          system_u:object_r:httpd_config_t:s0 
+/etc/horde(/.*)?                                   all files          system_u:object_r:httpd_sys_rw_content_t:s0 
+/etc/htdig(/.*)?                                   all files          system_u:object_r:httpd_sys_content_t:s0 
+/etc/httpd(/.*)?                                   all files          system_u:object_r:httpd_config_t:s0 
+/etc/httpd/alias/[^/]*\.db(\.[^/]*)*               regular file       system_u:object_r:cert_t:s0 
+/etc/httpd/conf/keytab                             regular file       system_u:object_r:httpd_keytab_t:s0 

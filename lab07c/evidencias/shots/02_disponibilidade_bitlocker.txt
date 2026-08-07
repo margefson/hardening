@@ -1,0 +1,29 @@
+﻿PS> # Atividade 1 - Disponibilidade do BitLocker
+Edicao Windows: Microsoft Windows 11 Home Single Language
+ProductType: 1 | OSArchitecture: 64 bits
+
+Caminhos / features relacionadas:
+BitLocker Control Panel CPL: False
+manage-bde.exe: True
+BitLocker Wizard: False
+fveapi.dll: True
+
+PS> Get-WindowsOptionalFeature -Online -FeatureName BitLocker* (pode exigir admin)
+Get-WindowsOptionalFeature: A operação solicitada requer elevação.
+
+
+PS> Get-Service -Name BDESVC -ErrorAction SilentlyContinue
+
+Name    Status StartType
+----    ------ ---------
+BDESVC Stopped    Manual
+
+
+
+
+Device Encryption (Home) - registro DeviceEncryption:
+HKLM\...\BitLocker: chave ausente ou sem acesso
+
+Nota Home: BitLocker Drive Encryption completo tipicamente Pro/Enterprise;
+Device Encryption pode existir em hardware elegivel (Modern Standby/TPM).
+

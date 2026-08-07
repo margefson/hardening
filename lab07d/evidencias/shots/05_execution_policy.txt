@@ -1,0 +1,27 @@
+﻿PS> # Atividade 4 - Execution Policy (somente leitura)
+PS> Get-ExecutionPolicy
+Bypass
+
+PS> Get-ExecutionPolicy -List
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process          Bypass
+  CurrentUser    RemoteSigned
+ LocalMachine       Undefined
+
+
+
+
+Finalidade: controlar quais scripts podem ser executados (Restricted,
+AllSigned, RemoteSigned, Unrestricted, Bypass, Undefined).
+Governanca AmazonTech: preferir RemoteSigned ou AllSigned + assinatura de codigo;
+evitar Bypass permanente; alteracoes so via change control.
+Nenhuma politica foi alterada nesta atividade (Set-ExecutionPolicy NAO executado).
+
+Nota: Process=Bypass reflete a invocacao do script de captura
+(-ExecutionPolicy Bypass); CurrentUser permanece RemoteSigned.
+LocalMachine nao foi alterado.
+

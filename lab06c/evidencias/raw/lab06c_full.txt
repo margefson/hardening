@@ -1,0 +1,339 @@
+﻿===== 01_ambiente.txt =====
+PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+
+quinta-feira, 6 de agosto de 2026 19:54:31
+OS: Microsoft Windows 11 Home Single Language | Build: 26200
+Estacao: WIN-ADM-01 | Lab 06C - Permissoes NTFS
+Raiz simulada AmazonTech: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+
+
+
+
+
+===== 02_explorer_security_equiv.txt =====
+PS> # Equivalente a Propriedades > Seguranca (Explorer)
+PS> Pasta auditada: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+Proprietario: MACHADOPC\marge
+Grupo: MACHADOPC\marge
+
+Identidades e permissoes (Access):
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited          InheritanceFlags
+-----------------                              ---------------- ----------------- -----------          ----------------
+BUILTIN\Administradores                             FullControl             Allow        True                      None
+BUILTIN\Administradores                               268435456             Allow        True ...Inherit, ObjectInherit
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True                      None
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True ...Inherit, ObjectInherit
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True                      None
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True ...Inherit, ObjectInherit
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True                      None
+BUILTIN\Usuários                                    -1610612736             Allow        True ...Inherit, ObjectInherit
+
+
+
+
+
+
+===== 03_advanced_acl.txt =====
+PS> # Equivalente a Seguranca > Avancado (ACL/DACL, owner, heranca)
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+
+
+
+===== 04_effective_access.txt =====
+PS> # Equivalente Effective Access (calculo via AccessRules + grupos)
+Recurso: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+Identidade: MACHADOPC\marge
+
+Regras que afetam Usuarios autenticados / Users / marge / Administradores:
+
+IdentityReference                      FileSystemRights AccessControlType IsInherited
+-----------------                      ---------------- ----------------- -----------
+BUILTIN\Administradores                     FullControl             Allow        True
+BUILTIN\Administradores                       268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados          -536805376             Allow        True
+
+
+
+
+PS> Test-Path / leitura efetiva da sessao atual
+Test-Path: True
+Get-Content amostra:
+Relatorio financeiro confidencial
+
+# Effective Access GUI considera uniao de grupos + Deny wins.
+# Sessao atual (marge): membro de Usuarios + Administradores (token filtrado).
+# Resultado tipico: leitura/escrita herdada de Users/Administrators sobre pasta do laboratorio.
+
+
+
+===== 05_icacls.txt =====
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech BUILTIN\Administradores:(I)(F)
+                                                               BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                               AUTORIDADE NT\SISTEMA:(I)(F)
+                                                               AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                               AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                               AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                               BUILTIN\Usuários:(I)(RX)
+                                                               BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro BUILTIN\Administradores:(I)(F)
+                                                                          BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                                          AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                          AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                                          AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                          AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                                          BUILTIN\Usuários:(I)(RX)
+                                                                          BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt BUILTIN\Administradores:(I)(F)
+                                                                                        AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                                        AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                                        BUILTIN\Usuários:(I)(RX)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+PS> icacls d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos
+d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos BUILTIN\Administradores:(I)(F)
+                                                                        BUILTIN\Administradores:(I)(OI)(CI)(IO)(F)
+                                                                        AUTORIDADE NT\SISTEMA:(I)(F)
+                                                                        AUTORIDADE NT\SISTEMA:(I)(OI)(CI)(IO)(F)
+                                                                        AUTORIDADE NT\Usuários autenticados:(I)(M)
+                                                                        AUTORIDADE NT\Usuários autenticados:(I)(OI)(CI)(IO)(M)
+                                                                        BUILTIN\Usuários:(I)(RX)
+                                                                        BUILTIN\Usuários:(I)(OI)(CI)(IO)(GR,GE)
+
+Processados com sucesso 1 arquivos; falha no processamento de 0 arquivos
+
+
+
+===== 06_get_acl.txt =====
+PS> Get-Acl d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro | Format-List
+
+
+Path           : Microsoft.PowerShell.Core\FileSystem::D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\F
+                 inanceiro
+Owner          : MACHADOPC\marge
+Group          : MACHADOPC\marge
+AccessToString : BUILTIN\Administradores Allow  FullControl
+                 BUILTIN\Administradores Allow  268435456
+                 AUTORIDADE NT\SISTEMA Allow  FullControl
+                 AUTORIDADE NT\SISTEMA Allow  268435456
+                 AUTORIDADE NT\Usuários autenticados Allow  Modify, Synchronize
+                 AUTORIDADE NT\Usuários autenticados Allow  -536805376
+                 BUILTIN\Usuários Allow  ReadAndExecute, Synchronize
+                 BUILTIN\Usuários Allow  -1610612736
+
+
+
+
+
+PS> (Get-Acl ...).Access | Format-List
+
+
+IdentityReference : BUILTIN\Administradores
+FileSystemRights  : FullControl
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : BUILTIN\Administradores
+FileSystemRights  : 268435456
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : AUTORIDADE NT\SISTEMA
+FileSystemRights  : FullControl
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : AUTORIDADE NT\SISTEMA
+FileSystemRights  : 268435456
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : AUTORIDADE NT\Usuários autenticados
+FileSystemRights  : Modify, Synchronize
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : AUTORIDADE NT\Usuários autenticados
+FileSystemRights  : -536805376
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+IdentityReference : BUILTIN\Usuários
+FileSystemRights  : ReadAndExecute, Synchronize
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : None
+PropagationFlags  : None
+
+IdentityReference : BUILTIN\Usuários
+FileSystemRights  : -1610612736
+AccessControlType : Allow
+IsInherited       : True
+InheritanceFlags  : ContainerInherit, ObjectInherit
+PropagationFlags  : InheritOnly
+
+
+
+
+
+
+
+===== 07_get_childitem.txt =====
+PS> Get-ChildItem d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech -Recurse | Select FullName, Mode, Length
+
+FullName                                                                                Mode   Length
+--------                                                                                ----   ------
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria                d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Compartilhado            d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro               d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos                 d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\TI                       d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria\parecer.txt    -a---- 34    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Compartilhado\geral.txt  -a---- 32    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt -a---- 38    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos\projeto.txt     -a---- 25    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\TI\inventario.txt        -a---- 18    
+
+
+
+
+Total itens: 10
+Prioridade auditoria: Financeiro (confidencial), Auditoria, Projetos, TI, Compartilhado
+
+
+
+===== 08_comparacao.txt =====
+=== COMPARACAO GUI vs CLI ===
+Ferramentas: Explorer Seguranca | Avancado | Effective Access | icacls | Get-Acl
+
+Consistencia observada:
+- Owner Financeiro: MACHADOPC\marge
+- Access count Get-Acl: 8
+- icacls lista as mesmas identidades (SID/nomes) com masks (F,M,RX, etc.)
+- Heranca: IsInherited=True nas entradas padrao (AreAccessRulesProtected=False)
+
+Diferencas:
+- GUI Effective Access resume resultado final por usuario
+- icacls/Get-Acl mostram ACE brutas (melhor para automacao/auditoria em massa)
+- Get-Acl AccessToString e legivel; icacls e compacto e scriptavel
+
+Mais adequada para auditoria corporativa em escala: icacls + Get-Acl (PowerShell)
+GUI permanece util para Effective Access e troubleshooting pontual.
+
+
+
+===== 09_consolidacao.txt =====
+=== CONSOLIDACAO LAB 06C - PERMISSOES NTFS ===
+Estacao: WIN-ADM-01 / MachadoPC | Usuario: machadopc\marge
+Ambiente simulado: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+
+1) Inventario: 5 pastas + arquivos de amostra
+2) ACL Financeiro - identidades:
+BUILTIN\Administradores; BUILTIN\Administradores; AUTORIDADE NT\SISTEMA; AUTORIDADE NT\SISTEMA; AUTORIDADE NT\Usuários autenticados; AUTORIDADE NT\Usuários autenticados; BUILTIN\Usuários; BUILTIN\Usuários
+3) Heranca ativa (nao protegida): True
+4) Inconsistencias vs politica AmazonTech:
+- Pasta Financeiro com heranca ampla (Users/Authenticated) - risco need-to-know
+- Sem grupos departamentais (Financeiro/TI) nas ACE - permissoes genericas
+- Compartilhado e Financeiro com perfil semelhante - falta segregacao
+5) Recomendacoes: grupos por departamento; remover Users de pastas sensiveis;
+   documentar heranca; Effective Access nos testes; nao alterar sem change control
+6) Proximo: Lab Governanca / Security Baselines
+
+
+

@@ -1,0 +1,22 @@
+﻿PS> # Atividade 4 - Consulta administrativa PowerShell
+PS> Get-Service | Group-Object Status | Select Name, Count
+
+Name    Count
+----    -----
+Stopped   165
+Running   126
+
+
+
+
+PS> Get-Service | Where-Object StartType -eq 'Automatic' | Measure
+Automatic: 94
+AutomaticDelayedStart: 0
+Manual: 192
+Disabled: 5
+
+Comparacao GUI vs PowerShell:
+- services.msc = mesma base SCM; PS permite filtro/export/auditoria em massa
+- Recursos opcionais: GUI 'Ativar/desativar' ~= Get-WindowsOptionalFeature -Online
+- Startup: Task Manager ~= Win32_StartupCommand + Run keys
+

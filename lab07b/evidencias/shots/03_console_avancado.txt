@@ -1,0 +1,15 @@
+﻿PS> # Atividade 2 - Console avancado (wf.msc) - inventario via PowerShell
+Console: Windows Defender Firewall with Advanced Security (wf.msc)
+Nos tipicos: Regras de Entrada | Regras de Saida | Seguranca de Conexao | Monitoramento
+
+Total de regras: 552
+Entrada (Inbound): 317 | habilitadas: 169
+Saida (Outbound): 235 | habilitadas: 143
+
+PS> Get-NetIPsecRule (regras de seguranca de conexao / IPsec)
+Quantidade IPsec/Connection Security: 0
+Nenhuma regra IPsec ativa listada (comum em estacao workgroup).
+
+Monitoramento (ativo): regras habilitadas + filtro por perfil corrente
+Categoria de rede atual: Public
+

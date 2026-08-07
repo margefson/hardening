@@ -1,0 +1,22 @@
+﻿PS> # Atividade 3 - Estado das unidades (manage-bde -status)
+PS> manage-bde -status
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+
+
+PS> Get-Volume | Select DriveLetter, FileSystemLabel, FileSystem, Size, SizeRemaining
+
+DriveLetter FileSystemLabel FileSystem SizeGB HealthStatus
+----------- --------------- ---------- ------ ------------
+          F Novo volume     NTFS        195,3 Healthy     
+          C                 NTFS        237,1 Healthy     
+          D HOME            NTFS        251,8 Healthy     
+
+
+
+

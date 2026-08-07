@@ -1,0 +1,58 @@
+﻿PS> # Equivalente documental a lusrmgr.msc (auditoria grafica)
+PS> Get-LocalUser | Format-Table Name, Enabled, Description, LastLogon -AutoSize
+
+Name               Enabled Description                                                                                 
+----               ------- -----------                                                                                 
+Administrador        False Conta interna para a administração do computador/domínio                                    
+Convidado            False Conta interna para acesso como convidado ao computador/domínio                              
+DefaultAccount       False Uma conta de usuário gerenciada pelo sistema.                                               
+marge                 True                                                                                             
+postgres              True PostgreSQL service account                                                                  
+WDAGUtilityAccount   False Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender Appl...
+
+
+
+
+PS> Get-LocalGroup | Format-Table Name, Description -AutoSize
+
+Name                                      Description                                                                  
+----                                      -----------                                                                  
+__vmware__                                VMware User Group                                                            
+Administradores                           Os administradores têm acesso completo e irrestrito ao computador/domínio    
+Administradores do Hyper-V                Os membros deste grupo possuem acesso completo e irrestrito a todos os rec...
+Convidados                                Por padrão, os convidados têm o mesmo acesso como membros do grupo 'Usuári...
+Distributed COM - Usuários                Os membros podem iniciar, ativar e usar objetos Distributed COM nesta máqu...
+IIS_IUSRS                                 Grupo interno usado pelos Serviços de Informações da Internet.               
+Leitores de log de eventos                Os membros deste grupo podem ler logs de eventos do computador local         
+Operadores de hardware do modo de usuário Os membros deste grupo podem operar o hardware do modo de usuário.           
+Proprietários do Dispositivo              Os membros deste grupo podem alterar as configurações de todo o sistema.     
+System Managed Accounts Group             Os membros deste grupo são gerenciados pelo sistema.                         
+Usuários                                  Os usuários são impedidos de fazer alterações acidentais ou intencionais n...
+Usuários de Gerenciamento Remoto          Os membros desse grupo podem acessar recursos WMI sobre protocolos de gere...
+Usuários de log de desempenho             Os membros desse grupo podem agendar o registro de contadores de desempenh...
+Usuários de monitor de desempenho         Os membros deste grupo podem acessar dados do contador de desempenho local...
+Usuários do OpenSSH                       Os membros deste grupo podem se conectar a este computador usando SSH.       
+
+
+
+
+PS> Get-LocalGroupMember -Group Administrators | Format-Table Name, ObjectClass, PrincipalSource -AutoSize
+Get-LocalGroupMember : O grupo Administrators não foi encontrado.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:83 caractere:5
++     Get-LocalGroupMember -Group "Administrators" | Format-Table Name, ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Administrators:String) [Get-LocalGroupMember], GroupNotFoundException
+    + FullyQualifiedErrorId : GroupNotFound,Microsoft.PowerShell.Commands.GetLocalGroupMemberCommand
+ 
+
+
+
+PS> Get-LocalGroupMember -Group Administradores | Format-Table Name, ObjectClass, PrincipalSource -AutoSize
+
+Name                    ObjectClass  PrincipalSource
+----                    -----------  ---------------
+MachadoPC\Administrador Usuário                Local
+MACHADOPC\marge         Usuário     MicrosoftAccount
+
+
+

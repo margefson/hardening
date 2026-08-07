@@ -1,0 +1,21 @@
+root@MachadoPC:~# sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             default
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Memory protection checking:     actual (secure)
+Max kernel policy version:      33
+
+root@MachadoPC:~# getenforce
+Enforcing
+
+root@MachadoPC:~# grep -E '^(SELINUX|SELINUXTYPE)=' /etc/selinux/config
+SELINUX=enforcing
+SELINUXTYPE=default
+
+root@MachadoPC:~# # Coerencia sestatus x getenforce: ambos indicam Enforcing
+root@MachadoPC:~# # Politica carregada: default (targeted/strict Debian)

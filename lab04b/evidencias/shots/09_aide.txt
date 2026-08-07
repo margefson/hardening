@@ -1,0 +1,76 @@
+root@MachadoPC:~# aide.wrapper --check
+AIDE 0.19.1 | baseline: /var/lib/aide/aide.db | exit=7
+
+Start timestamp: 2026-08-06 19:22:26 -0400 (AIDE 0.19.1)
+AIDE found differences between database and filesystem!!
+Added entries:
+Removed entries:
+Changed entries:
+The attributes of the (uncompressed) database(s):
+End timestamp: 2026-08-06 19:23:58 -0400 (run time: 1m 32s)
+
+Entry /auditoria in databases has different attributes: +selinux
+Entry /auditoria/parecer.txt in databases has different attributes: +selinux
+Entry /bin in databases has different attributes: +selinux
+Entry /etc in databases has different attributes: +selinux
+Entry /etc/.pwd.lock in databases has different attributes: +selinux
+Entry /etc/.updated in databases has different attributes: +selinux
+Entry /etc/adduser.conf in databases has different attributes: +selinux
+Entry /etc/aide in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/01_aide_readcache in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_basenotations in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_bits in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_bootid in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_checksums in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_constants in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_dateformats in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_days in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_distribution in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_hardware in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_hostname in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_logext in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_lvm_needsroot in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_machineid in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_run in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_usersuids in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_uuid in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/10_aide_year in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/11_aide_dateformats_cury in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/11_aide_majorminor in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/20_aide_run_systemd-journald in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/21_aide_php-version in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/21_aide_run_agetty in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/21_aide_spamassassin in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/30_aide_apache2 in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/30_aide_bind9 in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/30_inn2_vars in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/31_aide_acpid in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/31_aide_adjtime in databases has different attributes: +selinux
+Entry /etc/aide/aide.conf.d/31_aide_aide in databases has different attributes: +selinux
+
+... (detalhes truncados) ...
+
+File entries mentioned: 3346
+security.selinux xattr diffs: 3838
+
+Amostra de alteracoes:
+Directory: /
+Directory: /auditoria
+File: /auditoria/parecer.txt
+Directory: /etc
+File: /etc/.pwd.lock
+File: /etc/.updated
+File: /etc/adduser.conf
+Directory: /etc/aide
+File: /etc/aide/aide.conf
+Directory: /etc/aide/aide.conf.d
+File: /etc/aide/aide.conf.d/01_aide_readcache
+File: /etc/aide/aide.conf.d/10_aide_basenotations
+File: /etc/aide/aide.conf.d/10_aide_bits
+File: /etc/aide/aide.conf.d/10_aide_bootid
+File: /etc/aide/aide.conf.d/10_aide_checksums
+
+Conclusao: diferencas vs baseline - esperado (Lab04A SELinux labels + apt upgrade libexpat1).
+Nao trataremos automaticamente como incidente; analisar e atualizar DB apos janela.

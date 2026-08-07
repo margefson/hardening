@@ -1,0 +1,14 @@
+root@MachadoPC:~# for c in sestatus getenforce restorecon semanage; do command -v $c || echo $c: NAO INSTALADO; done
+sestatus: NAO INSTALADO
+getenforce: NAO INSTALADO
+restorecon: NAO INSTALADO
+semanage: NAO INSTALADO
+root@MachadoPC:~# sestatus
+/mnt/d/MMB/workspace/hardening/lab04a/scripts/split_shots.sh: line 21: sestatus: command not found
+root@MachadoPC:~# getenforce
+/mnt/d/MMB/workspace/hardening/lab04a/scripts/split_shots.sh: line 23: getenforce: command not found
+root@MachadoPC:~# dpkg -l | grep -i selinux | head -8
+ii  libselinux1:amd64             3.8.1-1                     amd64        SELinux runtime shared libraries
+ii  libsemanage-common            3.8.1-1                     all          Common files for SELinux policy management libraries
+ii  libsemanage2:amd64            3.8.1-1                     amd64        SELinux policy management library
+ii  libsepol2:amd64               3.8.1-1                     amd64        SELinux library for manipulating binary security policies

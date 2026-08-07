@@ -1,0 +1,30 @@
+root@MachadoPC:~# ps -eZ | head -22
+LABEL                               PID TTY          TIME CMD
+kernel                                1 ?        00:00:00 systemd
+kernel                                2 hvc0     00:00:00 init-systemd(De
+kernel                                8 hvc0     00:00:00 init
+kernel                               43 ?        00:00:00 systemd-journal
+kernel                               79 ?        00:00:00 systemd-udevd
+kernel                              101 ?        00:00:00 (udev-worker)
+kernel                              102 ?        00:00:00 (udev-worker)
+kernel                              103 ?        00:00:00 (udev-worker)
+kernel                              104 ?        00:00:00 (udev-worker)
+kernel                              106 ?        00:00:00 (udev-worker)
+kernel                              107 ?        00:00:00 (udev-worker)
+kernel                              108 ?        00:00:00 (udev-worker)
+kernel                              110 ?        00:00:00 (udev-worker)
+kernel                              113 ?        00:00:00 (udev-worker)
+kernel                              116 ?        00:00:00 (udev-worker)
+kernel                              117 ?        00:00:00 (udev-worker)
+kernel                              118 ?        00:00:00 (udev-worker)
+kernel                              121 ?        00:00:00 (udev-worker)
+kernel                              127 ?        00:00:00 (udev-worker)
+kernel                              129 ?        00:00:00 (udev-worker)
+kernel                              131 ?        00:00:00 (udev-worker)
+
+root@MachadoPC:~# ps -eZ | awk '{print $1}' | sort | uniq -c | sort -rn | head -12
+     57 kernel
+      1 LABEL
+
+root@MachadoPC:~# id -Z
+kernel

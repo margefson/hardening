@@ -1,0 +1,16 @@
+AmazonTech | Projeto Integrador 01 | Consultoria Hardening
+Cenario selecionado: DB-01 (Servidor de Banco de Dados PostgreSQL)
+
+Finalidade: persistencia de dados corporativos (ERP/apps internas)
+SO alvo: Debian 13 / Ubuntu 24.04 LTS (linha Debian)
+Servico principal: postgresql (porta 5432/tcp - apenas rede interna)
+Admin remoto: sshd (22/tcp) restrito a bastion/VPN
+Usuarios: DBAs (grupo dba), app runtime (nologin), auditores (ro)
+
+Requisitos CIA:
+  Confidencialidade: ALTA (dados sensiveis de negocio)
+  Integridade: ALTA (transacoes e consistencia)
+  Disponibilidade: ALTA (RTO/RPO definidos pela operacao)
+
+Diferenca vs WEB-01: foco em dados em repouso/transito DB,
+superficie de rede menor (sem HTTP publico), backup/PITR critico.

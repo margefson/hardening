@@ -1,0 +1,32 @@
+﻿PS> # gpedit.msc / secpol.msc disponibilidade nesta edicao
+gpedit.msc presente: False
+secpol.msc presente: False
+
+PS> Get-CimInstance Win32_OperatingSystem | Select Caption, OSArchitecture
+
+
+Caption        : Microsoft Windows 11 Home Single Language
+OSArchitecture : 64 bits
+Version        : 10.0.26200
+
+
+
+
+
+# Windows 11 Home: gpedit/secpol podem estar ausentes.
+# Evidencia alternativa: secedit /export USER_RIGHTS (shot 03) + whoami /priv.
+# Politicas locais relevantes ao privilegio: UAC, User Rights, Audit Policy.
+
+PS> Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System | Select EnableLUA, ConsentPromptBehaviorAdmin, FilterAdministratorToken
+
+
+EnableLUA                  : 1
+ConsentPromptBehaviorAdmin : 5
+ConsentPromptBehaviorUser  : 3
+FilterAdministratorToken   : 
+PromptOnSecureDesktop      : 1
+
+
+
+
+

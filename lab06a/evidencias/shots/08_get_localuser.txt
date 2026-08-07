@@ -1,0 +1,62 @@
+﻿PS> Get-LocalUser | Format-List Name, Enabled, Description, SID, PasswordRequired, UserMayChangePassword, PasswordExpires, LastLogon
+
+
+Name                  : Administrador
+Enabled               : False
+Description           : Conta interna para a administração do computador/domínio
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-500
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : Convidado
+Enabled               : False
+Description           : Conta interna para acesso como convidado ao computador/domínio
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-501
+PasswordRequired      : False
+UserMayChangePassword : False
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : DefaultAccount
+Enabled               : False
+Description           : Uma conta de usuário gerenciada pelo sistema.
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-503
+PasswordRequired      : False
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : marge
+Enabled               : True
+Description           : 
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-1001
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 
+LastLogon             : 
+
+Name                  : postgres
+Enabled               : True
+Description           : PostgreSQL service account
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-1003
+PasswordRequired      : True
+UserMayChangePassword : False
+PasswordExpires       : 
+LastLogon             : 06/08/2026 08:53:46
+
+Name                  : WDAGUtilityAccount
+Enabled               : False
+Description           : Uma conta de usuário gerenciada e usada pelo sistema em cenários do Windows Defender 
+                        Application Guard.
+SID                   : S-1-5-21-2273054947-3814652866-1034022874-504
+PasswordRequired      : True
+UserMayChangePassword : True
+PasswordExpires       : 21/04/2026 21:51:44
+LastLogon             : 
+
+
+
+
+

@@ -1,0 +1,67 @@
+root@MachadoPC:~# head -25 /etc/apparmor.d/bin.ping
+# ------------------------------------------------------------------
+#
+#    Copyright (C) 2002-2009 Novell/SUSE
+#    Copyright (C) 2010 Canonical Ltd.
+#
+#    This program is free software; you can redistribute it and/or
+#    modify it under the terms of version 2 of the GNU General Public
+#    License published by the Free Software Foundation.
+#
+# ------------------------------------------------------------------
+
+abi <abi/4.0>,
+
+include <tunables/global>
+profile ping /{usr/,}bin/{,iputils-}ping flags=(complain) {
+  include <abstractions/base>
+  include <abstractions/consoles>
+  include <abstractions/nameservice>
+
+  capability net_raw,
+  capability setuid,
+  network inet raw,
+  network inet6 raw,
+
+  /{,usr/}bin/{,iputils-}ping mixr,
+
+root@MachadoPC:~# aa-enforce --help | head -8
+usage: aa-enforce [-h] [-d DIR] [--no-reload] program [program ...]
+
+Switch the given program to enforce mode
+
+positional arguments:
+  program        name of program
+
+options:
+root@MachadoPC:~# aa-complain --help | head -8
+usage: aa-complain [-h] [-d DIR] [--no-reload] program [program ...]
+
+Switch the given program to complain mode
+
+positional arguments:
+  program        name of program
+
+options:
+root@MachadoPC:~# aa-logprof --help | head -10
+usage: aa-logprof [-h] [-d DIR] [-f FILE] [-m MARK] [-j] [-a]
+                  [--no-abstraction] [-o OUTPUT_DIR]
+
+Process log entries to generate profiles
+
+options:
+  -h, --help            show this help message and exit
+  -d, --dir DIR         path to profiles
+  -f, --file FILE       path to logfile
+  -m, --mark MARK       mark in the log to start processing after
+root@MachadoPC:~# aa-genprof --help | head -10
+usage: aa-genprof [-h] [-d DIR] [-f FILE] [-j] [--no-abstraction]
+                  [-o OUTPUT_DIR]
+                  program
+
+Generate profile for the given program
+
+positional arguments:
+  program               name of program to profile
+
+options:

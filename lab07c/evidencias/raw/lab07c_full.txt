@@ -1,0 +1,11 @@
+﻿=== Lab 07C raw dump 08/06/2026 23:19:57 ===
+OS: Microsoft Windows 11 Home Single Language
+
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+

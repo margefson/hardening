@@ -1,0 +1,17 @@
+﻿=== CONSOLIDACAO RECOMENDACOES GOVERNANCA ===
+Padronizacao:
+1. Adotar Microsoft Security Compliance Toolkit (Win11/Server) como referencia
+2. Aprovar baseline AmazonTech (subset) e versionar em repositorio
+3. Aplicar via LGPO (workgroup) ou GPO/Intune (dominio/cloud)
+
+Monitoramento:
+4. SCA / PolicyAnalyzer periodico (mensal)
+5. Reauditoria 06A/06B/06C trimestral + apos mudancas
+6. Centralizar evidencias e change log
+
+Revisao periodica:
+7. Revisar baseline a cada release Windows / semestral
+8. Indicadores: % hosts conformes, tickets drift, HI Lynis (Linux), findings NTFS
+
+Prioridade alta: (1) baseline+LGPO, (2) remover admin diario, (3) ACL Financeiro
+

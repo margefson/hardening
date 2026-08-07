@@ -1,0 +1,11 @@
+﻿PS> # Consolidacao Lab 07E - parecer AmazonTech
+Servicos: total=291 running=127 stopped=164
+Startup entries (Win32_StartupCommand): 5
+Nenhum servico foi parado/desabilitado nesta OS.
+
+Parecer preliminar:
+Avaliacao de Hardening CONCLUIDA - endpoint com oportunidades de reducao de superficie
+(servicos/startup/features), sem comprometimento dos controles 07A-07D.
+Proximo passo: priorizar plano preliminar sob change control + baseline GPO/Intune.
+Ciclo Aula 7 (07A-07E) completo em nivel de auditoria/planejamento.
+

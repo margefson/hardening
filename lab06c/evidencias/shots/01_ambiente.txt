@@ -1,0 +1,11 @@
+﻿PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+
+quinta-feira, 6 de agosto de 2026 19:54:31
+OS: Microsoft Windows 11 Home Single Language | Build: 26200
+Estacao: WIN-ADM-01 | Lab 06C - Permissoes NTFS
+Raiz simulada AmazonTech: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+
+
+

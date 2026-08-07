@@ -1,0 +1,25 @@
+﻿PS> # Atividade 1 - Ambiente PowerShell / Terminal
+PS> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      5.1.26100.8875
+PSEdition                      Desktop
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   10.0.26100.8875
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+
+PS> Host / edicao
+Host.Name: ConsoleHost
+Host.Version: 5.1.26100.8875
+Edition: Desktop
+CompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8875
+
+Windows Terminal disponivel:
+wt.exe no PATH: True
+wt path: C:\Users\marge\AppData\Local\Microsoft\WindowsApps\wt.exe
+powershell.exe: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+pwsh.exe (PS Core): False

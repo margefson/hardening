@@ -1,0 +1,14 @@
+﻿PS> # MMC: centraliza snap-ins (Local Security Policy, Event Viewer, etc.)
+PS> where.exe mmc
+C:\Windows\System32\mmc.exe
+PS> Test-Path mmc.exe / secpol / eventvwr
+mmc: True
+eventvwr.msc: True
+secpol.msc: False
+
+# Snap-ins tipicos para auditoria de privilegios:
+# - Security Templates / Local Security Policy (User Rights Assignment)
+# - Event Viewer (Security log)
+# - Computer Management (Local Users and Groups)
+# Evidencia obtida via secedit + whoami + Get-WinEvent (sem alterar config).
+

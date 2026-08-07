@@ -1,0 +1,17 @@
+﻿=== COMPARACAO GUI vs CLI ===
+Ferramentas: Explorer Seguranca | Avancado | Effective Access | icacls | Get-Acl
+
+Consistencia observada:
+- Owner Financeiro: MACHADOPC\marge
+- Access count Get-Acl: 8
+- icacls lista as mesmas identidades (SID/nomes) com masks (F,M,RX, etc.)
+- Heranca: IsInherited=True nas entradas padrao (AreAccessRulesProtected=False)
+
+Diferencas:
+- GUI Effective Access resume resultado final por usuario
+- icacls/Get-Acl mostram ACE brutas (melhor para automacao/auditoria em massa)
+- Get-Acl AccessToString e legivel; icacls e compacto e scriptavel
+
+Mais adequada para auditoria corporativa em escala: icacls + Get-Acl (PowerShell)
+GUI permanece util para Effective Access e troubleshooting pontual.
+

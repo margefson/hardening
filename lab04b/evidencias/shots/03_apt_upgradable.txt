@@ -1,0 +1,5 @@
+root@MachadoPC:~# apt list --upgradable 2>/dev/null
+Listing...
+libexpat1/stable-security 2.8.2-1~deb13u1 amd64 [upgradable from: 2.7.1-2]
+
+Total upgradable (excl header): 1

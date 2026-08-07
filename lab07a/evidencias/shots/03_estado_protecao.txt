@@ -1,0 +1,42 @@
+﻿PS> # Atividade 2 - Estado da protecao (Get-MpPreference / status)
+=== Preferencias (resumo) ===
+
+
+DisableRealtimeMonitoring    : False
+MAPSReporting                : 2
+SubmitSamplesConsent         : 1
+EnableControlledFolderAccess : 1
+DisableBehaviorMonitoring    : False
+DisableIOAVProtection        : False
+DisableScriptScanning        : False
+CloudBlockLevel              : 0
+PUAProtection                : 1
+
+
+
+
+
+=== Indicadores de estado ===
+
+
+AntivirusEnabled          : True
+AMServiceEnabled          : True
+RealTimeProtectionEnabled : True
+IoavProtectionEnabled     : True
+NISEnabled                : True
+BehaviorMonitorEnabled    : True
+OnAccessProtectionEnabled : True
+IsTamperProtected         : True
+AntivirusSignatureAge     : 0
+QuickScanAge              : 1
+
+
+
+
+
+Interpretacao AmazonTech:
+- Protecao em tempo real: True
+- Protecao nuvem (MAPS): MAPSReporting=2 (2=Advanced tipico)
+- Envio de amostras: SubmitSamplesConsent=1
+- Tamper Protection: IsTamperProtected=True
+

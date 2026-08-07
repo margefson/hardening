@@ -1,0 +1,30 @@
+root@MachadoPC:~# ls -lZ /etc/passwd /etc/shadow /usr/sbin/sshd /etc/hosts
+-rw-r--r--. 1 root root   system_u:object_r:net_conf_t:s0     415 Aug  6 19:03 /etc/hosts
+-rw-r--r--. 1 root root   system_u:object_r:etc_t:s0         1508 Jul 30 18:33 /etc/passwd
+-rw-r-----. 1 root shadow system_u:object_r:shadow_t:s0      1221 Jul 30 18:33 /etc/shadow
+-rwxr-xr-x. 1 root root   system_u:object_r:sshd_exec_t:s0 568224 May  6 08:33 /usr/sbin/sshd
+
+root@MachadoPC:~# ls -lZ / | head -16
+total 2856
+-rw-r--r--    1 root   root            ?                                       5889 Jul 30 19:17 07_aide.txt
+drwxr-x---.   2 paulo  auditoria       system_u:object_r:default_t:s0          4096 Jul 28 19:00 auditoria
+lrwxrwxrwx.   1 root   root            system_u:object_r:bin_t:s0                 7 May 12  2025 bin -> usr/bin
+drwxr-xr-x    2 root   root            ?                                       4096 May 12  2025 boot
+drwxr-xr-x   15 root   root            ?                                       3860 Aug  6 19:03 dev
+drwxr-xr-x.  79 root   root            system_u:object_r:etc_t:s0              4096 Aug  6 19:03 etc
+drwxrwx---.   2 maria  financeiro      system_u:object_r:default_t:s0          4096 Jul 28 19:00 financeiro
+drwxr-xr-x.   8 root   root            system_u:object_r:home_root_t:s0        4096 Jul 28 19:00 home
+drwxr-x---.   2 carlos infraestrutura  system_u:object_r:default_t:s0          4096 Jul 28 19:00 infraestrutura
+-rwxr-xr-x    1 root   root            ?                                    2836528 Apr 24 17:29 init
+lrwxrwxrwx    1 root   root            ?                                          7 May 12  2025 lib -> usr/lib
+lrwxrwxrwx    1 root   root            ?                                          9 May 12  2025 lib64 -> usr/lib64
+drwx------    2 root   root            ?                                      16384 May 12 18:45 lost+found
+drwxr-xr-x    2 root   root            ?                                       4096 Aug 10  2025 media
+drwxr-xr-x    8 root   root            ?                                       4096 Jul 23 16:10 mnt
+
+root@MachadoPC:~# restorecon -Rv /var/www/html
+Relabeled /var/www/html from <no context> to system_u:object_r:httpd_sys_content_t:s0
+Relabeled /var/www/html/index.html from <no context> to system_u:object_r:httpd_sys_content_t:s0
+root@MachadoPC:~# ls -lZ /var/www/html
+total 4
+-rw-r--r--. 1 root root system_u:object_r:httpd_sys_content_t:s0 18 Aug  6 19:03 index.html

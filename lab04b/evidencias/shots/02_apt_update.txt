@@ -1,0 +1,6 @@
+root@MachadoPC:~# apt-get update
+Hit:1 http://ftp.debian.org/debian trixie-backports InRelease
+Hit:2 http://deb.debian.org/debian trixie InRelease
+Hit:3 http://security.debian.org/debian-security trixie-security InRelease
+Hit:4 http://deb.debian.org/debian trixie-updates InRelease
+Reading package lists...

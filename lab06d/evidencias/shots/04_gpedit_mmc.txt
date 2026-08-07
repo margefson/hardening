@@ -1,0 +1,22 @@
+﻿PS> # gpedit.msc / MMC disponibilidade
+gpedit.msc: False
+secpol.msc: False
+mmc.exe: True
+gpmc.msc: False
+
+Categorias tipicas em gpedit (Computer Configuration):
+- Windows Settings > Security Settings (Account/Local/Audit/Firewall)
+- Administrative Templates > Windows Components / System / Network
+Configuracoes criticas para auditoria: UAC, User Rights, Password Policy,
+Audit Logon/Object Access, Windows Defender, Removable Storage, WinRM/SSH
+
+Snap-ins MMC recomendados para governanca:
+1) Group Policy Object Editor / Local Group Policy
+2) Security Templates
+3) Security Configuration and Analysis
+4) Event Viewer
+5) Computer Management (Local Users and Groups)
+
+PS> where.exe mmc
+C:\Windows\System32\mmc.exe
+

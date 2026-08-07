@@ -1,0 +1,30 @@
+﻿PS> # Atividade 5b - Integracao com Labs 07A/07B (consulta)
+PS> Get-MpComputerStatus | Select AntivirusEnabled, RealTimeProtectionEnabled, AMServiceEnabled, AntivirusSignatureVersion, NISEnabled
+
+
+AntivirusEnabled          : True
+RealTimeProtectionEnabled : True
+AMServiceEnabled          : True
+AntivirusSignatureVersion : 1.457.40.0
+NISEnabled                : True
+IsTamperProtected         : True
+
+
+
+
+
+PS> Get-NetFirewallProfile | Select Name, Enabled, DefaultInboundAction, DefaultOutboundAction
+
+Name    Enabled DefaultInboundAction DefaultOutboundAction
+----    ------- -------------------- ---------------------
+Domain     True        NotConfigured         NotConfigured
+Private    True        NotConfigured         NotConfigured
+Public     True        NotConfigured         NotConfigured
+
+
+
+
+Integracao: o mesmo shell consulta Defender (07A), Firewall (07B) e info do SO,
+permitindo auditoria padronizada, scripts versionados e evidencias auditaveis
+sem depender apenas da GUI de cada console (wf.msc, Windows Security, etc.).
+

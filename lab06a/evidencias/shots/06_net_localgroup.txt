@@ -1,0 +1,83 @@
+﻿PS> net localgroup
+
+Alias para \\MACHADOPC
+
+-------------------------------------------------------------------------------
+*__vmware__
+*Administradores
+*Administradores do Hyper-V
+*Convidados
+*Distributed COM - Usuários
+*IIS_IUSRS
+*Leitores de log de eventos
+*Operadores de hardware do modo de usuário
+*Proprietários do Dispositivo
+*System Managed Accounts Group
+*Usuários
+*Usuários de Gerenciamento Remoto
+*Usuários de log de desempenho
+*Usuários de monitor de desempenho
+*Usuários do OpenSSH
+Comando concluído com êxito.
+
+
+PS> net localgroup Administrators
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:61 caractere:3
++   net localgroup Administrators
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+
+PS> net localgroup Administradores
+Nome de alias      Administradores
+Comentário         Os administradores têm acesso completo e irrestrito ao computador/domínio
+
+Membros
+
+-------------------------------------------------------------------------------
+Administrador
+marge
+Comando concluído com êxito.
+
+
+PS> net localgroup Users
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:68 caractere:3
++   net localgroup Users 2>&1
++   ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+PS> net localgroup Usuarios
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\capture_lab06a.ps1:70 caractere:3
++   net localgroup Usuarios 2>&1
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+
+
+PS> net localgroup Usuarios
+net : Erro de sistema 1376.
+No D:\MMB\workspace\hardening\lab06a\scripts\patch_shots.ps1:36 caractere:13
++ $grpUsers = net localgroup "UsuÃ¡rios" 2>&1 | Out-String
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Erro de sistema 1376.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+O grupo local especificado não existe.
+
+

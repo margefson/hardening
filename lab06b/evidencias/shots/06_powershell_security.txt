@@ -1,0 +1,30 @@
+﻿PS> Get-Command *Security* | Measure-Object
+Total cmdlets/funcoes *Security*: 5
+
+PS> Get-Command *Security* | Select-Object -First 25 Name, CommandType, Source
+
+Name                          CommandType Source                                       
+----                          ----------- ------                                       
+Get-NetFirewallSecurityFilter    Function NetSecurity                                  
+Set-NetFirewallSecurityFilter    Function NetSecurity                                  
+SecurityHealthHost.exe        Application C:\WINDOWS\system32\SecurityHealthHost.exe   
+SecurityHealthService.exe     Application C:\WINDOWS\system32\SecurityHealthService.exe
+SecurityHealthSystray.exe     Application C:\WINDOWS\system32\SecurityHealthSystray.exe
+
+
+
+
+PS> Get-LocalGroupMember -Group Administradores
+
+Name                    ObjectClass  PrincipalSource
+----                    -----------  ---------------
+MachadoPC\Administrador Usuário                Local
+MACHADOPC\marge         Usuário     MicrosoftAccount
+
+
+
+
+PS> whoami /groups | findstr /i Administr
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+

@@ -1,0 +1,21 @@
+﻿PS> # Atividade 5a - Get-ComputerInfo (sistema operacional)
+PS> Get-ComputerInfo | Select OsName, OsVersion, OsBuildNumber, OsArchitecture, CsName, CsDomain, WindowsProductName, WindowsInstallationType, BiosFirmwareType, HyperVisorPresent
+
+
+OsName                  : Microsoft Windows 11 Home Single Language
+OsVersion               : 10.0.26200
+OsBuildNumber           : 26200
+OsArchitecture          : 64 bits
+CsName                  : MACHADOPC
+CsDomain                : WORKGROUP
+WindowsProductName      : Windows 10 Home Single Language
+WindowsInstallationType : Client
+BiosFirmwareType        : Uefi
+HyperVisorPresent       : True
+OsInstallDate           : 10/03/2026 21:56:16
+OsLastBootUpTime        : 06/08/2026 18:27:34
+
+
+
+
+

@@ -1,0 +1,25 @@
+﻿=== CONSOLIDACAO AUDITORIA PRIVILEGIOS LAB 06B ===
+Estacao: WIN-ADM-01 / MachadoPC
+Usuario sessao: machadopc\marge
+Data: 08/06/2026 19:48:23
+
+1) Token (whoami /priv) - privilegios com estado Ativada:
+SeChangeNotifyPrivilege       Ignorar a verificação completa            Ativada   
+
+2) Membros Administradores:
+MachadoPC\Administrador, MACHADOPC\marge
+
+3) UAC EnableLUA: 1
+   ConsentPromptBehaviorAdmin: 5
+
+4) Ferramentas: whoami/priv, secedit(negado sem elevacao), gpedit/secpol N/A Home,
+   whoami/all, PowerShell, MMC paths, Event Viewer (System OK; Security exige admin)
+
+5) Inconsistencias vs menor privilegio:
+- Conta diaria marge em Administradores (Lab 06A)
+- Token filtrado: poucos privilegios ativos agora, mas elevacao disponivel
+- Security log inacessivel sem admin (lacuna de auditoria operacional)
+- Conta postgres habilitada - revisar logon rights
+
+6) Recomendacoes: conta admin separada; JIT/UAC; export User Rights elevado;
+   habilitar/auditar 4672; seguir para Lab 06C (NTFS)

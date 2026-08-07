@@ -1,0 +1,36 @@
+﻿PS> # Atividade 1 - Plataforma Windows Security / Microsoft Defender
+Windows Defender UI (legado): False
+SecurityHealthSystray: True
+Windows Security (app moderno): via menu Iniciar > Windows Security
+
+Modulos tipicos da tela inicial (Windows Security):
+  - Protecao contra virus e ameacas (Virus & threat protection)
+  - Protecao de conta (Account protection)
+  - Firewall e protecao de rede
+  - Controle de aplicativos e navegador
+  - Seguranca do dispositivo
+  - Desempenho e saude do dispositivo
+  - Opcoes da familia
+
+PS> Get-Service WinDefend, Sense, MdCoreSvc, SecurityHealthService -ErrorAction SilentlyContinue
+
+Name                   Status StartType
+----                   ------ ---------
+MdCoreSvc             Running Automatic
+SecurityHealthService Running    Manual
+WinDefend             Running Automatic
+
+
+
+
+PS> Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct
+
+
+displayName            : Windows Defender
+pathToSignedProductExe : windowsdefender://
+productState           : 397568
+
+
+
+
+

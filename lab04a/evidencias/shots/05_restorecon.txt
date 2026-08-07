@@ -1,0 +1,9 @@
+root@MachadoPC:~# ls -lZ /etc/motd
+-rw-r--r--. 1 root root system_u:object_r:etc_t:s0 286 May 12  2025 /etc/motd
+root@MachadoPC:~# chcon -t user_home_t /etc/motd
+root@MachadoPC:~# ls -lZ /etc/motd
+-rw-r--r--. 1 root root system_u:object_r:user_home_t:s0 286 May 12  2025 /etc/motd
+root@MachadoPC:~# restorecon -v /etc/motd
+Relabeled /etc/motd from system_u:object_r:user_home_t:s0 to system_u:object_r:etc_t:s0
+root@MachadoPC:~# ls -lZ /etc/motd
+-rw-r--r--. 1 root root system_u:object_r:etc_t:s0 286 May 12  2025 /etc/motd

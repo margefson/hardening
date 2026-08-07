@@ -1,0 +1,18 @@
+﻿PS> whoami /priv
+
+INFORMAÇÕES DE PRIVILÉGIOS
+---------------------------
+
+Nome de privilégio            Descrição                                 Estado    
+============================= ========================================= ==========
+SeShutdownPrivilege           Desligar o sistema                        Desativado
+SeChangeNotifyPrivilege       Ignorar a verificação completa            Ativada   
+SeUndockPrivilege             Remover o computador da base de encaixe   Desativado
+SeIncreaseWorkingSetPrivilege Aumentar conjunto de trabalho de processo Desativado
+SeTimeZonePrivilege           Alterar fuso horário                      Desativado
+
+PS> Resumo: privilegios listados na sessao atual (token filtrado UAC)
+Linhas com estado Ativada/Enabled approx: 1
+Linhas com estado Desativado/Disabled approx: 4
+Unico privilegio tipicamente ativo em sessao media: SeChangeNotifyPrivilege
+SeShutdownPrivilege presente mas Desativado (nao elevado)

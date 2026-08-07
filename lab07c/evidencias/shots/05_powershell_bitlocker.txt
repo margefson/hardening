@@ -1,0 +1,39 @@
+﻿PS> # Atividade 4 - Cmdlets administrativos BitLocker
+PS> Get-Command *BitLocker*
+
+Name                              CommandType Source                                           
+----                              ----------- ------                                           
+Add-BitLockerKeyProtector            Function BitLocker                                        
+Backup-BitLockerKeyProtector         Function BitLocker                                        
+BackupToAAD-BitLockerKeyProtector    Function BitLocker                                        
+BackupToMSA-BitLockerKeyProtector    Function BitLocker                                        
+Clear-BitLockerAutoUnlock            Function BitLocker                                        
+Disable-BitLocker                    Function BitLocker                                        
+Disable-BitLockerAutoUnlock          Function BitLocker                                        
+Enable-BitLocker                     Function BitLocker                                        
+Enable-BitLockerAutoUnlock           Function BitLocker                                        
+Get-BitLockerVolume                  Function BitLocker                                        
+Lock-BitLocker                       Function BitLocker                                        
+Remove-BitLockerKeyProtector         Function BitLocker                                        
+Resume-BitLocker                     Function BitLocker                                        
+Suspend-BitLocker                    Function BitLocker                                        
+Unlock-BitLocker                     Function BitLocker                                        
+BitLockerDeviceEncryption.exe     Application C:\WINDOWS\system32\BitLockerDeviceEncryption.exe
+BitLockerWizardElev.exe           Application C:\WINDOWS\system32\BitLockerWizardElev.exe      
+
+
+
+
+PS> Get-BitLockerVolume
+Get-BitLockerVolume: Acesso negado 
+Interpretacao: cmdlet pode exigir modulo BitLocker + edicao Pro/Enterprise + elevacao.
+
+PS> Get-Module -ListAvailable BitLocker
+
+Name      Version Path                                                                       
+----      ------- ----                                                                       
+BitLocker 1.0.0.0 C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitLocker\BitLocker.psd1
+
+
+
+

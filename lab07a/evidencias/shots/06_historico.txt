@@ -1,0 +1,31 @@
+﻿PS> # Atividade 5 - Historico de protecao
+PS> Get-MpThreatDetection | Select -First 15
+
+InitialDetectionTime ActionSuccess Resources                                                                           
+-------------------- ------------- ---------                                                                           
+26/07/2026 17:22:47           True {file:_C:\Users\marge\AppData\Local\Temp\vmware-marge\VMwareDnD\1aeb3a8e\TOMWare\...
+31/07/2026 21:05:10           True {file:_F:\Instaladores\driver-hub-install__28.exe}                                  
+26/07/2026 17:22:45           True {file:_C:\Users\marge\AppData\Local\Temp\vmware-marge\VMwareDnD\1aeb3a8e\TOMWare\...
+23/07/2026 17:57:59           True {file:_D:\MMB\DBI\fluxtrace\resultados\artefatos\a0aeb837cb5e762fc0b7d657c71d343e...
+26/07/2026 17:22:43           True {file:_C:\Users\marge\AppData\Local\Temp\vmware-marge\VMwareDnD\1aeb3a8e\TOMWare\...
+23/07/2026 17:56:43           True {file:_D:\MMB\DBI\fluxtrace\resultados\artefatos\a0aeb837cb5e762fc0b7d657c71d343e...
+
+
+
+
+PS> Get-MpThreat | Select -First 10
+
+ThreatName                        SeverityID IsActive DidThreatExecute
+----------                        ---------- -------- ----------------
+PUABundler:Win32/Rostpay                   1    False            False
+Backdoor:MSIL/AsyncRAT.X!MTB               5    False            False
+Trojan:PowerShell/Powdow.HNBQ!MTB          5    False            False
+Trojan:Win64/ValleyRat.PD!MTB              5    False            False
+Trojan:Win64/ClipBanker.SXA!MTB            5    False            False
+
+
+
+
+Observacao: o Historico de Protecao da GUI Windows Security agrega deteccoes,
+acoes (quarentena/remover) e eventos administrativos; PowerShell espelha o essencial.
+

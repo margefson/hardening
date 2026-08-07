@@ -1,0 +1,15 @@
+﻿PS> # Microsoft Security Compliance Toolkit (SCT) - analise documental + busca local
+Busca por SCT/LGPO no host:
+
+Finalidade SCT (referencia Microsoft):
+- Disponibilizar Security Baselines oficiais por versao (Win11, Server, Edge, Office, etc.)
+- Inclui GPOs pre-configuradas, planilhas de settings, PolicyAnalyzer, LGPO.exe
+- Componentes tipicos de baseline: Account Policies, Local Policies/User Rights,
+  Security Options, Windows Firewall, Audit Policy, Admin Templates (hardening)
+
+Baseline alvo AmazonTech (recomendado): Windows 11 / Windows Server (Enterprise)
+Beneficio: padronizar WIN-ADM-01 e futuros hosts; reduzir drift administrativo
+
+PS> Get-HotFix | Select -First 5; (contagem updates)
+Hotfixes instalados (amostra): 5
+

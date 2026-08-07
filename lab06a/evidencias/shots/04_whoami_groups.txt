@@ -1,0 +1,21 @@
+﻿PS> whoami /groups
+
+INFORMAÇÕES DE GRUPO
+---------------------
+
+Nome do grupo                                                  Tipo                     SID                                                                                                           Atributos                                           
+============================================================== ======================== ============================================================================================================= ====================================================
+Rótulo Obrigatório\Nível Obrigatório Médio                     Rótulo                   S-1-16-8192                                                                                                                                                       
+Todos                                                          Grupo bastante conhecido S-1-1-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local e membro do grupo de Administradores Grupo bastante conhecido S-1-5-114                                                                                                     Grupo usado apenas para negar                       
+BUILTIN\Administradores                                        Alias                    S-1-5-32-544                                                                                                  Grupo usado apenas para negar                       
+BUILTIN\Usuários                                               Alias                    S-1-5-32-545                                                                                                  Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\INTERATIVO                                       Grupo bastante conhecido S-1-5-4                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOGON de CONSOLE                                               Grupo bastante conhecido S-1-2-1                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Usuários autenticados                            Grupo bastante conhecido S-1-5-11                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Esta organização                                 Grupo bastante conhecido S-1-5-15                                                                                                      Grupo obrigatório, Ativado por padrão, Grupo ativado
+MicrosoftAccount\margefson@outlook.com                         Usuário                  S-1-11-96-3623454863-58364-18864-2661722203-1597581903-3475737053-2921256199-3083456810-3665046889-1597444998 Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Conta local                                      Grupo bastante conhecido S-1-5-113                                                                                                     Grupo obrigatório, Ativado por padrão, Grupo ativado
+LOCAL                                                          Grupo bastante conhecido S-1-2-0                                                                                                       Grupo obrigatório, Ativado por padrão, Grupo ativado
+AUTORIDADE NT\Cloud Account Authentication                     Grupo bastante conhecido S-1-5-64-36                                                                                                   Grupo obrigatório, Ativado por padrão, Grupo ativado
+

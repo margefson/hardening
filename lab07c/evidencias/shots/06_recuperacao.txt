@@ -1,0 +1,50 @@
+﻿PS> # Atividade 5 - Opcoes de recuperacao (exploracao; SEM alterar)
+Interface tipica (Pro): Painel de Controle > BitLocker > Fazer backup da chave de recuperacao
+Opcoes comuns de backup:
+  - Conta Microsoft
+  - Conta / pasta de trabalho (AD/Azure AD - corporativo)
+  - Arquivo USB / impressao (48 digitos)
+
+Finalidade da chave de recuperacao:
+  Permitir desbloqueio da unidade quando TPM falha, hardware muda,
+  PIN esquecido, ou boot em ambiente nao confiavel (recovery mode).
+  Sem a chave, dados criptografados ficam inacessiveis - custodia corporativa obrigatoria.
+
+PS> manage-bde -protectors -get C:  (somente leitura; pode falhar sem BitLocker/admin)
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+
+
+PS> # Protectors em outras letras (se existirem)
+--- protectors F: ---
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+--- protectors C: ---
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+--- protectors D: ---
+Criptografia de Unidade de Disco BitLocker:
+Ferramenta de Configuração versão 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. Todos os direitos reservados.
+
+ERRO: uma tentativa de acessar um recurso obrigatório foi negada.
+
+Verifique se você tem direitos administrativos no computador.
+
+NENHUMA chave foi gerada/alterada/apagada nesta atividade (restricao OS).
+

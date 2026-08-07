@@ -1,0 +1,22 @@
+root@MachadoPC:~# debsums -c 2>&1 | tee /tmp/debsums04b.txt | head -40
+
+exit_code=0 (0=sem inconsistencias reportadas por -c)
+linhas alteradas: 0
+Nenhuma inconsistencia reportada por debsums -c (checksums OK ou silencio).
+
+root@MachadoPC:~# debsums --help | head -15
+debsums checks the MD5 sums of installed debian packages.
+
+Usage: debsums [OPTIONS] [PACKAGE|DEB] ...
+
+Options:
+ -a, --all                    check configuration files (normally excluded)
+ -e, --config                 check only configuration files
+ -c, --changed                report changed files (implies -s)
+ -l, --list-missing           list packages which don't have an md5sums file
+ -s, --silent                 only report errors
+ -m, --md5sums=FILE           read list of deb checksums from FILE
+ -x, --report-mismatches      report errors and print the md5sums mismatch
+ -r, --root=DIR               root directory to check (default /)
+ -d, --admindir=DIR           dpkg admin directory (default /var/lib/dpkg)
+ -p, --deb-path=DIR[:DIR...]  search path for debs

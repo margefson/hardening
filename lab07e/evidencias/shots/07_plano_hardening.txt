@@ -1,0 +1,15 @@
+﻿PS> # Atividade 5 - Plano preliminar de Hardening (SEM alterar)
+Tabela: Item | Situacao observada | Recomendacao
+
+1. RemoteRegistry | Verificar StartType/Status | Manter Disabled se nao houver necessidade remota
+2. Spooler | Running/Automatic tipico | Desabilitar em hosts sem impressao (apos aceite)
+3. Xbox* / WMPNetworkSvc | Se presentes | Desabilitar em endpoints corporativos
+4. Startup (HKCU/HKLM Run) | Itens de terceiros | Revisar impacto; remover nao essenciais
+5. SMB1 / Telnet / TFTP | Se Enabled | Remover feature (superficie legado)
+6. IIS / Containers / WSL | Se Enabled sem demanda | Desinstalar ou restringir
+7. Servicos Automatic nao-Microsoft | Paths fora System32 | Inventariar; justificar ou remover
+8. WinDefend / MpsSvc | Running | MANTER (nucleo Labs 07A/07B)
+
+Justificativa geral: menor funcionalidade + menor superficie; mudancas so em janela autorizada.
+Documento completo: evidencias/docs/Plano_Preliminar_Hardening_Servicos.txt
+

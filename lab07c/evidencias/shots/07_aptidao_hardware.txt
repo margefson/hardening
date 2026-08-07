@@ -1,0 +1,14 @@
+﻿PS> # Aptidao para politica AmazonTech (notebooks externos)
+Edicao: Microsoft Windows 11 Home Single Language
+Chassis/Model: SAMSUNG ELECTRONICS CO., LTD. 550XDA
+PCSystemType: 2 (2=Mobile/Notebook tipico)
+TPM Present= Ready= Enabled= Activated=
+manage-bde disponivel: True
+BDESVC: Stopped
+
+Criterios AmazonTech (criptografia obrigatoria em notebooks externos):
+  1) Edicao com BitLocker completo (Pro/Enterprise/Education) OU Device Encryption
+  2) TPM 2.0 preferencialmente Ready
+  3) Custodia de recovery key no AD/Entra ID / cofre corporativo
+  4) Politica: TPM+PIN para alto risco; suspender so em manutencao autorizada
+

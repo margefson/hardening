@@ -1,0 +1,11 @@
+Baseline corporativa validada no WEB-01 (Labs 01-04B) - reuso no DB-01:
+
+[Lab01] Inventario antes de mudar | evidencia de estado
+[Lab02] Identidades/grupos | sudo restrito | 750/770 | ACL excepcional
+[Lab03] Menor funcionalidade | SSH harden | UFW deny | Fail2Ban | AIDE | Lynis HI=69
+[Lab04A] MAC SELinux Enforcing | labels/restorecon/semanage
+[Lab04B] apt security | debsecan | Lynis periodico | AIDE/debsums | plano continuo
+
+Principios permanentes AmazonTech:
+  menor privilegio | menor funcionalidade | menor comunicacao
+  defesa em profundidade | evidencia antes de opiniao | manutencao continua

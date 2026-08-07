@@ -1,0 +1,22 @@
+﻿PS> # Atividade 3 - Inteligencia de seguranca / assinaturas
+
+
+AntivirusSignatureVersion     : 1.457.34.0
+AntivirusSignatureLastUpdated : 06/08/2026 09:31:51
+AntivirusSignatureAge         : 0
+NISSignatureVersion           : 1.457.34.0
+NISSignatureLastUpdated       : 06/08/2026 09:31:51
+AMEngineVersion               : 1.1.26070.7
+AMProductVersion              : 4.18.26070.9
+AMServiceVersion              : 4.18.26070.9
+
+
+
+
+
+PS> Update-MpSignature (somente se permitido; tenta atualizar)
+Update-MpSignature: OK
+Apos tentativa - AntivirusSignatureVersion: 1.457.40.0
+AntivirusSignatureLastUpdated: 08/06/2026 15:43:40
+AntivirusSignatureAge (dias): 0
+

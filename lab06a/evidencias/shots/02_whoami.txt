@@ -1,0 +1,5 @@
+﻿PS> whoami
+machadopc\marge
+
+# Ex1: usuario autenticado; conta local vs dominio; base da autorizacao
+

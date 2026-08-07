@@ -1,0 +1,19 @@
+﻿PLANO PRELIMINAR DE HARDENING DE SERVICOS - AmazonTech / WIN-ADM-01
+Data: 06/08/2026
+Equipe: Josias Bentes, Keven Coimbra, Margefson Barros, Nattan Lobato
+Restricao: NENHUMA alteracao aplicada neste laboratorio (apenas avaliacao).
+
+Item Avaliado                 | Situacao Observada                         | Recomendacao                         | Justificativa
+------------------------------|--------------------------------------------|--------------------------------------|---------------------------
+RemoteRegistry                | Inventariado (superficie remota)           | Manter/Disabled se sem uso           | Reduz registro remoto
+Spooler                       | Tipicamente Automatic/Running              | Revisar; desabilitar se sem impressao| Menor funcionalidade
+Xbox*/WMPNetworkSvc           | Servicos de consumo                        | Desabilitar em endpoints corporativos| Sem demanda de negocio
+Programas Startup (Run keys)  | Entradas HKCU/HKLM + StartupCommand        | Remover nao essenciais               | Acelera boot; reduz malware persistente
+SMB1/Telnet/TFTP              | Verificar Optional Features                | Remover se Enabled                   | Protocolos legados inseguros
+IIS/WSL/Containers            | Verificar se Enabled sem projeto           | Desinstalar ou restringir            | Superficie de ataque extra
+Servicos Auto fora System32   | Paths de terceiros                         | Inventariar e justificar              | Software nao padronizado
+WinDefend + MpsSvc            | Controles Labs 07A/07B                     | MANTER ativos                        | Nucleo de protecao endpoint
+Execution Policy / Logging PS | Lab 07D                                    | Baseline RemoteSigned + logging       | Governanca administrativa
+BitLocker/Device Encryption   | Lab 07C (Home parcial)                     | Upgrade Pro + recovery key            | Dados em repouso
+
+Prioridade sugerida: (1) RemoteRegistry/legado (2) Startup (3) Features opcionais (4) Spooler/Xbox (5) BitLocker edicao.

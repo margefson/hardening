@@ -1,0 +1,47 @@
+﻿PS> # Complemento - regras habilitadas por direcao (amostra auditoria)
+Inbound Enabled (Top 15 por DisplayName):
+
+DisplayName                                                                      Action Profile
+-----------                                                                      ------ -------
+Uso do Spooler de Wi-Fi Direct (Entrada)                                          Allow  Public
+Rede Principal – IPv6 (IPv6-Entrada)                                              Allow     Any
+Otimização de Entrega (Entrada UDP)                                               Allow     Any
+Sistema de Rede Básico - Anúncio de Roteador (ICMPv6-Entrada)                     Allow     Any
+Rede Principal - Fragmentação de Destino Inacessível Necessária (ICMPv4-Entrada)  Allow     Any
+Rede Principal - Protocolo DHCP (DHCP-Saída)                                      Allow     Any
+Descoberta de Rede (WSD-Entrada)                                                  Allow Private
+Rede Principal - Protocolo DHCP para IPv6(DHCPV6-In)                              Allow     Any
+Descoberta de Rede para Teredo (SSDP-In)                                          Allow  Public
+Uso de Serviço de Digitalização de Wi-Fi Direct (Entrada)                         Allow  Public
+Descoberta de Rede (WSD-Entrada)                                                  Allow Private
+Descoberta de Rede (Eventos WSD-In)                                               Allow Private
+Sistema de Rede Básico - Solicitação de Descoberta de Vizinhos (ICMPv6-Entrada)   Allow     Any
+Assistência Remota (DCOM-In)                                                      Allow  Domain
+Descoberta de Rede (WSD EventsSecure-In)                                          Allow Private
+
+
+
+
+Outbound Enabled (Top 10):
+
+DisplayName                                                               Action         Profile
+-----------                                                               ------         -------
+Uso do Spooler de Wi-Fi Direct (Saída)                                     Allow          Public
+Descoberta de Rede (SSDP-Saída)                                            Allow         Private
+Descoberta de Rede (Eventos WSD-Out)                                       Allow         Private
+Assistência Remota (TCP-Saída)                                             Allow Domain, Private
+Sistema de Rede Básico - Pacote Muito Grande (ICMPv6-Saída)                Allow             Any
+Plataforma de Dispositivos Conectados (UDP-Out)                            Allow Domain, Private
+Plataforma de Dispositivos Conectados - Transporte Wi-Fi Direct (TCP-Out)  Allow          Public
+mDNS (UDP-Saída)                                                           Allow          Domain
+Rede Principal - Problema de Parâmetro (ICMPv6-Out)                        Allow             Any
+Plataforma de Dispositivos Conectados (TCP-Out)                            Allow Domain, Private
+
+
+
+
+Default actions (resumo):
+Domain: In=NotConfigured Out=NotConfigured Enabled=True
+Private: In=NotConfigured Out=NotConfigured Enabled=True
+Public: In=NotConfigured Out=NotConfigured Enabled=True
+

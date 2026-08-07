@@ -1,0 +1,50 @@
+﻿PLANO CORPORATIVO DE GOVERNANCA DA SEGURANCA - AmazonTech (Windows)
+Data: 06/08/2026
+Equipe: Josias Bentes, Keven Coimbra, Margefson Barros e Nattan Lobato
+Estacao referencia: WIN-ADM-01
+
+1. OBJETIVO DA GOVERNANCA
+Garantir que identidades, privilegios, permissoes NTFS e politicas de hardening
+permanecam padronizados e aderentes a Security Baselines aprovadas, apesar de
+mudancas operacionais, updates e rotatividade de administradores.
+
+2. MECANISMOS DE PADRONIZACAO
+- Security Baselines Microsoft (SCT) adaptadas ao perfil AmazonTech
+- LGPO.exe para hosts workgroup / golden image
+- GPO / Microsoft Intune para dominio e frota gerenciada
+- Templates Security Configuration and Analysis
+- Documentacao de excecoes com prazo e responsavel
+
+3. FERRAMENTAS RECOMENDADAS
+- Microsoft Security Compliance Toolkit (baselines + PolicyAnalyzer)
+- LGPO.exe
+- MMC (SCA, Event Viewer, Local Users)
+- gpedit/secpol (Enterprise/Server) / secedit
+- Scripts PowerShell de inventario (Labs 06A-C)
+- (Opcional) Microsoft Defender for Endpoint / Intune compliance
+
+4. PERIODICIDADE DAS AUDITORIAS
+- Diario: alertas de seguranca / falhas de auth (operacao)
+- Semanal: revisao rapida de mudancas privilegiadas
+- Mensal: PolicyAnalyzer/SCA vs baseline; amostra NTFS
+- Trimestral: ciclo completo identidades + privilegios + NTFS + governanca
+- Apos mudanca relevante / upgrade de build: revalidacao baseline
+
+5. RESPONSAVEIS
+- Gerencia de Infraestrutura: aplicacao LGPO/GPO e patches
+- Seguranca da Informacao: aprovacao baseline e excecoes
+- Equipe WIN-ADM: inventario e evidencias
+- Diretoria TI: aceite de risco residual
+
+6. INDICADORES
+- % estacoes com baseline aplicada (meta >= 95%)
+- Numero de contas com admin permanente injustificado (meta = 0)
+- Pastas sensiveis com Auth Users/Users indevido (meta = 0)
+- Tempo medio para remediacao de drift (meta < 14 dias)
+- Evidencias de auditoria arquivadas por ciclo (100%)
+
+7. INTEGRACAO LABS 06A-06D
+06A Identidades -> cadastro e grupos
+06B Privilegios -> menor privilegio / URA
+06C NTFS -> need-to-know / ACL
+06D Governanca -> baseline continua + plano permanente

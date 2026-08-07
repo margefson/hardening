@@ -1,0 +1,74 @@
+﻿PS> # Equivalente a Seguranca > Avancado (ACL/DACL, owner, heranca)
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+===== d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech =====
+Owner: MACHADOPC\marge
+AreAccessRulesProtected (heranca bloqueada?): False
+AccessRuleCount: 8
+
+IdentityReference                              FileSystemRights AccessControlType IsInherited
+-----------------                              ---------------- ----------------- -----------
+BUILTIN\Administradores                             FullControl             Allow        True
+BUILTIN\Administradores                               268435456             Allow        True
+AUTORIDADE NT\SISTEMA                               FullControl             Allow        True
+AUTORIDADE NT\SISTEMA                                 268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados         Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados                  -536805376             Allow        True
+BUILTIN\Usuários                    ReadAndExecute, Synchronize             Allow        True
+BUILTIN\Usuários                                    -1610612736             Allow        True
+
+
+
+

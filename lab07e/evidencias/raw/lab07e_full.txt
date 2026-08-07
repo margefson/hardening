@@ -1,0 +1,10 @@
+﻿=== Lab 07E raw 08/06/2026 23:35:42 ===
+
+Count Name                      Group                                                                                  
+----- ----                      -----                                                                                  
+  164 Stopped                   {AarSvc_a467c, ADPSvc, ALG, AppIDSvc...}                                               
+  127 Running                   {AdobeARMservice, Appinfo, AppXSvc, AudioEndpointBuilder...}                           
+
+
+
+StartupCount=5

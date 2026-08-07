@@ -1,0 +1,11 @@
+root@MachadoPC:~# # dnf updateinfo: N/A no Debian (Rocky/RHEL)
+# Equivalente interpretativo: apt-get changelog / security pocket
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | grep -i security | head -15 || true
+linux-image-6.12.86+deb13-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-amd64
+linux-image-6.12.86+deb13-amd64-unsigned - Linux 6.12 for 64-bit PCs
+linux-image-6.12.86+deb13-cloud-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-cloud-amd64
+linux-image-6.12.86+deb13-cloud-amd64-unsigned - Linux 6.12 for x86-64 cloud
+linux-image-6.12.86+deb13-rt-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-rt-amd64
+
+# Conclusao: em Rocky usariamos 'dnf updateinfo list security'.
+# No Debian/Ubuntu priorizamos security.debian.org + debsecan + apt upgrade.

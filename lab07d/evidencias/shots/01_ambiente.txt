@@ -1,0 +1,11 @@
+﻿PS> hostname; whoami; Get-Date
+MachadoPC
+machadopc\marge
+
+quinta-feira, 6 de agosto de 2026 23:28:29
+OS: Microsoft Windows 11 Home Single Language | Version: 10.0.26200 | Build: 26200
+Estacao: WIN-ADM-01 | Lab 07D - Administracao Segura com PowerShell
+Escopo: explorar plataforma PS (sem alterar Execution Policy / configs)
+
+
+

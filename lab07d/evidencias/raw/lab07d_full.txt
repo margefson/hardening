@@ -1,0 +1,14 @@
+﻿=== Lab 07D raw dump 08/06/2026 23:28:38 ===
+PSVersion=5.1.26100.8875
+ExecutionPolicy=Bypass
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process          Bypass
+  CurrentUser    RemoteSigned
+ LocalMachine       Undefined
+
+
+

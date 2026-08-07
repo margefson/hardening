@@ -1,0 +1,33 @@
+root@MachadoPC:~# # Equivalente Debian a ubuntu-security-status
+root@MachadoPC:~# dpkg -l | grep -c '^ii'
+Pacotes instalados (ii): 547
+
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | grep -iE 'security|upgraded|kept' | head -20
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+# ubuntu-security-status: nao disponivel no Debian
+# Equivalente: contagem de pacotes + repositorios security + debsecan
+root@MachadoPC:~# grep -r security /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null | head -15
+/etc/apt/sources.list:deb http://security.debian.org/debian-security trixie-security main
+
+root@MachadoPC:~# apt-cache policy | head -20
+Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 100 http://ftp.debian.org/debian trixie-backports/main amd64 Packages
+     release o=Debian Backports,a=stable-backports,n=trixie-backports,l=Debian Backports,c=main,b=amd64
+     origin ftp.debian.org
+ 500 http://security.debian.org/debian-security trixie-security/main amd64 Packages
+     release v=13,o=Debian,a=stable-security,n=trixie-security,l=Debian-Security,c=main,b=amd64
+     origin security.debian.org
+ 500 http://deb.debian.org/debian trixie-updates/main amd64 Packages
+     release v=13-updates,o=Debian,a=stable-updates,n=trixie-updates,l=Debian,c=main,b=amd64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/main amd64 Packages
+     release v=13.6,o=Debian,a=stable,n=trixie,l=Debian,c=main,b=amd64
+     origin deb.debian.org
+Pinned packages:

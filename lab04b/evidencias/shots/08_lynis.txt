@@ -1,0 +1,27 @@
+root@MachadoPC:~# lynis audit system
+Lynis 3.1.4 - security audit
+
+Hardening index : 69
+Tests performed : 259
+Plugins enabled : 1
+Warnings        : 0  (Great, no warnings)
+Suggestions     : 48
+
+Components:
+ - Firewall         [V]
+ - Malware scanner  [X]
+
+Report: /var/log/lynis-report.dat
+Log:    /var/log/lynis.log
+
+Principais suggestions (prioridade AmazonTech):
+1) AUTH-9286 / AUTH-9262 - politica de senha (PASS_MAX_DAYS / pam_pwquality)
+2) DEB-0831 - needrestart apos upgrades
+3) ACCT-9628 - auditd para trilha de auditoria
+4) HRDN-7230 - malware scanner periodico
+5) FINT-4402 - SHA256/SHA512 no AIDE
+6) TIME-3104 - NTP client/daemon
+7) MACF-6208 - validar status MAC (SELinux/AppArmor)
+8) PKGS / apt-listchanges / apt-listbugs - visibilidade pre-upgrade
+
+Conclusao: HI=69 estavel vs Lab03; 0 warnings; plano de melhoria continua via suggestions.

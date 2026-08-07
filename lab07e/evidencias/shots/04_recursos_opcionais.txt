@@ -1,0 +1,25 @@
+﻿PS> # Atividade 3 - Recursos opcionais do Windows
+PS> Get-WindowsOptionalFeature -Online (exige elevacao)
+Get-WindowsOptionalFeature: operacao requer elevacao (limitacao registrada).
+Get-WindowsCapability -Online: tambem exige elevacao nesta sessao.
+
+PS> Indicadores sem elevacao
+optionalfeatures.exe presente: True
+services.msc / msconfig presentes: True
+WSLService: Running Automatic (WSL ativo no host)
+vmcompute / Hyper-V Management: verificar sob elevacao se aplicavel
+
+PS> Pacotes CBS (amostra de nomes relacionados a superficie)
+  - Containers-ApplicationGuard-* (pacotes presentes no Component Based Servicing)
+  - Containers-Client-* (componentes de containers)
+  Total Packages CBS indexados: ~3650
+
+Exemplos tipicos na GUI "Ativar ou desativar recursos do Windows":
+  .NET Framework | Hyper-V | WSL | Containers | Telnet Client
+  SMB 1.0/CIFS | IIS | OpenSSH | Simple TCPIP | TFTP
+
+Candidatos AmazonTech a revisao (quando Enabled):
+  SMB1, Telnet, TFTP, IIS sem demanda, WSL/Containers se fora do escopo do projeto.
+
+Interface: Configuracoes > Aplicativos > Recursos opcionais
+         ou optionalfeatures.exe / Painel de Controle

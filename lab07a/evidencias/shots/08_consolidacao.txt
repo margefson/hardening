@@ -1,0 +1,20 @@
+﻿PS> # Consolidacao Lab 07A - conformidade AmazonTech
+== Checklist protecao basica ==
+AntivirusEnabled: True
+AMServiceEnabled: True
+RealTimeProtectionEnabled: True
+IoavProtectionEnabled: True
+NISEnabled: True
+BehaviorMonitorEnabled: True
+IsTamperProtected: True
+SignatureAge (dias): 0
+SignatureVersion: 1.457.40.0
+DisableRealtimeMonitoring (pref): False
+MAPSReporting: 2
+SubmitSamplesConsent: 1
+PUAProtection: 1
+
+Parecer preliminar:
+ENDPOINT ATENDE necessidades basicas de protecao AmazonTech (camada Defender).
+Defender = 1a camada da defesa em profundidade (Firewall, BitLocker, admin, ASR a seguir).
+

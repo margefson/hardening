@@ -1,0 +1,345 @@
+root@MachadoPC:~# hostname; date
+MachadoPC
+Thu Aug  6 07:16:15 PM -04 2026
+root@MachadoPC:~# cat /etc/os-release | head -8
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.6
+ID=debian
+HOME_URL="https://www.debian.org/"
+root@MachadoPC:~# uname -a
+Linux MachadoPC 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 GNU/Linux
+root@MachadoPC:~# apt-get update
+Hit:1 http://ftp.debian.org/debian trixie-backports InRelease
+Hit:2 http://deb.debian.org/debian trixie InRelease
+Hit:3 http://security.debian.org/debian-security trixie-security InRelease
+Hit:4 http://deb.debian.org/debian trixie-updates InRelease
+Reading package lists...
+root@MachadoPC:~# apt list --upgradable 2>/dev/null
+Listing...
+libexpat1/stable-security 2.8.2-1~deb13u1 amd64 [upgradable from: 2.7.1-2]
+
+Total upgradable (excl header): 1
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | head -60
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libexpat1
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Inst libexpat1 [2.7.1-2] (2.8.2-1~deb13u1 Debian-Security:13/stable-security [amd64])
+Conf libexpat1 (2.8.2-1~deb13u1 Debian-Security:13/stable-security [amd64])
+
+root@MachadoPC:~# # Decisao: aplicar atualizacoes de seguranca no lab
+root@MachadoPC:~# apt-get -y upgrade 2>&1 | tail -40
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libexpat1
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 122 kB of archives.
+After this operation, 23.6 kB of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security trixie-security/main amd64 libexpat1 amd64 2.8.2-1~deb13u1 [122 kB]
+Fetched 122 kB in 0s (462 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46915 files and directories currently installed.)
+Preparing to unpack .../libexpat1_2.8.2-1~deb13u1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.8.2-1~deb13u1) over (2.7.1-2) ...
+Setting up libexpat1:amd64 (2.8.2-1~deb13u1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+
+--- resumo ---
+The following packages will be upgraded:
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+root@MachadoPC:~# # Equivalente Debian a ubuntu-security-status
+root@MachadoPC:~# dpkg -l | grep -c '^ii'
+Pacotes instalados (ii): 547
+
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | grep -iE 'security|upgraded|kept' | head -20
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+# ubuntu-security-status: nao disponivel no Debian
+# Equivalente: contagem de pacotes + repositorios security + debsecan
+root@MachadoPC:~# grep -r security /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null | head -15
+/etc/apt/sources.list:deb http://security.debian.org/debian-security trixie-security main
+
+root@MachadoPC:~# apt-cache policy | head -20
+Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 100 http://ftp.debian.org/debian trixie-backports/main amd64 Packages
+     release o=Debian Backports,a=stable-backports,n=trixie-backports,l=Debian Backports,c=main,b=amd64
+     origin ftp.debian.org
+ 500 http://security.debian.org/debian-security trixie-security/main amd64 Packages
+     release v=13,o=Debian,a=stable-security,n=trixie-security,l=Debian-Security,c=main,b=amd64
+     origin security.debian.org
+ 500 http://deb.debian.org/debian trixie-updates/main amd64 Packages
+     release v=13-updates,o=Debian,a=stable-updates,n=trixie-updates,l=Debian,c=main,b=amd64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/main amd64 Packages
+     release v=13.6,o=Debian,a=stable,n=trixie,l=Debian,c=main,b=amd64
+     origin deb.debian.org
+Pinned packages:
+root@MachadoPC:~# debsecan --suite trixie 2>&1 | head -50
+CVE-2026-54369 acl
+CVE-2026-54370 acl
+CVE-2026-13595 bsdutils
+CVE-2026-27456 bsdutils
+CVE-2026-3184 bsdutils
+CVE-2026-53613 bsdutils
+CVE-2026-53615 bsdutils
+CVE-2026-42250 bzip2
+CVE-2026-14258 dhcpcd-base
+CVE-2025-68972 dirmngr
+CVE-2026-13595 fdisk
+CVE-2026-27456 fdisk
+CVE-2026-3184 fdisk
+CVE-2026-53613 fdisk
+CVE-2026-53615 fdisk
+CVE-2026-40467 gawk
+CVE-2026-40468 gawk
+CVE-2026-40469 gawk
+CVE-2026-40553 gawk
+CVE-2026-4738 gdal-data
+CVE-2026-49014 gdal-data
+CVE-2026-8084 gdal-data
+CVE-2026-8086 gdal-data
+CVE-2026-8087 gdal-data
+CVE-2026-8088 gdal-data
+CVE-2026-8212 gdal-data
+CVE-2026-8213 gdal-data
+CVE-2026-4738 gdal-plugins
+CVE-2026-49014 gdal-plugins
+CVE-2026-8084 gdal-plugins
+CVE-2026-8086 gdal-plugins
+CVE-2026-8087 gdal-plugins
+CVE-2026-8088 gdal-plugins
+CVE-2026-8212 gdal-plugins
+CVE-2026-8213 gdal-plugins
+CVE-2025-68972 gnupg
+CVE-2025-68972 gnupg-l10n
+CVE-2025-68972 gnupg-utils
+CVE-2025-68972 gpg
+CVE-2025-68972 gpg-agent
+CVE-2025-68972 gpg-wks-client
+CVE-2025-68972 gpgconf
+CVE-2025-68972 gpgsm
+CVE-2025-68972 gpgv
+CVE-2026-41991 gzip
+CVE-2026-41992 gzip
+CVE-2026-54369 libacl1
+CVE-2026-54370 libacl1
+CVE-2026-54371 libattr1
+CVE-2026-13595 libblkid1
+
+--- contagem CVE unicos (amostra) ---
+381
+CVEs unicos (total linhas CVE): 815
+
+--- top pacotes citados ---
+acl
+acl
+bsdutils
+bsdutils
+bsdutils
+
+root@MachadoPC:~# debsecan 2>&1 | grep -iE 'openssl|openssh|linux-image|sudo|libc6' | head -20
+CVE-2026-5435 libc6
+CVE-2026-5450 libc6
+CVE-2026-5928 libc6
+CVE-2026-6238 libc6
+CVE-2026-5435 libc6-dev
+CVE-2026-5450 libc6-dev
+CVE-2026-5928 libc6-dev
+CVE-2026-6238 libc6-dev
+CVE-2026-59995 openssh-client
+CVE-2026-59996 openssh-client
+CVE-2026-59997 openssh-client
+CVE-2026-59998 openssh-client
+CVE-2026-59999 openssh-client
+CVE-2026-60000 openssh-client
+CVE-2026-60001 openssh-client
+CVE-2026-60002 openssh-client
+CVE-2026-59995 openssh-server
+CVE-2026-59996 openssh-server
+CVE-2026-59997 openssh-server
+CVE-2026-59998 openssh-server
+root@MachadoPC:~# # dnf updateinfo: N/A no Debian (Rocky/RHEL)
+# Equivalente interpretativo: apt-get changelog / security pocket
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | grep -i security | head -15 || true
+linux-image-6.12.86+deb13-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-amd64
+linux-image-6.12.86+deb13-amd64-unsigned - Linux 6.12 for 64-bit PCs
+linux-image-6.12.86+deb13-cloud-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-cloud-amd64
+linux-image-6.12.86+deb13-cloud-amd64-unsigned - Linux 6.12 for x86-64 cloud
+linux-image-6.12.86+deb13-rt-amd64-dbg - Debug symbols for linux-image-6.12.86+deb13-rt-amd64
+
+# Conclusao: em Rocky usariamos 'dnf updateinfo list security'.
+# No Debian/Ubuntu priorizamos security.debian.org + debsecan + apt upgrade.
+root@MachadoPC:~# lynis audit system --quick 2>&1 | tee /tmp/lynis04b.txt | tail -80
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/ACCT-9628/[0m
+
+  [1;33m*[0m Use NTP daemon or NTP client to prevent time issues. [TIME-3104] 
+    - Related resources
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/TIME-3104/[0m
+
+  [1;33m*[0m Check output of aa-status [MACF-6208] 
+    - Details  : [0;36m/sys/kernel/security/apparmor/profiles[0m
+    - Solution : Run aa-status
+    - Related resources
+      * Article: [0;36mAppArmor[0m: https://linux-audit.com/security-frameworks/apparmor/
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/MACF-6208/[0m
+
+  [1;33m*[0m Use SHA256 or SHA512 to create checksums in AIDE [FINT-4402] 
+    - Related resources
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/FINT-4402/[0m
+
+  [1;33m*[0m Determine if automation tools are present for system management [TOOL-5002] 
+    - Related resources
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/TOOL-5002/[0m
+
+  [1;33m*[0m Consider restricting file permissions [FILE-7524] 
+    - Details  : [0;36mSee screen output or log file[0m
+    - Solution : Use chmod to change file permissions
+    - Related resources
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/FILE-7524/[0m
+
+  [1;33m*[0m One or more sysctl values differ from the scan profile and could be tweaked [KRNL-6000] 
+    - Solution : Change sysctl value or disable test (skip-test=KRNL-6000:<sysctl-key>)
+    - Related resources
+      * Article: [0;36mLinux hardening with sysctl settings[0m: https://linux-audit.com/linux-hardening-with-sysctl/
+      * Article: [0;36mOverview of sysctl options and values[0m: https://linux-audit.com/kernel/sysctl/
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/KRNL-6000/[0m
+
+  [1;33m*[0m Harden compilers like restricting access to root user only [HRDN-7222] 
+    - Related resources
+      * Article: [0;36mWhy remove compilers from your system?[0m: https://linux-audit.com/software/why-remove-compilers-from-your-system/
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/HRDN-7222/[0m
+
+  [1;33m*[0m Harden the system by installing at least one malware scanner, to perform periodic file system scans [HRDN-7230] 
+    - Solution : Install a tool like rkhunter, chkrootkit, OSSEC, Wazuh
+    - Related resources
+      * Article: [0;36mAntivirus for Linux: is it really needed?[0m: https://linux-audit.com/malware/antivirus-for-linux-really-needed/
+      * Article: [0;36mMonitoring Linux Systems for Rootkits[0m: https://linux-audit.com/monitoring-linux-systems-for-rootkits/
+      * Website: [0;37mhttps://cisofy.com/lynis/controls/HRDN-7230/[0m
+
+  [0;36mFollow-up[0m:
+  [1;37m----------------------------[0m
+  [1;37m-[0m Show details of a test (lynis show details TEST-ID)
+  [1;37m-[0m Check the logfile for all details (less /var/log/lynis.log)
+  [1;37m-[0m Read security controls texts (https://cisofy.com)
+  [1;37m-[0m Use --upload to upload data to central system (Lynis Enterprise users)
+
+================================================================================
+
+  [1;37mLynis security scan details[0m:
+
+  [0;36mHardening index[0m : [1;37m69[0m [[1;33m#############[0m       ]
+  [0;36mTests performed[0m : [1;37m259[0m
+  [0;36mPlugins enabled[0m : [1;37m1[0m
+
+  [1;37mComponents[0m:
+  - Firewall               [[1;32mV[0m]
+  - Malware scanner        [[1;31mX[0m]
+
+  [1;33mScan mode[0m:
+  Normal [V]  Forensics [ ]  Integration [ ]  Pentest [ ]
+
+  [1;33mLynis modules[0m:
+  - Compliance status      [[1;33m?[0m]
+  - Security audit         [[1;32mV[0m]
+  - Vulnerability scan     [[1;32mV[0m]
+
+  [1;33mFiles[0m:
+  - Test and debug information      : [1;37m/var/log/lynis.log[0m
+  - Report data                     : [1;37m/var/log/lynis-report.dat[0m
+
+================================================================================
+
+  [1;31mExceptions found[0m
+  [1;37mSome exceptional events or information was found![0m
+
+  [0;36mWhat to do:[0m
+  You can help by providing your log file (/var/log/lynis.log).
+  Go to https://cisofy.com/contact/ and send your file to the e-mail address listed
+
+================================================================================
+
+  [1;37mLynis[0m 3.1.4
+
+  Auditing, system hardening, and compliance for UNIX-based systems
+  (Linux, macOS, BSD, and others)
+
+  2007-2024, CISOfy - https://cisofy.com/lynis/
+  [1;37mEnterprise support available (compliance, plugins, interface and tools)[0m
+
+================================================================================
+
+  [0;44m[TIP][0m: [0;94mEnhance Lynis audits by adding your settings to custom.prf (see /etc/lynis/default.prf for all settings)[0m
+
+
+=== EXTRACT ===
+  [1;32mGreat, no warnings[0m
+  [1;33mSuggestions[0m (48):
+  [0;36mHardening index[0m : [1;37m69[0m [[1;33m#############[0m       ]
+Report: /var/log/lynis-report.dat
+suggestion[]=LYNIS|This release is more than 4 months old. Check the website or GitHub to see if there is an update available.|-|-|
+suggestion[]=DEB-0280|Install libpam-tmpdir to set $TMP and $TMPDIR for PAM sessions|-|-|
+suggestion[]=DEB-0810|Install apt-listbugs to display a list of critical bugs prior to each APT installation.|-|-|
+suggestion[]=DEB-0811|Install apt-listchanges to display any significant changes prior to any upgrade via APT.|-|-|
+suggestion[]=DEB-0831|Install needrestart, alternatively to debian-goodies, so that you can run needrestart after upgrades to determine which daemons are using old versions of libraries and need restarting.|-|-|
+suggestion[]=BOOT-5180|Determine runlevel and services at startup|-|-|
+suggestion[]=BOOT-5264|Consider hardening system services|Run '/usr/bin/systemd-analyze security SERVICE' for each service|-|
+suggestion[]=KRNL-5788|Determine why /vmlinuz or /boot/vmlinuz is missing on this Debian/Ubuntu system.|/vmlinuz or /boot/vmlinuz|-|
+suggestion[]=AUTH-9230|Configure password hashing rounds in /etc/login.defs|-|-|
+suggestion[]=AUTH-9262|Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc or libpam-passwdqc|-|-|
+suggestion[]=AUTH-9282|When possible set expire dates for all password protected accounts|-|-|
+suggestion[]=AUTH-9284|Look at the locked accounts and consider removing them|-|-|
+suggestion[]=AUTH-9286|Configure minimum password age in /etc/login.defs|-|-|
+suggestion[]=AUTH-9286|Configure maximum password age in /etc/login.defs|-|-|
+suggestion[]=AUTH-9328|Default umask in /etc/login.defs could not be found and defaults usually to 022, which could be more strict like 027|-|-|
+suggestion[]=FILE-6310|To decrease the impact of a full /home file system, place /home on a separate partition|-|-|
+suggestion[]=FILE-6310|To decrease the impact of a full /var file system, place /var on a separate partition|-|-|
+suggestion[]=USB-1000|Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft|-|-|
+suggestion[]=STRG-1846|Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft|-|-|
+suggestion[]=PKGS-7370|Check debsums configuration and enable checking regularly via a cron job (CRON_CHECK in default file).|-|-|
+suggestion[]=PKGS-7394|Install package apt-show-versions for patch management purposes|-|-|
+suggestion[]=PKGS-7420|Consider using a tool to automatically apply upgrades|-|-|
+suggestion[]=NETW-3200|Determine if protocol 'dccp' is really needed on this system|-|-|
+suggestion[]=NETW-3200|Determine if protocol 'sctp' is really needed on this system|-|-|
+suggestion[]=NETW-3200|Determine if protocol 'rds' is really needed on this system|-|-|
+suggestion[]=NETW-3200|Determine if protocol 'tipc' is really needed on this system|-|-|
+suggestion[]=FIRE-4513|Check iptables rules to see which rules are currently not used|-|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|AllowTcpForwarding (set YES to NO)|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|ClientAliveCountMax (set 3 to 2)|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|LogLevel (set INFO to VERBOSE)|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|MaxSessions (set 10 to 2)|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|Port (set 22 to )|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|TCPKeepAlive (set YES to NO)|-|
+suggestion[]=SSH-7408|Consider hardening SSH configuration|AllowAgentForwarding (set YES to NO)|-|
+suggestion[]=LOGG-2154|Enable logging to an external logging host for archiving purposes and additional protection|-|-|
+suggestion[]=BANN-7126|Add a legal banner to /etc/issue, to warn unauthorized users|-|-|
+suggestion[]=BANN-7130|Add legal banner to /etc/issue.net, to warn unauthorized users|-|-|
+suggestion[]=ACCT-9622|Enable process accounting|-|-|
+suggestion[]=ACCT-9626|Enable sysstat to collect accounting (no results)|-|-|
+suggestion[]=ACCT-9628|Enable auditd to collect audit information|-|-|
+warnings count: 0
+suggestions count: 48
+hardening_index=69
+root@MachadoPC:~# aide --version 2>&1 | head -3
+AIDE 0.19.1
+
+Compile-time options:
+
+root@MachadoPC:~# aide --check 2>&1 | tee /tmp/aide04b.txt | tail -60
+  ERROR: missing configuration (use '--config' '--before' or '--after' command line parameter)
+
+=== SUMMARY ===

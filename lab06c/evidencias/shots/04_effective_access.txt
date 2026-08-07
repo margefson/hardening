@@ -1,0 +1,25 @@
+﻿PS> # Equivalente Effective Access (calculo via AccessRules + grupos)
+Recurso: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro
+Identidade: MACHADOPC\marge
+
+Regras que afetam Usuarios autenticados / Users / marge / Administradores:
+
+IdentityReference                      FileSystemRights AccessControlType IsInherited
+-----------------                      ---------------- ----------------- -----------
+BUILTIN\Administradores                     FullControl             Allow        True
+BUILTIN\Administradores                       268435456             Allow        True
+AUTORIDADE NT\Usuários autenticados Modify, Synchronize             Allow        True
+AUTORIDADE NT\Usuários autenticados          -536805376             Allow        True
+
+
+
+
+PS> Test-Path / leitura efetiva da sessao atual
+Test-Path: True
+Get-Content amostra:
+Relatorio financeiro confidencial
+
+# Effective Access GUI considera uniao de grupos + Deny wins.
+# Sessao atual (marge): membro de Usuarios + Administradores (token filtrado).
+# Resultado tipico: leitura/escrita herdada de Users/Administrators sobre pasta do laboratorio.
+

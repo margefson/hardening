@@ -1,0 +1,33 @@
+root@MachadoPC:~# apt-get -s upgrade 2>&1 | head -60
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libexpat1
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Inst libexpat1 [2.7.1-2] (2.8.2-1~deb13u1 Debian-Security:13/stable-security [amd64])
+Conf libexpat1 (2.8.2-1~deb13u1 Debian-Security:13/stable-security [amd64])
+
+root@MachadoPC:~# # Decisao: aplicar atualizacoes de seguranca no lab
+root@MachadoPC:~# apt-get -y upgrade 2>&1 | tail -40
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  libexpat1
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 122 kB of archives.
+After this operation, 23.6 kB of additional disk space will be used.
+Get:1 http://security.debian.org/debian-security trixie-security/main amd64 libexpat1 amd64 2.8.2-1~deb13u1 [122 kB]
+Fetched 122 kB in 0s (462 kB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46915 files and directories currently installed.)
+Preparing to unpack .../libexpat1_2.8.2-1~deb13u1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.8.2-1~deb13u1) over (2.7.1-2) ...
+Setting up libexpat1:amd64 (2.8.2-1~deb13u1) ...
+Processing triggers for libc-bin (2.41-12+deb13u3) ...
+
+--- resumo ---
+The following packages will be upgraded:
+1 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.

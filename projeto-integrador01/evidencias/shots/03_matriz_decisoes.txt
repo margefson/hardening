@@ -1,0 +1,11 @@
+Matriz resumida (detalhe no Apendice A do Projeto Tecnico):
+
+Decisao                         | Conceito              | Aula
+------------------------------- | --------------------- | -----
+sudo + grupos dba/app/audit     | menor privilegio      | 2
+desabilitar servicos nao-DB     | menor funcionalidade  | 3
+UFW: 22 + 5432 interna only     | menor comunicacao     | 3
+SELinux + dominio postgresql    | MAC                   | 4A
+apt security + debsecan         | vulnerabilidades      | 4B
+Lynis + AIDE + backup PITR      | auditoria/integridade | 4B
+Fail2Ban sshd (nao 5432 brute)  | defesa em profundidade | 3

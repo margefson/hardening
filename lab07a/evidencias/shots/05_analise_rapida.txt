@@ -1,0 +1,15 @@
+﻿PS> # Atividade 4 - Opcoes de verificacao / Analise Rapida
+Tipos disponiveis no Microsoft Defender:
+  - Analise rapida (QuickScan)
+  - Analise completa (FullScan)
+  - Analise personalizada (CustomScan)
+  - Microsoft Defender Offline
+
+PS> Start-MpScan -ScanType QuickScan  (inicio: 08/06/2026 22:58:08)
+Resultado: QuickScan concluido sem erro reportado pelo cmdlet
+Tempo aproximado: 372.7 segundos
+
+QuickScanAge (dias desde ultima rapida): 0
+FullScanAge: 4294967295
+ComputerState: 0
+

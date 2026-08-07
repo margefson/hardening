@@ -1,0 +1,20 @@
+root@MachadoPC:~# systemctl status apparmor --no-pager | head -18
+○ apparmor.service - Load AppArmor profiles
+     Loaded: loaded (/usr/lib/systemd/system/apparmor.service; enabled; preset: enabled)
+     Active: inactive (dead)
+  Condition: start condition unmet at Thu 2026-08-06 18:38:20 -04; 1s ago
+             └─ ConditionSecurity=apparmor was not met
+       Docs: man:apparmor(7)
+             https://gitlab.com/apparmor/apparmor/wikis/home/
+
+Aug 06 18:36:41 MachadoPC systemd[1]: apparmor.service - Load AppArmor profiles skipped, unmet condition check ConditionSecurity=apparmor
+Aug 06 18:37:04 MachadoPC systemd[1]: apparmor.service - Load AppArmor profiles skipped, unmet condition check ConditionSecurity=apparmor
+Aug 06 18:38:20 MachadoPC systemd[1]: apparmor.service - Load AppArmor profiles skipped, unmet condition check ConditionSecurity=apparmor
+
+root@MachadoPC:~# aa-status
+apparmor filesystem is not mounted.
+apparmor module is loaded.
+
+root@MachadoPC:~# cat /sys/kernel/security/lsm
+cat: /sys/kernel/security/lsm: No such file or directory
+LSM path indisponivel (WSL2)

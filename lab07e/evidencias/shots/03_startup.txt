@@ -1,0 +1,55 @@
+﻿PS> # Atividade 2 - Programas de inicializacao automatica
+PS> Get-CimInstance Win32_StartupCommand
+
+Name                                                     Command                                                       
+----                                                     -------                                                       
+Teams                                                    "C:\Users\marge\AppData\Local\Microsoft\WindowsApps\MSTeams_8w
+                                                         ekyb3d8bbwe\ms-teams.exe" msteams:system-initiated            
+Adobe Acrobat Synchronizer                               "C:\Program Files\Adobe\Acrobat                               
+                                                         DC\Acrobat\AdobeCollabSync.exe"                               
+MicrosoftEdgeAutoLaunch_0CAF25A4480D166723BC7C252BA822A8 "C:\Program Files                                             
+                                                         (x86)\Microsoft\Edge\Application\msedge.exe"                  
+                                                         --win-session-start                                           
+SecurityHealth                                           %windir%\system32\SecurityHealthSystray.exe                   
+PDF24                                                    "C:\Program Files\PDF24\pdf24.exe"                            
+
+
+
+
+PS> Startup Approved (HKCU/HKLM Run)
+HKCU\\...\\Run:
+
+
+Teams                                                    : "C:\Users\marge\AppData\Local\Microsoft\WindowsApps\MSTeams_
+                                                           8wekyb3d8bbwe\ms-teams.exe" msteams:system-initiated
+Adobe Acrobat Synchronizer                               : "C:\Program Files\Adobe\Acrobat 
+                                                           DC\Acrobat\AdobeCollabSync.exe"
+MicrosoftEdgeAutoLaunch_0CAF25A4480D166723BC7C252BA822A8 : "C:\Program Files 
+                                                           (x86)\Microsoft\Edge\Application\msedge.exe" 
+                                                           --win-session-start
+
+
+
+
+HKLM\\...\\Run:
+
+
+SecurityHealth : C:\WINDOWS\system32\SecurityHealthSystray.exe
+PDF24          : "C:\Program Files\PDF24\pdf24.exe"
+
+
+
+
+
+PS> Get-StartupApp (se disponivel) / Task Manager Startup equiv.
+
+TaskName            TaskPath State
+--------            -------- -----
+RtkAudUService64_BG \            4
+
+
+
+
+msconfig presente: True
+Observacao: impacto (Alto/Medio/Baixo) tipicamente visto no Gerenciador de Tarefas > Inicializar.
+

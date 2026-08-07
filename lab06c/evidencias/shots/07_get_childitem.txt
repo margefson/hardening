@@ -1,0 +1,21 @@
+﻿PS> Get-ChildItem d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech -Recurse | Select FullName, Mode, Length
+
+FullName                                                                                Mode   Length
+--------                                                                                ----   ------
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria                d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Compartilhado            d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro               d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos                 d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\TI                       d-----       
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Auditoria\parecer.txt    -a---- 34    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Compartilhado\geral.txt  -a---- 32    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Financeiro\relatorio.txt -a---- 38    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\Projetos\projeto.txt     -a---- 25    
+D:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech\TI\inventario.txt        -a---- 18    
+
+
+
+
+Total itens: 10
+Prioridade auditoria: Financeiro (confidencial), Auditoria, Projetos, TI, Compartilhado
+

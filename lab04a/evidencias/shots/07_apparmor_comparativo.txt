@@ -1,0 +1,26 @@
+root@MachadoPC:~# dpkg -l | grep -iE 'apparmor|selinux-utils|policycore|selinux-policy' | head -20
+ii  apparmor                       4.1.0-1                              amd64        user-space parser utility for AppArmor
+ii  apparmor-profiles              4.1.0-1                              all          experimental profiles for AppArmor security policies
+ii  apparmor-profiles-extra        1.35                                 all          Extra profiles for AppArmor Security policies
+ii  apparmor-utils                 4.1.0-1                              all          utilities for controlling AppArmor
+ii  libapparmor1:amd64             4.1.0-1                              amd64        changehat AppArmor library
+ii  policycoreutils                3.8.1-2                              amd64        SELinux core policy utilities
+ii  policycoreutils-dev            3.8.1-2                              amd64        SELinux core policy utilities (development utilities)
+ii  policycoreutils-python-utils   3.8.1-2                              all          SELinux core policy utilities (Python utilities)
+ii  python3-apparmor               4.1.0-1                              all          AppArmor Python3 utility library
+ii  python3-libapparmor            4.1.0-1                              amd64        AppArmor library Python3 bindings
+ii  selinux-policy-default         2:2.20250213-10                      all          Strict and Targeted variants of the SELinux policy
+ii  selinux-policy-dev             2:2.20250213-10                      all          Headers from the SELinux reference policy for building modules
+ii  selinux-utils                  3.8.1-1                              amd64        SELinux utility programs
+
+root@MachadoPC:~# aa-status 2>&1 | head -12
+apparmor filesystem is not mounted.
+apparmor module is loaded.
+
+root@MachadoPC:~# which aa-enforce aa-complain aa-logprof aa-genprof
+/usr/sbin/aa-enforce
+/usr/sbin/aa-complain
+/usr/sbin/aa-logprof
+/usr/sbin/aa-genprof
+
+# LSM ativo no kernel: SELinux. AppArmor user-space instalado para comparativo do lab.

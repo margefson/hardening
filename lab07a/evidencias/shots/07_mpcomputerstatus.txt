@@ -1,0 +1,77 @@
+﻿PS> # Atividade 6 - Consulta administrativa Get-MpComputerStatus
+PS> Get-MpComputerStatus
+
+
+AMEngineVersion                  : 1.1.26070.7
+AMProductVersion                 : 4.18.26070.9
+AMRunningMode                    : Normal
+AMServiceEnabled                 : True
+AMServiceVersion                 : 4.18.26070.9
+AntispywareEnabled               : True
+AntispywareSignatureAge          : 0
+AntispywareSignatureLastUpdated  : 06/08/2026 15:43:40
+AntispywareSignatureVersion      : 1.457.40.0
+AntivirusEnabled                 : True
+AntivirusSignatureAge            : 0
+AntivirusSignatureLastUpdated    : 06/08/2026 15:43:40
+AntivirusSignatureVersion        : 1.457.40.0
+BehaviorMonitorEnabled           : True
+ComputerID                       : 289294BC-C71F-4220-A3C1-4572233FEEF8
+ComputerState                    : 0
+ControlledConfigurationState     : 0
+DefenderSignaturesOutOfDate      : False
+DeviceControlDefaultEnforcement  : 
+DeviceControlPoliciesLastUpdated : 31/12/1600 20:00:00
+DeviceControlState               : Disabled
+FullScanAge                      : 4294967295
+FullScanEndTime                  : 
+FullScanOverdue                  : False
+FullScanRequired                 : False
+FullScanSignatureVersion         : 
+FullScanStartTime                : 
+InitializationProgress           : ServiceStartedSuccessfully
+IoavProtectionEnabled            : True
+IsTamperProtected                : True
+IsVirtualMachine                 : False
+LastFullScanSource               : 0
+LastQuickScanSource              : 1
+NISEnabled                       : True
+NISEngineVersion                 : 1.1.26070.7
+NISSignatureAge                  : 0
+NISSignatureLastUpdated          : 06/08/2026 15:43:40
+NISSignatureVersion              : 1.457.40.0
+OnAccessProtectionEnabled        : True
+ProductStatus                    : 524288
+QuickScanAge                     : 0
+QuickScanEndTime                 : 06/08/2026 23:04:21
+QuickScanOverdue                 : False
+QuickScanSignatureVersion        : 1.457.40.0
+QuickScanStartTime               : 06/08/2026 22:58:09
+RealTimeProtectionEnabled        : True
+RealTimeScanDirection            : 0
+RebootRequired                   : False
+SmartAppControlExpiration        : 
+SmartAppControlState             : Off
+TamperProtectionSource           : UI
+TroubleShootingDailyMaxQuota     : 
+TroubleShootingDailyQuotaLeft    : 
+TroubleShootingEndTime           : 
+TroubleShootingExpirationLeft    : 
+TroubleShootingMode              : 
+TroubleShootingModeSource        : 
+TroubleShootingQuotaResetTime    : 
+TroubleShootingStartTime         : 
+PSComputerName                   : 
+
+
+
+
+
+Significado dos indicadores-chave:
+  AMServiceEnabled     - servico antimalware (WinDefend) ativo
+  AntivirusEnabled     - motor AV habilitado
+  RealTimeProtectionEnabled - protecao em tempo real
+  AntivirusSignatureVersion - versao da inteligencia de seguranca
+  NISEnabled           - Network Inspection System (IDS de rede)
+  IsTamperProtected    - protecao contra adulteracao
+

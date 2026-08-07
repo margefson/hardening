@@ -1,0 +1,16 @@
+﻿=== CONSOLIDACAO LAB 06C - PERMISSOES NTFS ===
+Estacao: WIN-ADM-01 / MachadoPC | Usuario: machadopc\marge
+Ambiente simulado: d:\MMB\workspace\hardening\lab06c\ambiente_simulado\AmazonTech
+
+1) Inventario: 5 pastas + arquivos de amostra
+2) ACL Financeiro - identidades:
+BUILTIN\Administradores; BUILTIN\Administradores; AUTORIDADE NT\SISTEMA; AUTORIDADE NT\SISTEMA; AUTORIDADE NT\Usuários autenticados; AUTORIDADE NT\Usuários autenticados; BUILTIN\Usuários; BUILTIN\Usuários
+3) Heranca ativa (nao protegida): True
+4) Inconsistencias vs politica AmazonTech:
+- Pasta Financeiro com heranca ampla (Users/Authenticated) - risco need-to-know
+- Sem grupos departamentais (Financeiro/TI) nas ACE - permissoes genericas
+- Compartilhado e Financeiro com perfil semelhante - falta segregacao
+5) Recomendacoes: grupos por departamento; remover Users de pastas sensiveis;
+   documentar heranca; Effective Access nos testes; nao alterar sem change control
+6) Proximo: Lab Governanca / Security Baselines
+

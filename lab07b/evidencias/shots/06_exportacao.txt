@@ -1,0 +1,22 @@
+﻿PS> # Atividade 5 - Exportacao da politica (exploracao; sem alterar)
+Localizacao tipica (wf.msc):
+  Painel direito / Acao > Export Policy... (Exportar Politica)
+  Ou: netsh advfirewall export <arquivo.wfw>
+
+Finalidade da exportacao:
+  - Backup da configuracao atual antes de mudancas
+  - Replicacao/padronizacao entre endpoints (golden image / baseline)
+  - Evidencia forense e comparacao de drift entre departamentos
+  - Importacao controlada em janela de mudanca autorizada
+
+PS> # Demonstracao segura: listar sintaxe (NAO exporta para producao critica)
+Comando de referencia (nao executado para gravar em path de sistema):
+  netsh advfirewall export "C:\Users\marge\AppData\Local\Temp\AmazonTech_FW_Lab07B.wfw"
+
+PS> netsh advfirewall export (copia de evidencia em evidencias\docs)
+A opera├º├úo solicitada exige eleva├º├úo (Executar como administrador).
+
+
+Arquivo gerado: False -> d:\MMB\workspace\hardening\lab07b\evidencias\docs\AmazonTech_FW_Lab07B_export.wfw
+Nota OS: exportacao e leitura/backup; nenhuma regra foi criada/alterada/removida.
+

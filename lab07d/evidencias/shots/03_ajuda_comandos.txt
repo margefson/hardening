@@ -1,0 +1,66 @@
+﻿PS> # Atividade 2 - Recursos de ajuda / documentacao
+PS> Get-Help Get-Service
+
+
+Name       : Get-Service
+Synopsis   : 
+             Get-Service [[-Name] <string[]>] [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] 
+             [-Include <string[]>] [-Exclude <string[]>] [<CommonParameters>]
+             
+             Get-Service -DisplayName <string[]> [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] 
+             [-Include <string[]>] [-Exclude <string[]>] [<CommonParameters>]
+             
+             Get-Service [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] [-Include <string[]>] 
+             [-Exclude <string[]>] [-InputObject <ServiceController[]>] [<CommonParameters>]
+             
+Category   : Cmdlet
+ModuleName : Microsoft.PowerShell.Management
+
+
+
+
+--- Synopsis / Description (resumo) ---
+
+Get-Service [[-Name] <string[]>] [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] [-Include <string[]>] [-Exclude <string[]>] [<CommonParameters>]
+
+Get-Service -DisplayName <string[]> [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] [-Include <string[]>] [-Exclude <string[]>] [<CommonParameters>]
+
+Get-Service [-ComputerName <string[]>] [-DependentServices] [-RequiredServices] [-Include <string[]>] [-Exclude <string[]>] [-InputObject <ServiceController[]>] [<CommonParameters>]
+
+
+Finalidade Get-Help: documentacao integrada (synopsis, parametros, exemplos).
+
+PS> Get-Command | Measure-Object
+Total de comandos visiveis nesta sessao: 1731
+Por CommandType:
+
+Name     Count
+----     -----
+Function   991
+Cmdlet     643
+Alias       97
+
+
+
+
+PS> Get-Command -CommandType Cmdlet | Select -First 12 Name, Source
+
+Name                                     Source                         
+----                                     ------                         
+Add-AppProvisionedSharedPackageContainer Dism                           
+Add-AppSharedPackageContainer            Appx                           
+Add-AppxPackage                          Appx                           
+Add-AppxProvisionedPackage               Dism                           
+Add-AppxVolume                           Appx                           
+Add-BitsFile                             BitsTransfer                   
+Add-CertificateEnrollmentPolicyServer    PKI                            
+Add-Computer                             Microsoft.PowerShell.Management
+Add-Content                              Microsoft.PowerShell.Management
+Add-History                              Microsoft.PowerShell.Core      
+Add-JobTrigger                           PSScheduledJob                 
+Add-KdsRootKey                           Kds                            
+
+
+
+Finalidade Get-Command: inventariar cmdlets/funcoes/alias disponiveis para admin.
+
